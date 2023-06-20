@@ -12,6 +12,11 @@ header{
     position: absolute; left: 0; top: 0;
     width: 100%;
     z-index: 2;
+    transition: 0.5s;
+    
+    &:hover{
+        background-color: #fff; z-index: 1;
+    }
     .head-top{
         width: 100%;
         padding: 0 5%;
@@ -22,22 +27,49 @@ header{
             text-decoration: none;
             padding: 10px 0;
         }
+        a img:nth-child(1){display: block;};
+        a img:nth-child(2){display: none;};
     }
     hr{width: 100%;}
     .head-area{
         padding: 0 5%;
         @include flex(){};
-        a{ display: flex; flex-grow: 2; left: 0;}
-        nav{@include flex(){flex-grow: 6;};
+        .logo{ 
+            display: flex;
+            flex-grow: 2; left: 0;
+            img:nth-of-type(1){display: block;}
+            img:nth-of-type(2){display: none;}
+        }
+        .dropdown{@include flex(){flex-grow: 6; };
             a{
                 font-size: 18px; 
                 color: #fff;
                 text-decoration: none;
+                left: 50%;
+                padding: 28px 40px;
             }
         }
-        .icon{display: flex; flex-grow: 1; right: 0; }
+        .icon{ flex-grow: 1; text-align: right; z-index: 2;
+            a{padding: 10px;}
+            a:nth-child(1),a:nth-child(2){display: inline-block;}
+            a:nth-child(3),a:nth-child(4){display: none;}
+        }
     }
-}
+    &:hover .head-top a, &:hover .head-area .dropdown a{
+        color: #222;
+    }
+    &:hover .logo, &:hover .head-top a{
+        img:nth-of-type(1){display: none;}
+        img:nth-of-type(2){display: block;}
+    }
+    &:hover .icon{
+        a:nth-child(1),a:nth-child(2){display: none;}
+        a:nth-child(3),a:nth-child(4){display: inline-block;}
+    }
+    .head-area .dropdown a:hover{color:red; transition: .5s;}
+    .head-area .dropdown a:hover::after{border-bottom: 2px solid red;}
+    .head-bottom{}
+}//end header
 main{
     .visual{
         h1{
@@ -49,6 +81,7 @@ main{
         }
         .loading{}
         .tab{
+            width: 100%; height: 969px;
             input{
                 display: none;
                 &:checked +label{color: red;}
@@ -73,13 +106,10 @@ main{
                 
                 .warp-a01{
                     z-index: 10;
-                    width: 90%;
                     @include flex(){};
                     a{ 
                     width: 20px;
-                    position: absolute; left: 0; top: 100%;
                     text-decoration: none; color: #fff; font-size: 18px;
-                
                     }
                 }
                 
@@ -109,9 +139,66 @@ main{
                 display: flex;
             }
         }//end tab
+        .circle{ 
+            width: 120px; height: 120px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow:4px 20px 40px rgba(0, 0, 0, 0.15);
+            position: absolute; right: 3%; bottom: -6%;
+            img{
+            // width: 100%;
+            padding: 15px;
+            }
+        }
     }//end visual
     .news{
-        margin-top: 1000px;
-        height: 10000px;
+        width: 100%;
+        padding: 160px;
+        display: flex;
+        .l-title{
+            width: 30%;
+            
+            b{font-size: 20px;
+                &:after{
+                    display: flex;
+                    content: '';
+                    border-top: 1px solid #222;
+                    margin: 0 30%;
+                    transform: translate(-20px, -20px);
+                }
+            }
+            h2{
+                font-size: 56px;
+                span{color:#787878}
+            }
+        }
+        .r-body{
+            width: 70%;
+            @include flex(){flex-wrap: wrap};
+            li{
+                text-align: left;
+                width:50%;
+                background-color: #f8f8f8;
+                padding: 40px;
+                box-shadow:4px 20px 40px rgba(0, 0, 0, 0.15);
+                .category{@include flex(){}; font-size: 18px; color:#CA2C52}
+                .subject{font-size: 24px; }
+                .descreption{font-size: 18px; font-weight:400; }
+                .date{font-size: 16px;font-weight:300;}
+                &:hover{transform: translate(-1%,-1%); background-color: #fff;}
+            }
+            li:nth-child(4){
+                transform: none;
+                background-color: cornflowerblue;
+                padding: 0;
+                img{width: 100%}
+                .ctrl-slide{ 
+                    @include flex(){}; 
+                margin-left: 360px;
+                }
+            }
+        }
     }//end news
 }//end main
