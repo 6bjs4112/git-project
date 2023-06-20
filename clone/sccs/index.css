@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 1440px;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+ul, li, ol {
+  list-style-type: none;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+header .head-top {
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+}
+header .head-top a {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 0;
+}
+header hr {
+  width: 100%;
+}
+header .head-area {
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+header .head-area a {
+  display: flex;
+  flex-grow: 2;
+  left: 0;
+}
+header .head-area nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-grow: 6;
+}
+header .head-area nav a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+header .head-area .icon {
+  display: flex;
+  flex-grow: 1;
+  right: 0;
+}
+
+main .visual h1 {
+  position: absolute;
+  left: 45%;
+  top: 35%;
+  color: #fff;
+  font-size: 5rem;
+  text-align: right;
+}
+main .visual .tab input {
+  display: none;
+}
+main .visual .tab input:checked + label {
+  color: red;
+}
+main .visual .tab label {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+  font-size: 18px;
+  color: #fff;
+}
+main .visual .tab label:nth-of-type(2) {
+  transform: translateX(150px);
+}
+main .visual .tab label:nth-of-type(3) {
+  transform: translateX(300px);
+}
+main .visual .tab .tab01 {
+  z-index: -1;
+  width: 100%;
+  height: 969px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  background-image: url("../img/index/visual/main_visual_01.png");
+  background-repeat: no-repeat;
+}
+main .visual .tab .tab01 .warp-a01, main .visual .tab .tab01 .tab03 .warp-a03, main .visual .tab .tab03 .tab01 .warp-a03, main .visual .tab .tab01 .tab02 .warp-a02, main .visual .tab .tab02 .tab01 .warp-a02 {
+  z-index: 10;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+main .visual .tab .tab01 .warp-a01 a, main .visual .tab .tab01 .tab03 .warp-a03 a, main .visual .tab .tab03 .tab01 .warp-a03 a, main .visual .tab .tab01 .tab02 .warp-a02 a, main .visual .tab .tab02 .tab01 .warp-a02 a {
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+main .visual .tab .tab02 {
+  z-index: -1;
+  width: 100%;
+  height: 969px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  background-image: url("../img/index/visual/main_visual_05.png");
+  background-repeat: no-repeat;
+}
+main .visual .tab .tab03 {
+  z-index: -1;
+  width: 100%;
+  height: 969px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  background-image: url("../img/index/visual/main_visual_08.png");
+  background-repeat: no-repeat;
+}
+main .visual .tab #tab01:checked ~ #content01,
+main .visual .tab #tab02:checked ~ #content02,
+main .visual .tab #tab03:checked ~ #content03 {
+  display: flex;
+}
+main .news {
+  margin-top: 1000px;
+  height: 10000px;
+}/*# sourceMappingURL=index.css.map */
