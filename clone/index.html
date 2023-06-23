@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>클론 코딩</title>
+    <title>클론 코딩_메인</title>
     <link rel="stylesheet" href="./css/index.css">
-    <link href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script defer src="./sccs/index.js"></script>
 </head>
 <body>
     <header>
@@ -52,7 +49,11 @@
                 여행하기 좋은 나라를 만드는<br>
                 글로벌 관광 선도기관
             </h1>
-            <div class="loading"></div>
+            <section class="loading">
+                <div class="progress_bar" aria-hidden="true">
+                    <span class="progress_gauge"></span>
+                </div>
+            </section>
 
             <div class="tab">
                 <input id="tab01" type="radio" name="tabs" checked>
@@ -61,7 +62,7 @@
                 <div class="tab-label">
                     <label for="tab01">국내여행정보</label>
                     <label for="tab02">관광기업지원</label>
-                    <label for="tab03">관광데이터</label>
+                    <label for="tab03">관광데이터  </label>
                 </div>
                 <div class="tab01" id="content01">
                     <div class="wrap-a01">
@@ -98,24 +99,38 @@
             </div>
             <a class="circle" href="#"><img src="./img/index/img_kto_bi.svg"></a>
             <div class="tab-child">
-                <a href="#">대한민국<br>구석구석</a>
-                <a href="#">VISITKOREA</a>
-                <a href="#">두루누비</a>
-                <a href="#">세이프<br>스테이</a>
-                <a href="#">열린 관광<br>모두의 여행</a>
-                <a href="#">오디</a>
-                <a href="#">고캠핑</a>
-                <a href="#">하이커<br>그라운드</a>
-            </div>
-            <div class="tab-child-img">
-                <a href="#"><img src="./img/index/visual/main_tour_service01.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service02.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service03.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service04.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service05.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service06.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service07.png"></a>
-                <a href="#"><img src="./img/index/visual/main_tour_service08.png"></a>
+                <strong>
+                    <a href="#">대한민국<br>구석구석</a>
+                    <img src="./img/index/visual/main_tour_service01.png">
+                </strong>
+                <strong>
+                    <a href="#">VISITKOREA</a>
+                    <img src="./img/index/visual/main_tour_service02.png">
+                </strong>
+                <strong>
+                    <a href="#">두루누비</a>
+                    <img src="./img/index/visual/main_tour_service03.png">
+                </strong>
+                <strong>
+                    <a href="#">세이프<br>스테이</a>
+                    <img src="./img/index/visual/main_tour_service04.png">
+                </strong>
+                <strong>
+                    <a href="#">열린 관광<br>모두의 여행</a>
+                    <img src="./img/index/visual/main_tour_service05.png">
+                </strong>
+                <strong>
+                    <a href="#">오디</a>
+                    <img src="./img/index/visual/main_tour_service06.png">
+                </strong>
+                <strong>
+                    <a href="#">고캠핑</a>
+                    <img src="./img/index/visual/main_tour_service07.png">
+                </strong>
+                <strong>
+                    <a href="#">하이커<br>그라운드</a>
+                    <img src="./img/index/visual/main_tour_service08.png">
+                </strong>
             </div>
 
         </div>
@@ -130,9 +145,9 @@
                         <p>보도자료</p>
                         <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
                     </div>
-                    <h3 class="subject">한국관광공사, ‘2023 펫관광 포럼’ 개최</h3>
+                    <h3 class="subject">다채로운 이벤트로 함께 만나는 청와대 권역 관광코스 10선</h3>
                     <p class="descreption">
-                        한국관광공사, ‘2023 펫관광 포럼’ 개최- 전문가․지자체 등 1⋯
+                        다채로운 이벤트로 함께 만나는 청와대 권역 관광코스 10선⋯
                     </p>
                     <p class="date">2023-06-20</p>
                 </li>
@@ -154,7 +169,7 @@
                     </div>
                     <h3 class="subject">하이커 그라운드 개관 1주년, 하이커 페스타 6월 30일 개최</h3>
                     <p class="descreption">
-                        하이커 그라운드 개관 1주년, 하이커 페스타 6월-⋯
+                        하이커 그라운드 개관 1주년, 하이커 페스타 6월 30일 개최⋯
                     </p>
                     <p class="date">2023-06-17</p>
                 </li>
@@ -183,8 +198,9 @@
                 <ul class="accordion">
                     <li class="pack01">
                         <div class="txt-wrap">
-                            <strong>국제관광지원</strong>
+                            <strong class="ver">국제관광지원</strong>
                             <div class="gone">
+                                <strong>국제관광지원</strong>
                                 <p>코로나19로 인해 침체된 방한관광시장의 조기 회복과 재도약을 위해 노력합니다.</p>
                                 <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
                             </div>
@@ -192,8 +208,9 @@
                     </li>
                     <li class="pack02">
                         <div class="txt-wrap">
-                            <strong>국민관광지원</strong>
+                            <strong class="ver">국민관광지원</strong>
                             <div class="gone">
+                                <strong>국민관광지원</strong>
                                 <p>국민이 안심하고 편안하게 여행할 수 있는 관광복지를 통한 지역경제 활성화를 위해 노력합니다.</p>
                                 <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
                             </div>
@@ -201,8 +218,9 @@
                     </li>
                     <li class="pack03">
                         <div class="txt-wrap">
-                            <strong>관광산업지원</strong>
+                            <strong class="ver">관광산업지원</strong>
                             <div class="gone">
+                                <strong>관광산업지원</strong>
                                 <p>민간이 주도하고 지역이 발전하는 관광산업 성장을 지원합니다.</p>
                                 <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
                             </div>
@@ -210,8 +228,9 @@
                     </li>
                     <li class="pack04">
                         <div class="txt-wrap">
-                            <strong>디지털전환지원</strong>
+                            <strong class="ver">디지털전환지원</strong>
                             <div class="gone">
+                                <strong>디지털전환지원</strong>
                                 <p>여행하기 좋은 디지털 관광국가 실현을 위해 노력합니다.</p>
                                 <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
                             </div>
@@ -220,9 +239,9 @@
                 </ul>
             </div>
         </article>
-        <hr>
     </main>
     
+    <hr>
     <footer>
         <div class="f-inner">
             <div class="copyright">
@@ -239,9 +258,40 @@
             <div class="familysite">
                 <a href="#">Family Site</a>
                 <a href="#"><img src="./img/index/footer/footer_familyselect.png"></a>
+
+                <article class="pop-up">
+                    <div class="pop-head">
+                        <h3>Family site 바로가기</h3>
+                        <a href="#"><img src="./img/index/popup_close_btn_navy.svg"></a>
+                    </div>
+                    <hr>
+                    <div class="pop-body">
+                        <ul>
+                            <li><a href="#">대한민국구석구석</a></li>
+                            <li><a href="#">중문골프클럽</a></li>
+                            <li><a href="#">K-MICE</a></li>
+                            <li><a href="#">오시아노관광단지</a></li>
+                            <li><a href="#">청와대사랑채</a></li>
+                            <li><a href="#">Go Camping</a></li>
+                            <li><a href="#">관광전문인력포털</a></li>
+                            <li><a href="#">TourAPI 4.0</a></li>
+                            <li><a href="#">한국관광 데이터랩</a></li>
+                            <li><a href="#">세이프스테이</a></li>
+                            <li><a href="#">베니키아</a></li>
+                            <li><a href="#" class="s">외국어표기 용례사전</a></li>
+                            <li><a href="#">관광사진갤러리</a></li>
+                            <li><a href="#">투어라즈</a></li>
+                            <li><a href="#">한국관광콘텐츠랩</a></li>
+                            <li><a href="#">두루누비</a></li>
+                            <li><a href="#">Foodtrip in Korea</a></li>
+                            <li><a href="#">전자계약시스템</a></li>
+                        </ul>
+                    </div>
+                </article>
             </div>
-            <a class="page_up" href="#top"><img src="./img/index/btn_page_up.svg"></a>
         </div>
+        
+        <a class="page_up" href="#top"><img src="./img/index/btn_page_up.svg"></a>
     </footer>
 </body>
 </html>
