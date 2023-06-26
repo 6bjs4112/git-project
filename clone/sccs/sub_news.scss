@@ -53,11 +53,6 @@ header{
     }
     .head-area .dropdown a:hover::after{border-bottom: 2px solid #CA2C52;}
 }//end header
-
-main{
-    height: 1000px;  
-}//end main
-
 footer{
     background-color: #fff;
     width: 100%;
@@ -145,3 +140,9 @@ footer{
         img{width: 24px; height: 24px;}
     }
 }//end footer
+
+
+main{
+    height: 1000px;  
+}//end main
+

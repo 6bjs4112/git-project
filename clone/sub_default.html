@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>서브_기본틀</title>
-    <link rel="stylesheet" href="./css/sub_news.css">
+    <link rel="stylesheet" href="./css/sub_default.css">
 </head>
 <body>
     <header>
@@ -38,10 +38,59 @@
     </header>
 
     <main>
-
+        <article class="sub-inner">
+            <article class="sub-head">
+                <div class="head-title">
+                    <h1>큰메뉴</h1>
+                </div>
+                <div class="head-nav">
+                    <ol class="nav-left">
+                        <li><a href="#"><img src="./img/sub/sub_default/ico_home.svg"></a></li>
+                        <li><a href="#">큰메뉴</a><button><img src="./img/sub/sub_default/ico_arw_down_line_white.svg"></button></li>
+                        <li><a href="#">소메뉴</a><button><img src="./img/sub/sub_default/ico_arw_down_line_white.svg"></button></li>
+                    </ol>
+                    <ul class="nav-right">
+                        <li><a href="#"><img src="./img/sub/sub_default/ico_printer.svg"></a></li>
+                        <li><a href="#"><img src="./img/sub/sub_default/ico_share.svg"></a></li>
+                    </ul>
+                </div>
+                <div class="head-subject">
+                    <h2>소메뉴</h2>
+                </div>
+            </article>
+            <article class="sub-body">
+                <!-- 
+                    서브 페이지에선 이곳에만 다른 내용이 들어감
+                 -->
+            </article>
+            <article class="sub-foot">
+                <div class="user-satisfy">
+                    <h3>
+                        <p><img src="./img/sub/sub_default/ico_chat.svg"></p>
+                        KTO 소식 서비스에 대하여 만족하십니까?
+                    </h3>
+                    <div class="radio-five">
+                        <input id="1v5" type="radio" name="satis-level">
+                        <label for="lv5">매우 만족</label>
+                        <input id="lv4" type="radio" name="satis-level">
+                        <label for="lv4">만족</label>
+                        <input id="lv3" type="radio" name="satis-level">
+                        <label for="lv3">보통</label>
+                        <input id="lv2" type="radio" name="satis-level">
+                        <label for="lv2">불만족</label>
+                        <input id="lv1" type="radio" name="satis-level">
+                        <label for="lv1">매우 불만족</label>
+                    </div>
+                    <div class="answer-submit">
+                        <textarea cols="160" rows="5"></textarea>
+                        <button>의견등록</button>
+                    </div>
+                </div>
+            </article>
+        </article>
     </main>
 
-    <hr>
+<hr>
     <footer>
         <div class="f-inner">
             <div class="copyright">
@@ -58,7 +107,8 @@
             <div class="familysite">
                 <a href="#">Family Site</a>
                 <a href="#"><img src="./img/index/footer/footer_familyselect.png"></a>
-
+                
+                <div class="pop-backg">
                 <article class="pop-up">
                     <div class="pop-head">
                         <h3>Family site 바로가기</h3>
@@ -88,10 +138,12 @@
                         </ul>
                     </div>
                 </article>
+                </div>
             </div>
         </div>
         
         <a class="page_up" href="#top"><img src="./img/index/btn_page_up.svg"></a>
     </footer>
+
 </body>
 </html>
