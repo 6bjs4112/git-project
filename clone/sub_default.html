@@ -70,19 +70,19 @@
                         KTO 소식 서비스에 대하여 만족하십니까?
                     </h3>
                     <div class="radio-five">
-                        <input id="1v5" type="radio" name="satis-level">
-                        <label for="lv5">매우 만족</label>
+                        <input id="lv5" type="radio" name="satis-level">
+                        <label for="lv5"><span>매우 만족</span></label>
                         <input id="lv4" type="radio" name="satis-level">
-                        <label for="lv4">만족</label>
+                        <label for="lv4"><span>만족</span></label>
                         <input id="lv3" type="radio" name="satis-level">
-                        <label for="lv3">보통</label>
+                        <label for="lv3"><span>보통</span></label>
                         <input id="lv2" type="radio" name="satis-level">
-                        <label for="lv2">불만족</label>
+                        <label for="lv2"><span>불만족</span></label>
                         <input id="lv1" type="radio" name="satis-level">
-                        <label for="lv1">매우 불만족</label>
+                        <label for="lv1"><span>매우 불만족</span></label>
                     </div>
                     <div class="answer-submit">
-                        <textarea cols="160" rows="5"></textarea>
+                        <textarea cols="120" rows="5"></textarea>
                         <button>의견등록</button>
                     </div>
                 </div>
@@ -109,36 +109,51 @@
                 <a href="#"><img src="./img/index/footer/footer_familyselect.png"></a>
                 
                 <div class="pop-backg">
-                <article class="pop-up">
-                    <div class="pop-head">
-                        <h3>Family site 바로가기</h3>
-                        <a href="#"><img src="./img/index/popup_close_btn_navy.svg"></a>
-                    </div>
-                    <hr>
-                    <div class="pop-body">
-                        <ul>
-                            <li><a href="#">대한민국구석구석</a></li>
-                            <li><a href="#">중문골프클럽</a></li>
-                            <li><a href="#">K-MICE</a></li>
-                            <li><a href="#">오시아노관광단지</a></li>
-                            <li><a href="#">청와대사랑채</a></li>
-                            <li><a href="#">Go Camping</a></li>
-                            <li><a href="#">관광전문인력포털</a></li>
-                            <li><a href="#">TourAPI 4.0</a></li>
-                            <li><a href="#">한국관광 데이터랩</a></li>
-                            <li><a href="#">세이프스테이</a></li>
-                            <li><a href="#">베니키아</a></li>
-                            <li><a href="#" class="s">외국어표기 용례사전</a></li>
-                            <li><a href="#">관광사진갤러리</a></li>
-                            <li><a href="#">투어라즈</a></li>
-                            <li><a href="#">한국관광콘텐츠랩</a></li>
-                            <li><a href="#">두루누비</a></li>
-                            <li><a href="#">Foodtrip in Korea</a></li>
-                            <li><a href="#">전자계약시스템</a></li>
-                        </ul>
-                    </div>
-                </article>
+                    <article class="pop-up">
+                        <div class="pop-head">
+                            <h3>Family site 바로가기</h3>
+                            <a href="#"><img src="./img/index/footer/popup_close_btn_navy.svg"></a>
+                        </div>
+                        <hr>
+                        <div class="pop-body">
+                            <ul>
+                                <li><a href="#">대한민국구석구석</a></li>
+                                <li><a href="#">중문골프클럽</a></li>
+                                <li><a href="#">K-MICE</a></li>
+                                <li><a href="#">오시아노관광단지</a></li>
+                                <li><a href="#">청와대사랑채</a></li>
+                                <li><a href="#">Go Camping</a></li>
+                                <li><a href="#">관광전문인력포털</a></li>
+                                <li><a href="#">TourAPI 4.0</a></li>
+                                <li><a href="#">한국관광 데이터랩</a></li>
+                                <li><a href="#">세이프스테이</a></li>
+                                <li><a href="#">베니키아</a></li>
+                                <li><a href="#" class="s">외국어표기 용례사전</a></li>
+                                <li><a href="#">관광사진갤러리</a></li>
+                                <li><a href="#">투어라즈</a></li>
+                                <li><a href="#">한국관광콘텐츠랩</a></li>
+                                <li><a href="#">두루누비</a></li>
+                                <li><a href="#">Foodtrip in Korea</a></li>
+                                <li><a href="#">전자계약시스템</a></li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
+                <script>
+                    const footFamily = document.querySelector('.familysite');
+                    const footPopup = document.querySelector('.familysite .pop-up');
+                    const footPopupBg = document.querySelector('.familysite .pop-backg');
+                    footFamily.onclick = function(){
+                        footPopup.style = 'display: flex';
+                        footPopupBg.style = 'display: flex';
+                    }
+                    const closeBtn = document.querySelector('.familysite .pop-head a img');
+                    
+                    closeBtn.onclick = function(){
+                        footPopup.style = 'display: none';
+                        footPopupBg.style = 'display: none';
+                    }
+                </script>
             </div>
         </div>
         

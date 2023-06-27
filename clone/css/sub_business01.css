@@ -332,9 +332,15 @@ main .sub-inner .sub-head .head-subject h2 {
   color: #4A5677;
   margin: 40px 0;
 }
-main .sub-inner .sub-body {
-  height: 1000px;
-  background-color: dodgerblue;
+main .sub-inner .sub-body .sub-title h3 {
+  font-size: 32px;
+  color: #222;
+  margin: 24px 0;
+}
+main .sub-inner .sub-body .sub-title div {
+  font-size: 18px;
+  color: #444;
+  font-weight: 400;
 }
 main .sub-inner .sub-foot .user-satisfy {
   width: 100%;
@@ -395,4 +401,4 @@ main .sub-inner .sub-foot .user-satisfy .answer-submit button {
 }
 main .sub-inner .sub-foot .user-satisfy .answer-submit button:hover {
   background-color: #232939;
-}/*# sourceMappingURL=sub_default.css.map */
+}/*# sourceMappingURL=sub_business01.css.map */

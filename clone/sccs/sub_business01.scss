@@ -105,8 +105,42 @@ main{
             .head-subject{h2{font-size: 36px; color: #4A5677;margin: 40px 0;}}
         }
         .sub-body{
-            height: 1000px;
-            background-color: dodgerblue;
+            .sub-title{
+                h3{font-size: 32px; color: #222; margin: 24px 0;}
+                div{font-size: 18px; color: #444; font-weight: 400;}
+            }
+            .graph-top{
+                h2{}
+                p{}
+            }
+            .graph-mid{
+                h4{}
+                ul{
+                    li{
+                        strong{}
+                        p{}
+                    }
+                }
+            }
+            .graph-bot{
+                h4{}
+                div{
+                    ul{
+                        li{
+                            p{}
+                        }
+                    }
+                }
+            }
+            .waytogo{
+                h4{}
+                ul{
+                    li{
+                        strong{}
+                        p{}
+                    }
+                }
+            }
         }
         .sub-foot{
             .user-satisfy{
