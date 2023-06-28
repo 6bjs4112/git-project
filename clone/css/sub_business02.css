@@ -336,6 +336,7 @@ main .sub-inner .sub-body .sub-title h3 {
   font-size: 32px;
   color: #222;
   margin: 24px 0;
+  position: relative;
 }
 main .sub-inner .sub-body .sub-title h3::after {
   content: "";
@@ -362,7 +363,7 @@ main .sub-inner .sub-body .graph-top h4 {
 main .sub-inner .sub-body .graph-top div {
   width: 80%;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 30px 0;
   background-color: #4A5677;
   color: white;
   border-radius: 68px;
@@ -376,11 +377,7 @@ main .sub-inner .sub-body .graph-top div h2 {
   font-size: 32px;
   font-weight: 600;
 }
-main .sub-inner .sub-body .graph-top div p {
-  font-size: 20px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-top div p::after {
+main .sub-inner .sub-body .graph-top div h2::after {
   content: "";
   display: block;
   width: 0px;
@@ -389,7 +386,7 @@ main .sub-inner .sub-body .graph-top div p::after {
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   position: absolute;
-  bottom: 82px;
+  bottom: 91px;
   left: calc(50% - 30px);
 }
 main .sub-inner .sub-body .graph-mid h4 {
@@ -469,6 +466,59 @@ main .sub-inner .sub-body .graph-bot .bot-body ul {
   text-align: center;
 }
 main .sub-inner .sub-body .graph-bot .bot-body ul li {
+  width: 30%;
+  padding: 20px;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 {
+  font-size: 18px;
+  height: 85px;
+  border: 1px solid #4A5677;
+  border-radius: 120px;
+  background-color: #F8F8F8;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 li {
+  border-left: 1px solid #ddd;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 li:nth-of-type(1) {
+  border: none;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 li:nth-of-type(1) {
+  color: #B26F18;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 li:nth-of-type(2) {
+  color: #DE5050;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul1 li:nth-of-type(3) {
+  color: #187BB2;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul2 {
+  margin: 20px 0;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul2 li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 120px;
+  height: 80px;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul2 li:nth-of-type(1) {
+  background-color: #B26F18;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul2 li:nth-of-type(2) {
+  background-color: #DE5050;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul2 li:nth-of-type(3) {
+  background-color: #187BB2;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li {
   font-size: 16px;
   font-weight: 400;
   color: #555;
@@ -477,7 +527,7 @@ main .sub-inner .sub-body .graph-bot .bot-body ul li {
   padding: 20px;
   height: 360px;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p {
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li p {
   position: relative;
   text-align: left;
   margin: 15px 0;
@@ -485,7 +535,7 @@ main .sub-inner .sub-body .graph-bot .bot-body ul li p {
   padding-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p::before {
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li p::before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -495,13 +545,16 @@ main .sub-inner .sub-body .graph-bot .bot-body ul li p::before {
   height: 2px;
   background-color: #000;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p:nth-last-child(1) {
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li p:nth-last-child(1) {
   border-bottom: none;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(2) {
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li:nth-of-type(1) {
+  border-color: #B26F18;
+}
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li:nth-of-type(2) {
   border-color: #DE5050;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(3) {
+main .sub-inner .sub-body .graph-bot .bot-body .ul3 li:nth-of-type(3) {
   border-color: #187BB2;
 }
 main .sub-inner .sub-body .waytogo {
@@ -597,4 +650,4 @@ main .sub-inner .sub-foot .user-satisfy .answer-submit button {
 }
 main .sub-inner .sub-foot .user-satisfy .answer-submit button:hover {
   background-color: #232939;
-}/*# sourceMappingURL=sub_business01.css.map */
+}/*# sourceMappingURL=sub_business02.css.map */
