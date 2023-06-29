@@ -332,212 +332,116 @@ main .sub-inner .sub-head .head-subject h2 {
   color: #4A5677;
   margin: 40px 0;
 }
-main .sub-inner .sub-body .sub-title h3 {
-  font-size: 32px;
-  color: #222;
-  margin: 24px 0;
-  position: relative;
-}
-main .sub-inner .sub-body .sub-title h3::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  left: 120px;
-  top: 0;
-  background-color: #D22A49;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-main .sub-inner .sub-body .sub-title div {
+main .sub-inner .sub-body table {
+  border-collapse: collapse;
+  width: 100%;
   font-size: 18px;
-  color: #444;
   font-weight: 400;
+  color: #555;
 }
-main .sub-inner .sub-body .graph-top h4 {
+main .sub-inner .sub-body table th, main .sub-inner .sub-body table td {
+  border-bottom: 1px solid #ddd;
+  padding: 30px 10px;
+  text-align: center;
+}
+main .sub-inner .sub-body table thead tr {
+  border-top: 3px solid #003568;
+}
+main .sub-inner .sub-body table thead tr th:nth-of-type(1) {
   font-size: 24px;
-  color: #222;
   font-weight: 600;
-  margin-top: 56px;
-}
-main .sub-inner .sub-body .graph-top div {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px 0;
-  background-color: #4A5677;
-  color: white;
-  border-radius: 68px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-top div h2 {
-  font-size: 32px;
-  font-weight: 600;
-}
-main .sub-inner .sub-body .graph-top div p {
-  font-size: 20px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-top div p::after {
-  content: "";
-  display: block;
-  width: 0px;
-  height: 0px;
-  border-top: 30px solid #DDDFE6;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  position: absolute;
-  bottom: 82px;
-  left: calc(50% - 30px);
-}
-main .sub-inner .sub-body .graph-mid h4 {
-  font-size: 20px;
   color: #222;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 50px;
+  text-align: left;
 }
-main .sub-inner .sub-body .graph-mid h4:after {
-  content: "";
-  display: block;
-  width: 52px;
-  height: 3px;
-  background-color: #4A5677;
-  margin: 8px auto 16px;
-}
-main .sub-inner .sub-body .graph-mid ul {
-  padding: 12px;
-  border-radius: 100px;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
-}
-main .sub-inner .sub-body .graph-mid ul li {
-  width: 200px;
-  height: 200px;
-  background-color: #F2F4F7;
-  border: 1px dashed #4A5677;
-  border-radius: 50%;
-  color: #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-mid ul li strong {
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-main .sub-inner .sub-body .graph-mid ul li p {
+main .sub-inner .sub-body table thead tr th:nth-of-type(2) {
   font-size: 18px;
   font-weight: 400;
+  color: #444;
+  text-align: right;
 }
-main .sub-inner .sub-body .graph-bot .bot-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-bot .bot-head p img {
-  margin: 20px 0;
-}
-main .sub-inner .sub-body .graph-bot .bot-head h4 {
-  font-size: 20px;
-  margin-top: 20px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-bot .bot-body {
-  padding: 40px 80px;
-  border: 1px dashed #4A5677;
-  border-radius: 40px;
-  margin: 20px auto 0;
-  background-color: #FEFBFB;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul li {
-  font-size: 16px;
-  font-weight: 400;
-  color: #555;
-  border: 1px solid #B26F18;
-  border-radius: 24px;
-  padding: 20px;
-  height: 360px;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul li p {
-  position: relative;
+main .sub-inner .sub-body table tbody tr .tel {
   text-align: left;
-  margin: 15px 0;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #D9D9D9;
+  font-size: 16px;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 12px;
-  width: 2px;
-  height: 2px;
-  background-color: #000;
+main .sub-inner .sub-body table tbody tr .content {
+  font-size: 14px;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p:nth-last-child(1) {
+main .sub-inner .sub-body table tbody tr .content b {
+  text-align: center;
+}
+main .sub-inner .sub-body table tbody tr .content p {
+  text-align: left;
+}
+main .sub-inner .sub-body table tbody tr .content p span {
+  font-weight: bolder;
+}
+main .sub-inner .sub-body table tfoot tr td {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
   border-bottom: none;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(2) {
-  border-color: #DE5050;
+main .sub-inner .sub-body table tfoot tr td img {
+  margin: 1px 5px;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(3) {
-  border-color: #187BB2;
-}
-main .sub-inner .sub-body .waytogo {
-  margin-bottom: 100px;
-}
-main .sub-inner .sub-body .waytogo h4 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #222;
-  margin: 56px 0 20px 0;
-}
-main .sub-inner .sub-body .waytogo ul li {
-  margin: 20px 0;
-}
-main .sub-inner .sub-body .waytogo ul li strong {
+main .sub-inner .sub-body table tfoot tr td p {
+  font-weight: 300;
   font-size: 18px;
-  font-weight: 600;
-  color: #222;
+  color: #555;
 }
-main .sub-inner .sub-body .waytogo ul li p {
-  margin: 20px 0 20px 10px;
-  position: relative;
-  font-size: 18px;
-  font-weight: 400;
-  color: #444;
+main .sub-inner .sub-body table tfoot tr td a {
+  padding: 4px 10px;
+  border: 1px solid #555;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bolder;
 }
-main .sub-inner .sub-body .waytogo ul li p::before {
-  content: "";
+main .sub-inner .sub-body table tfoot tr td a:nth-of-type(1) {
+  background-color: #fff;
+  color: #4A5677;
+}
+main .sub-inner .sub-body table tfoot tr td a:nth-of-type(2) {
+  background-color: #4A5677;
+  color: #fff;
+}
+main .sub-inner .sub-body .goback {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 50px;
+}
+main .sub-inner .sub-body .goback a {
   display: inline-block;
-  position: absolute;
-  left: -10px;
-  top: 12px;
-  width: 4px;
-  height: 2px;
-  background-color: #D22A49;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #4A5677;
+  margin: 0;
+  padding: 13px 40px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+main .sub-inner .sub-body .manager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+main .sub-inner .sub-body .manager li {
+  font-size: 18px;
+  font-weight: 300;
+}
+main .sub-inner .sub-body .manager li strong {
+  font-weight: 500;
+}
+main .sub-inner .sub-body .manager li:nth-of-type(2) {
+  flex-grow: 2;
+  text-align: left;
+  margin-left: 50px;
 }
 main .sub-inner .sub-foot .user-satisfy {
   width: 100%;
@@ -598,4 +502,4 @@ main .sub-inner .sub-foot .user-satisfy .answer-submit button {
 }
 main .sub-inner .sub-foot .user-satisfy .answer-submit button:hover {
   background-color: #232939;
-}/*# sourceMappingURL=sub_business01.css.map */
+}/*# sourceMappingURL=sub_news_p1.css.map */

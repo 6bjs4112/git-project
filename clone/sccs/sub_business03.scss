@@ -98,7 +98,7 @@ main{
         }
         .sub-body{
             .sub-title{
-                h3{font-size: 32px; color: #222; margin: 24px 0;}
+                h3{font-size: 32px; color: #222; margin: 24px 0; position: relative;}
                 h3::after{
                     content: '';
                     display: inline-block;
@@ -113,13 +113,12 @@ main{
                 h4{font-size: 24px; color: #222; font-weight: 600; margin-top: 56px;}
                 div{
                     width: 80%;
-                    margin: 0 auto; padding: 20px 0;
+                    margin: 0 auto; padding: 30px 0;
                     background-color: #4A5677; color: white;
                     border-radius: 68px;
                     @include flex(){flex-direction: column};
                     h2{font-size: 32px;  font-weight: 600;}
-                    p{font-size: 20px;  font-weight: 400;}
-                    p::after{
+                    h2::after{
                         content: "";
                         display: block;
                         width: 0px;
@@ -128,7 +127,7 @@ main{
                         border-left: 30px solid transparent;
                         border-right: 30px solid transparent;
                         position: absolute;
-                        bottom: 82px;
+                        bottom: 91px;
                         left: calc(50% - 30px);}
                 }
                 
@@ -178,7 +177,8 @@ main{
                     background-color: #FEFBFB;
                     ul{
                         @include flex(){};
-                        li{
+                        li{ 
+                            width: 30%;
                             font-size: 16px; font-weight: 400; color: #555;
                             border: 1px solid #B26F18; border-radius: 24px;
                             padding: 20px; height: 360px;

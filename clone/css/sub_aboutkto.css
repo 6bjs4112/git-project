@@ -342,183 +342,83 @@ main .sub-inner .sub-body .sub-title h3::after {
   content: "";
   display: inline-block;
   position: absolute;
-  left: 120px;
+  left: 95px;
   top: 0;
   background-color: #D22A49;
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
-main .sub-inner .sub-body .sub-title div {
-  font-size: 18px;
-  color: #444;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-top h4 {
-  font-size: 24px;
+main .sub-inner .sub-body .welcome-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #F8F8F8;
+  border-radius: 8px;
+  margin-bottom: 56px;
+  padding: 80px 420px 80px 80px;
   color: #222;
-  font-weight: 600;
-  margin-top: 56px;
-}
-main .sub-inner .sub-body .graph-top div {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px 0;
-  background-color: #4A5677;
-  color: white;
-  border-radius: 68px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-top div h2 {
-  font-size: 32px;
-  font-weight: 600;
-}
-main .sub-inner .sub-body .graph-top div p {
-  font-size: 20px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-top div p::after {
-  content: "";
-  display: block;
-  width: 0px;
-  height: 0px;
-  border-top: 30px solid #DDDFE6;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  position: absolute;
-  bottom: 82px;
-  left: calc(50% - 30px);
-}
-main .sub-inner .sub-body .graph-mid h4 {
-  font-size: 20px;
-  color: #222;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 50px;
-}
-main .sub-inner .sub-body .graph-mid h4:after {
-  content: "";
-  display: block;
-  width: 52px;
-  height: 3px;
-  background-color: #4A5677;
-  margin: 8px auto 16px;
-}
-main .sub-inner .sub-body .graph-mid ul {
-  padding: 12px;
-  border-radius: 100px;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
-}
-main .sub-inner .sub-body .graph-mid ul li {
-  width: 200px;
-  height: 200px;
-  background-color: #F2F4F7;
-  border: 1px dashed #4A5677;
-  border-radius: 50%;
-  color: #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-mid ul li strong {
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-main .sub-inner .sub-body .graph-mid ul li p {
-  font-size: 18px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-bot .bot-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-main .sub-inner .sub-body .graph-bot .bot-head p img {
-  margin: 20px 0;
-}
-main .sub-inner .sub-body .graph-bot .bot-head h4 {
-  font-size: 20px;
-  margin-top: 20px;
-  font-weight: 400;
-}
-main .sub-inner .sub-body .graph-bot .bot-body {
-  padding: 40px 80px;
-  border: 1px dashed #4A5677;
-  border-radius: 40px;
-  margin: 20px auto 0;
-  background-color: #FEFBFB;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul li {
-  font-size: 16px;
-  font-weight: 400;
-  color: #555;
-  border: 1px solid #B26F18;
-  border-radius: 24px;
-  padding: 20px;
-  height: 360px;
-}
-main .sub-inner .sub-body .graph-bot .bot-body ul li p {
   position: relative;
+}
+main .sub-inner .sub-body .welcome-head .text {
   text-align: left;
-  margin: 15px 0;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #D9D9D9;
+  display: flex;
+  flex-direction: column;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p::before {
-  content: "";
-  display: inline-block;
+main .sub-inner .sub-body .welcome-head .text h2 {
+  font-size: 32px;
+  color: #222;
+  font-weight: 600;
+}
+main .sub-inner .sub-body .welcome-head .text b {
+  font-size: 20px;
+  color: #222;
+  font-weight: 600;
+  margin: 56px 0 20px 0;
+}
+main .sub-inner .sub-body .welcome-head .text p {
+  font-size: 18px;
+  color: #222;
+  font-weight: 400;
+}
+main .sub-inner .sub-body .welcome-head .ceopic {
   position: absolute;
-  left: 0;
-  top: 12px;
-  width: 2px;
-  height: 2px;
-  background-color: #000;
+  bottom: 0;
+  right: 5%;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li p:nth-last-child(1) {
-  border-bottom: none;
+main .sub-inner .sub-body .welcome-body {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  color: #222;
+  font-weight: 400;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(2) {
-  border-color: #DE5050;
+main .sub-inner .sub-body .welcome-foot {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
 }
-main .sub-inner .sub-body .graph-bot .bot-body ul li:nth-of-type(3) {
-  border-color: #187BB2;
+main .sub-inner .sub-body .welcome-foot b {
+  margin-right: 25px;
+}
+main .sub-inner .sub-body hr {
+  background: #ddd;
+  height: 1px;
+  border: 0;
 }
 main .sub-inner .sub-body .waytogo {
   margin-bottom: 100px;
-}
-main .sub-inner .sub-body .waytogo h4 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #222;
-  margin: 56px 0 20px 0;
 }
 main .sub-inner .sub-body .waytogo ul li {
   margin: 20px 0;
 }
 main .sub-inner .sub-body .waytogo ul li strong {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: #222;
 }
@@ -598,4 +498,4 @@ main .sub-inner .sub-foot .user-satisfy .answer-submit button {
 }
 main .sub-inner .sub-foot .user-satisfy .answer-submit button:hover {
   background-color: #232939;
-}/*# sourceMappingURL=sub_business01.css.map */
+}/*# sourceMappingURL=sub_aboutkto.css.map */

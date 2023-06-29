@@ -102,116 +102,59 @@ main{
                 h3::after{
                     content: '';
                     display: inline-block;
-                    position: absolute; left: 120px; top: 0;
+                    position: absolute; left: 95px; top: 0;
                     background-color: #D22A49;
                     width: 10px; height: 10px;
                     border-radius: 50%;
                 }
-                div{font-size: 18px; color: #444; font-weight: 400;}
             }
-            .graph-top{
-                h4{font-size: 24px; color: #222; font-weight: 600; margin-top: 56px;}
-                div{
-                    width: 80%;
-                    margin: 0 auto; padding: 20px 0;
-                    background-color: #4A5677; color: white;
-                    border-radius: 68px;
-                    @include flex(){flex-direction: column};
-                    h2{font-size: 32px;  font-weight: 600;}
-                    p{font-size: 20px;  font-weight: 400;}
-                    p::after{
-                        content: "";
-                        display: block;
-                        width: 0px;
-                        height: 0px;
-                        border-top: 30px solid #DDDFE6;
-                        border-left: 30px solid transparent;
-                        border-right: 30px solid transparent;
-                        position: absolute;
-                        bottom: 82px;
-                        left: calc(50% - 30px);}
-                }
-                
-            }
-            .graph-mid{
-                h4{
-                    font-size: 20px; color: #222; font-weight: 400;
-                    text-align: center; margin-top: 50px;
-                    &:after{
-                        content: '';
-                        display: block;
-                        width: 52px;
-                        height: 3px;
-                        background-color: #4A5677;
-                        margin: 8px auto 16px;
+            .welcome-head{
+                width: 100%;
+                @include flex(){};
+                background-color: #F8F8F8;
+                border-radius: 8px;
+                margin-bottom: 56px;
+                padding: 80px 420px 80px 80px;
+                color: #222;
+                position: relative;
+                .text{
+                    text-align: left;
+
+                    display: flex; flex-direction: column;
+                    h2{font-size: 32px; color: #222; font-weight: 600;}
+                    b{
+                        font-size: 20px; color: #222; font-weight: 600;
+                        margin: 56px 0 20px 0;
                     }
+                    p{font-size: 18px; color: #222; font-weight: 400;}
                 }
-                ul{
-                    padding: 12px;
-                    border-radius: 100px;
-                    background-color: #f8f8f8;
-                    @include flex(){};
-                    width: 90%; margin: 0 auto;
-                    li{ 
-                        width: 200px; height: 200px;
-                        background-color: #F2F4F7;
-                        border: 1px dashed #4A5677;
-                        border-radius: 50%;
-                        color: #555;
-                        @include flex(center,){flex-direction: column};
-                        strong{font-size: 19px; font-weight: 700; margin-bottom: 5px;}
-                        p{font-size: 18px; font-weight: 400;}
-                    }
+                .ceopic{
+                    position: absolute; bottom: 0; right: 5%;
+                    p img{}
                 }
             }
-            .graph-bot{
-                .bot-head{
-                    @include flex(){flex-direction: column};
-                    p img{margin: 20px 0;}
-                    h4{font-size: 20px; margin-top: 20px; font-weight: 400;}
-                }
-                .bot-body{
-                    padding: 40px 80px;
-                    border: 1px dashed #4A5677;
-                    border-radius: 40px;
-                    margin: 20px auto 0;
-                    background-color: #FEFBFB;
-                    ul{
-                        @include flex(){};
-                        li{
-                            font-size: 16px; font-weight: 400; color: #555;
-                            border: 1px solid #B26F18; border-radius: 24px;
-                            padding: 20px; height: 360px;
-                            p{
-                                position: relative;
-                                text-align: left;
-                                margin: 15px 0;
-                                padding-left: 5px;
-                                padding-bottom: 5px;
-                                border-bottom: 1px solid #D9D9D9;
-                                &::before{
-                                    content: "";
-                                    display: inline-block;
-                                    position: absolute; left: 0; top: 12px;
-                                    width: 2px;
-                                    height: 2px;
-                                    background-color: #000;
-                                }
-                                &:nth-last-child(1){border-bottom: none;}
-                            }
-                        }
-                        li:nth-of-type(2){ border-color: #DE5050;}
-                        li:nth-of-type(3){ border-color: #187BB2;}
-                    }
-                }
+            .welcome-body{
+                width: 100%;
+                text-align: left;
+                font-size: 18px; color: #222; font-weight: 400;
+            }
+            .welcome-foot{
+                width: 100%;
+                @include flex(right,center){};
+                margin-bottom: 50px;
+                b{margin-right: 25px;}
+            }
+            hr {
+                background:#ddd;
+                height:1px;
+                border:0;
             }
             .waytogo{
                 margin-bottom: 100px;
-                h4{font-size: 24px; font-weight: 600; color: #222; margin: 56px 0 20px 0;}
                 ul{
                     li{
                         margin: 20px 0;
-                        strong{font-size: 18px; font-weight: 600; color: #222; 
+                        strong{font-size: 22px; font-weight: 600; color: #222; 
                         }
                         p{  
                             margin: 20px 0 20px 10px;
