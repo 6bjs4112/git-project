@@ -64,6 +64,7 @@ footer .f-inner .copyright div {
   width: 85%;
   text-align: left;
   font-weight: 400;
+  margin: 1%;
 }
 footer .f-inner .copyright p {
   text-align: left;
@@ -189,145 +190,153 @@ footer .page_up img {
   footer {
     background-color: #fff;
     width: 100%;
-    padding: 60px;
+    padding: 0px;
   }
   footer .f-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    text-align: center;
+    display: block;
   }
-  footer .f-inner .copyright div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    font-size: 16px;
-    width: 85%;
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
     text-align: left;
     font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
   }
   footer .f-inner .copyright p {
     text-align: left;
     color: #555;
     font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
   }
   footer .f-inner .copyright p span {
     font-weight: 700;
     color: #222;
   }
   footer .f-inner .familysite {
-    width: 13%;
+    width: 37%;
     padding: 0 5px;
+    margin-left: 10px;
     margin-bottom: 30px;
     border-bottom: 2px solid #222;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    text-align: center;
-  }
-  footer .f-inner .familysite a {
-    font-size: 16px;
-    font-weight: 400;
-    color: #222;
-    text-decoration: none;
-  }
-  footer .f-inner .familysite a img {
-    width: 24px;
-    height: 24px;
-  }
-  footer .f-inner .familysite .pop-up {
-    width: 430px;
-    height: 660px;
-    background-color: #f8f8f8;
-    color: #222;
-    box-shadow: 4px 20px 40px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-  }
-  footer .f-inner .familysite .pop-up .pop-head {
-    font-size: 20px;
-    font-weight: lighter;
-    padding: 0 3%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  }
-  footer .f-inner .familysite .pop-up .pop-body {
-    height: 80%;
-  }
-  footer .f-inner .familysite .pop-up .pop-body ul {
-    margin: 0;
-    padding: 5%;
-    height: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-  }
-  footer .f-inner .familysite .pop-up .pop-body ul li {
-    width: 45%;
-    text-align: left;
-    padding: 3%;
-    margin: 1% 2%;
-    background-color: rgba(71, 78, 99, 0.05);
-    border-radius: 20px;
-  }
-  footer .f-inner .familysite .pop-up .pop-body ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: lighter;
-    color: #222;
-  }
-  footer .f-inner .familysite .pop-up .pop-body ul li a::after {
-    display: inline-block;
-    content: "";
-    width: 16px;
-    height: 16px;
-    background: url("../img/index/footer/ico_link_external.svg");
-    margin-left: 2%;
-  }
-  footer .f-inner .familysite .pop-up .pop-body ul li .s {
-    font-size: 15px;
-  }
-  footer .f-inner .familysite .pop-backg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
   }
   footer .page_up {
-    border-radius: 50%;
-    background-color: #aaa;
-    padding: 1%;
-    text-align: center;
-    position: fixed;
-    right: 3%;
-    bottom: 6%;
-    transition: 0.5s;
+    padding: 3%;
   }
-  footer .page_up:hover {
-    background-color: #555;
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  footer {
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
   }
-  footer .page_up img {
-    width: 24px;
-    height: 24px;
+  footer .f-inner {
+    display: block;
+  }
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
+  }
+  footer .f-inner .copyright p {
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
+  }
+  footer .f-inner .copyright p span {
+    font-weight: 700;
+    color: #222;
+  }
+  footer .f-inner .familysite {
+    width: 37%;
+    padding: 0 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #222;
+  }
+  footer .page_up {
+    padding: 3%;
   }
 }
 /*==============================태블릿768=============================================*/
-/*======================================PC=============================================*/
+@media (min-width: 768px) and (max-width: 1279px) {
+  footer {
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
+  }
+  footer .f-inner {
+    display: block;
+  }
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
+  }
+  footer .f-inner .copyright p {
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
+  }
+  footer .f-inner .copyright p span {
+    font-weight: 700;
+    color: #222;
+  }
+  footer .f-inner .familysite {
+    width: 37%;
+    padding: 0 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #222;
+  }
+  footer .page_up {
+    padding: 3%;
+  }
+}
 header {
   width: 100%;
   z-index: 2;

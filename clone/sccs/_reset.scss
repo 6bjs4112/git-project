@@ -29,10 +29,11 @@ footer{
         @include flex(space-between,flex-start){};
         .copyright{
             div{@include flex(){};
-            font-size: 16px ;
+                font-size: 16px;
                 width: 85%;
                 text-align: left;
                 font-weight: 400;
+                margin: 1%;
             }
             p{
                 text-align: left;
@@ -125,111 +126,134 @@ footer{
     footer{
         background-color: #fff;
         width: 100%;
-        padding: 60px;
+        padding: 0px;
         .f-inner{
-            @include flex(space-between,flex-start){};
+            display: block;
             .copyright{
-                div{@include flex(){};
-                font-size: 16px ;
-                    width: 85%;
-                    text-align: left;
-                    font-weight: 400;
+                .forMobile{
+                    flex-wrap: wrap;
+                    a img{margin-left: 15px;}
+                    div{
+                        width: 100%;
+                        flex-wrap: wrap; justify-content: flex-start;
+                        font-size: 15px ;
+                        text-align: left;
+                        font-weight: 400;
+                        padding: 10px;
+                        a{padding: 5px 10px;}
+                    }
                 }
                 p{
                     text-align: left;
                     color: #555;
                     font-weight: 400;
+                    font-size: 15px ;
+                    line-height: 30px;
                     span{font-weight: 700; color: #222;}
+                    padding: 15px;
                 }
             }
             .familysite{
-                width: 13%;
+                width: 37%;
                 padding: 0 5px;
+                margin-left: 10px;
                 margin-bottom: 30px;
                 border-bottom: 2px solid #222;
-                
-                @include flex(space-between,flex-start){};
-                a{
-                    
-                    font-size: 16px;
-                    font-weight: 400; color: #222;
-                    text-decoration: none;
-                }
-                a img{width: 24px; height: 24px;}
-                .pop-up{
-                    width: 430px; height: 660px;
-                    background-color: #f8f8f8;
-                    color: #222; box-shadow:4px 20px 40px rgba(0, 0, 0, 0.15);
-                    border-radius: 10px;
-                    position: fixed; left: 50%; top: 50%;
-                    transform: translate(-50%,-50%);
-                    display: none;
-                    // display: flex;
-                    .pop-head{
-                        font-size: 20px; font-weight: lighter; 
-                        padding: 0 3%;
-                        @include flex(){};
-                    }
-                    .pop-body{
-                        height: 80%;
-                        ul{
-                        margin: 0; padding: 5%;
-                        height: 90%;
-                        @include flex(){ flex-wrap: wrap;};
-                            li{
-                                width: 45%; text-align: left;
-                                padding: 3%; margin: 1% 2%;
-                                background-color: rgba(71, 78, 99, 0.05);
-                                border-radius: 20px;
-                                a{
-                                    text-decoration: none; font-size: 16px;
-                                    font-weight: lighter; color: #222;
-                                    &::after{
-                                        display: inline-block;
-                                        content: '';
-                                        width: 16px; height: 16px;
-                                        // border: 1px solid red;
-                                        background: url('../img/index/footer/ico_link_external.svg');
-                                        margin-left: 2%;
-                                    }
-                                }
-                                .s{font-size: 15px;}
-                            }
-                        }
-                    }
-                }//end pop-up
-            }
-            .familysite .pop-backg{
-                position: fixed;
-                top:0; left: 0; 
-                width: 100%; height: 100vh;
-                background: rgba(0, 0, 0, 0.8);
-                display: flex;
-                justify-content: center; align-items: center;
-                display: none;
             }
         } 
         .page_up{
-            border-radius: 50%;
-            background-color: #aaa;
-            padding: 1%;
-            text-align: center;
-            position: fixed; right: 3%; bottom: 6%;
-            transition: .5s;
-            &:hover{background-color: #555;}
-            img{width: 24px; height: 24px;}
+            padding: 3%;
         }
-    }//end footer
+    }//end m-footer
 } 
 @media (min-width: 481px) and (max-width: 767px){
-
+    footer{
+        background-color: #fff;
+        width: 100%;
+        padding: 0px;
+        .f-inner{
+            display: block;
+            .copyright{
+                .forMobile{
+                    flex-wrap: wrap;
+                    a img{margin-left: 15px;}
+                    div{
+                        width: 100%;
+                        flex-wrap: wrap; justify-content: flex-start;
+                        font-size: 15px ;
+                        text-align: left;
+                        font-weight: 400;
+                        padding: 10px;
+                        a{padding: 5px 10px;}
+                    }
+                }
+                p{
+                    text-align: left;
+                    color: #555;
+                    font-weight: 400;
+                    font-size: 15px ;
+                    line-height: 30px;
+                    span{font-weight: 700; color: #222;}
+                    padding: 15px;
+                }
+            }
+            .familysite{
+                width: 37%;
+                padding: 0 5px;
+                margin-left: 10px;
+                margin-bottom: 30px;
+                border-bottom: 2px solid #222;
+            }
+        } 
+        .page_up{
+            padding: 3%;
+        }
+    }//end m-footer
 } 
 /*==============================태블릿768=============================================*/
 @media (min-width: 768px) and (max-width: 1279px){
     
-    
+    footer{
+        background-color: #fff;
+        width: 100%;
+        padding: 0px;
+        .f-inner{
+            display: block;
+            .copyright{
+                .forMobile{
+                    flex-wrap: wrap;
+                    a img{margin-left: 15px;}
+                    div{
+                        width: 100%;
+                        flex-wrap: wrap; justify-content: flex-start;
+                        font-size: 15px ;
+                        text-align: left;
+                        font-weight: 400;
+                        padding: 10px;
+                        a{padding: 5px 10px;}
+                    }
+                }
+                p{
+                    text-align: left;
+                    color: #555;
+                    font-weight: 400;
+                    font-size: 15px ;
+                    line-height: 30px;
+                    span{font-weight: 700; color: #222;}
+                    padding: 15px;
+                }
+            }
+            .familysite{
+                width: 37%;
+                padding: 0 5px;
+                margin-left: 10px;
+                margin-bottom: 30px;
+                border-bottom: 2px solid #222;
+            }
+        } 
+        .page_up{
+            padding: 3%;
+        }
+    }//end m-footer
     
 } 
-/*======================================PC=============================================*/
-@media (min-width: 1280px)  { }
-
