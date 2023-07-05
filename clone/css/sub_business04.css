@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 * {
   box-sizing: border-box;
@@ -63,6 +64,7 @@ footer .f-inner .copyright div {
   width: 85%;
   text-align: left;
   font-weight: 400;
+  margin: 1%;
 }
 footer .f-inner .copyright p {
   text-align: left;
@@ -183,6 +185,158 @@ footer .page_up img {
   height: 24px;
 }
 
+/*==============================모바일480=============================================*/
+@media (max-width: 480px) {
+  footer {
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
+  }
+  footer .f-inner {
+    display: block;
+  }
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
+  }
+  footer .f-inner .copyright p {
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
+  }
+  footer .f-inner .copyright p span {
+    font-weight: 700;
+    color: #222;
+  }
+  footer .f-inner .familysite {
+    width: 37%;
+    padding: 0 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #222;
+  }
+  footer .page_up {
+    padding: 3%;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  footer {
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
+  }
+  footer .f-inner {
+    display: block;
+  }
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
+  }
+  footer .f-inner .copyright p {
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
+  }
+  footer .f-inner .copyright p span {
+    font-weight: 700;
+    color: #222;
+  }
+  footer .f-inner .familysite {
+    width: 37%;
+    padding: 0 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #222;
+  }
+  footer .page_up {
+    padding: 3%;
+  }
+}
+/*==============================태블릿768=============================================*/
+@media (min-width: 768px) and (max-width: 1279px) {
+  footer {
+    background-color: #fff;
+    width: 100%;
+    padding: 0px;
+  }
+  footer .f-inner {
+    display: block;
+  }
+  footer .f-inner .copyright .forMobile {
+    flex-wrap: wrap;
+  }
+  footer .f-inner .copyright .forMobile a img {
+    margin-left: 15px;
+  }
+  footer .f-inner .copyright .forMobile div {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+    padding: 10px;
+  }
+  footer .f-inner .copyright .forMobile div a {
+    padding: 5px 10px;
+  }
+  footer .f-inner .copyright p {
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 15px;
+  }
+  footer .f-inner .copyright p span {
+    font-weight: 700;
+    color: #222;
+  }
+  footer .f-inner .familysite {
+    width: 37%;
+    padding: 0 5px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #222;
+  }
+  footer .page_up {
+    padding: 3%;
+  }
+}
 header {
   width: 100%;
   z-index: 2;
@@ -397,7 +551,7 @@ main .sub-inner .sub-body .diagram .dia01 h2 {
 main .sub-inner .sub-body .diagram .dia02 div {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   border-radius: 64px;
@@ -547,4 +701,658 @@ main .sub-inner .sub-foot .user-satisfy .answer-submit button {
 }
 main .sub-inner .sub-foot .user-satisfy .answer-submit button:hover {
   background-color: #232939;
+}
+
+/*==============================모바일480=============================================*/
+@media (min-width: 320px) and (max-width: 480px) {
+  header .head-top {
+    display: none;
+  }
+  header hr {
+    display: none;
+  }
+  header .head-area {
+    padding: 5% 5%;
+  }
+  header .head-area .dropdown {
+    display: none;
+  }
+  header .head-area .dropdown a:hover {
+    display: none;
+  }
+  main .sub-inner {
+    width: 100%;
+  }
+  main .sub-inner .sub-head .head-title h1 {
+    width: 85%;
+    margin: 5% auto;
+    font-size: 2rem;
+    transform: translateY(150%);
+  }
+  main .sub-inner .sub-head .head-nav {
+    height: 20%;
+    transform: translateY(-200%);
+    border-radius: 0px;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li {
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li:nth-of-type(1) {
+    width: 45%;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li a {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li button {
+    transform: rotate(-90deg);
+  }
+  main .sub-inner .sub-head .head-nav .nav-right {
+    display: none;
+  }
+  main .sub-inner .sub-head .head-subject h2 {
+    font-size: 2rem;
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body {
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body .sub-title {
+    padding-top: 5%;
+  }
+  main .sub-inner .sub-body .sub-title h3 {
+    font-size: 1.8rem;
+  }
+  main .sub-inner .sub-body .sub-title h3::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .sub-title div {
+    font-size: 1.03rem;
+  }
+  main .sub-inner .sub-body .graph-top h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px 0;
+  }
+  main .sub-inner .sub-body .graph-top div h2 {
+    font-size: 1.12rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div p {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .graph-top div p::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .diagram {
+    background-color: #fff;
+    border: 1px dashed #4A5677;
+    padding: 60px;
+    border-radius: 40px;
+    margin-top: 40px;
+  }
+  main .sub-inner .sub-body .diagram h4 {
+    width: 108px;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 600;
+    color: #4A5677;
+  }
+  main .sub-inner .sub-body .diagram div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+  }
+  main .sub-inner .sub-body .diagram .dia01 h2 {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 20px 5px 0 5px;
+  }
+  main .sub-inner .sub-body .diagram .dia02 div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia02 figure {
+    width: 50%;
+    padding: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div p {
+    width: 45%;
+    font-size: 0.89rem;
+    margin-bottom: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 95%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li {
+    width: 100%;
+    height: 180px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    border: 1px solid #00A9CF;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 2%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p {
+    position: relative;
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D9D9D9;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p:nth-last-child(1) {
+    border-bottom: none;
+  }
+  main .sub-inner .sub-body .waytogo h4 {
+    font-size: 1.3rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li strong {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li p {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  main .sub-inner .sub-foot .user-satisfy {
+    width: 95%;
+    margin: 0 auto;
+  }
+  main .sub-inner .sub-foot .user-satisfy h3 {
+    font-size: 1rem;
+    color: #4A5677;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five {
+    flex-wrap: wrap;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five label {
+    width: 30%;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five label span {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit textarea {
+    width: 90%;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit button {
+    width: 90%;
+    height: 50px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  header .head-top {
+    display: none;
+  }
+  header hr {
+    display: none;
+  }
+  header .head-area {
+    padding: 5% 5%;
+  }
+  header .head-area .dropdown {
+    display: none;
+  }
+  header .head-area .dropdown a:hover {
+    display: none;
+  }
+  main .sub-inner {
+    width: 100%;
+  }
+  main .sub-inner .sub-head .head-title h1 {
+    width: 85%;
+    margin: 5% auto;
+    font-size: 2rem;
+    transform: translateY(150%);
+  }
+  main .sub-inner .sub-head .head-nav {
+    height: 20%;
+    transform: translateY(-200%);
+    border-radius: 0px;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li {
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li:nth-of-type(1) {
+    width: 45%;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li a {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li button {
+    transform: rotate(-90deg);
+  }
+  main .sub-inner .sub-head .head-nav .nav-right {
+    display: none;
+  }
+  main .sub-inner .sub-head .head-subject h2 {
+    font-size: 2rem;
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body {
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body .sub-title {
+    padding-top: 5%;
+  }
+  main .sub-inner .sub-body .sub-title h3 {
+    font-size: 1.8rem;
+  }
+  main .sub-inner .sub-body .sub-title h3::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .sub-title div {
+    font-size: 1.03rem;
+  }
+  main .sub-inner .sub-body .graph-top h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px 0;
+  }
+  main .sub-inner .sub-body .graph-top div h2 {
+    font-size: 1.12rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div p {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .graph-top div p::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .diagram {
+    background-color: #fff;
+    border: 1px dashed #4A5677;
+    padding: 60px;
+    border-radius: 40px;
+    margin-top: 40px;
+  }
+  main .sub-inner .sub-body .diagram h4 {
+    width: 108px;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 600;
+    color: #4A5677;
+  }
+  main .sub-inner .sub-body .diagram div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+  }
+  main .sub-inner .sub-body .diagram .dia01 h2 {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 20px 5px 0 5px;
+  }
+  main .sub-inner .sub-body .diagram .dia02 div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia02 figure {
+    width: 50%;
+    padding: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div p {
+    width: 45%;
+    font-size: 0.89rem;
+    margin-bottom: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 95%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li {
+    width: 100%;
+    height: 180px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    border: 1px solid #00A9CF;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 2%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p {
+    position: relative;
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D9D9D9;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p:nth-last-child(1) {
+    border-bottom: none;
+  }
+  main .sub-inner .sub-body .waytogo h4 {
+    font-size: 1.3rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li strong {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li p {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  main .sub-inner .sub-foot .user-satisfy {
+    width: 95%;
+    margin: 0 auto;
+  }
+  main .sub-inner .sub-foot .user-satisfy h3 {
+    font-size: 1rem;
+    color: #4A5677;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five {
+    flex-wrap: wrap;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five label {
+    width: 30%;
+  }
+  main .sub-inner .sub-foot .user-satisfy .radio-five label span {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit textarea {
+    width: 90%;
+  }
+  main .sub-inner .sub-foot .user-satisfy .answer-submit button {
+    width: 90%;
+    height: 50px;
+  }
+}
+/*==============================태블릿768=============================================*/
+@media (min-width: 768px) and (max-width: 1279px) {
+  header .head-top {
+    display: none;
+  }
+  header hr {
+    display: none;
+  }
+  header .head-area {
+    padding: 5% 5%;
+  }
+  header .head-area .dropdown {
+    display: none;
+  }
+  header .head-area .dropdown a:hover {
+    display: none;
+  }
+  main .sub-inner {
+    width: 100%;
+  }
+  main .sub-inner .sub-head .head-title h1 {
+    width: 85%;
+    margin: 5% auto;
+    font-size: 2rem;
+    transform: translateY(150%);
+  }
+  main .sub-inner .sub-head .head-nav {
+    height: 20%;
+    transform: translateY(-250%);
+    border-radius: 0px;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li {
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li:nth-of-type(1) {
+    width: 45%;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li a {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-head .head-nav .nav-left li button {
+    transform: rotate(-90deg);
+  }
+  main .sub-inner .sub-head .head-nav .nav-right {
+    display: none;
+  }
+  main .sub-inner .sub-head .head-subject h2 {
+    font-size: 2rem;
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body {
+    width: 85%;
+    margin: 3% auto;
+  }
+  main .sub-inner .sub-body .sub-title {
+    padding-top: 5%;
+  }
+  main .sub-inner .sub-body .sub-title h3 {
+    font-size: 1.8rem;
+  }
+  main .sub-inner .sub-body .sub-title h3::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .sub-title div {
+    font-size: 1.03rem;
+  }
+  main .sub-inner .sub-body .graph-top h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px 0;
+  }
+  main .sub-inner .sub-body .graph-top div h2 {
+    font-size: 1.12rem;
+    font-weight: 500;
+  }
+  main .sub-inner .sub-body .graph-top div p {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .graph-top div p::after {
+    display: none;
+  }
+  main .sub-inner .sub-body .diagram {
+    background-color: #fff;
+    border: 1px dashed #4A5677;
+    padding: 60px;
+    border-radius: 40px;
+    margin-top: 40px;
+  }
+  main .sub-inner .sub-body .diagram h4 {
+    width: 108px;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 600;
+    color: #4A5677;
+  }
+  main .sub-inner .sub-body .diagram div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0;
+  }
+  main .sub-inner .sub-body .diagram .dia01 h2 {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 20px 5px 0 5px;
+  }
+  main .sub-inner .sub-body .diagram .dia02 div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia02 figure {
+    width: 50%;
+    padding: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  main .sub-inner .sub-body .diagram .dia03 div p {
+    width: 45%;
+    font-size: 0.89rem;
+    margin-bottom: 5%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 95%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li {
+    width: 100%;
+    height: 180px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    border: 1px solid #00A9CF;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 2%;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p {
+    position: relative;
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D9D9D9;
+  }
+  main .sub-inner .sub-body .diagram .dia04 ul li p:nth-last-child(1) {
+    border-bottom: none;
+  }
+  main .sub-inner .sub-body .waytogo h4 {
+    font-size: 1.3rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li strong {
+    font-size: 1rem;
+  }
+  main .sub-inner .sub-body .waytogo ul li p {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  main .sub-inner .sub-foot .user-satisfy {
+    width: 95%;
+    margin: 0 auto;
+  }
+  main .sub-inner .sub-foot .answer-submit button {
+    font-size: 0.8rem;
+  }
 }/*# sourceMappingURL=sub_business04.css.map */

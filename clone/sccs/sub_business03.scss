@@ -279,3 +279,358 @@ main{
         }//end sub-foot
     }//end sub-inner
 }//end main
+
+/*==============================모바일480=============================================*/
+@media (min-width: 320px) and (max-width: 480px) {
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            .sub-body{
+                width: 85%; margin: 3% auto;
+                .sub-title{
+                    padding-top: 5%;
+                    h3{font-size: 1.8rem;}
+                }
+                .graph-top{
+                    h4{font-size: 1.4rem;  font-weight: 500;}
+                    div{
+                        width: 100%;
+                        margin: 10px auto; padding: 15px 0;
+                        h2{font-size: 1.12rem;  font-weight: 500;}
+                        h2::after{display: none;}
+                    }
+                }
+                .graph-mid{
+                    h4{font-size: 1.12rem;  font-weight: 500;}
+                    ul{
+                        @include flex(){flex-direction: column;}
+                        li{ 
+                            width: 95%; 
+                            border-radius: 100px;
+                            margin: 5px 0;
+                            strong{font-size: 1.1rem; }
+                            p{font-size: 1rem; }
+                        }
+                    }
+                }
+                .graph-bot{
+                    .bot-head{
+                        @include flex(){flex-direction: column};
+                        p img{margin: 20px 0;}
+                        h4{font-size: 1.2rem; margin-top: 10px; font-weight: 400;}
+                    }
+                    .bot-body{
+                        padding: 5%;
+                        margin: 20px auto 0;
+                        background-color: #FEFBFB;
+                        ul{
+                            @include flex(){flex-direction: column;};
+                            li{
+                                font-size: 1rem;
+                                margin: 5px 0;
+                                height: 200%;
+                                width: 100%;
+                                p{ margin: 15px 0; }
+                            }
+                        }
+                    }
+                }
+                .waytogo{
+                    h4{font-size: 1.3rem;}
+                    ul{
+                        li{
+                            strong{font-size: 1rem; }
+                            p{ font-size: 1rem; font-weight: 300; }
+                        }
+                    }
+                }
+            }
+            .sub-foot{
+                .user-satisfy{
+                    width: 95%; margin: 0 auto;
+                    h3{ font-size: 1rem; color: #4A5677;}
+                    .radio-five{ flex-wrap: wrap;
+                        label{
+                            width: 30%;
+                            span{ font-size: 1rem; }
+                        }
+                    }
+                    .answer-submit{
+                        @include flex(){flex-direction: column};
+                        textarea{width: 90%; }
+                        button{width: 90%; height: 50px;}
+                        }
+                }   
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+}//end 모바일480
+
+@media (min-width: 481px) and (max-width: 767px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;}
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%;; transform: translateY(-230%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            .sub-body{
+                width: 85%; margin: 3% auto;
+                .sub-title{
+                    padding-top: 5%;
+                    h3{font-size: 1.8rem;}
+                    h3::after{ display: none;}
+                    div{font-size: 1.03rem;}
+                }
+                .graph-top{
+                    h4{font-size: 1.4rem;  font-weight: 500;}
+                    div{
+                        width: 100%;
+                        margin: 10px auto; padding: 15px 0;
+                        h2{font-size: 1.12rem;  font-weight: 500;}
+                        p{font-size: 1rem; }
+                        p::after{display: none; }
+                    }
+                }
+                .graph-mid{
+                    h4{font-size: 1.12rem;  font-weight: 500;}
+                    ul{
+                        @include flex(){flex-direction: column;}
+                        li{ 
+                            width: 95%; 
+                            border-radius: 100px;
+                            margin: 5px 0;
+                            strong{font-size: 1.1rem; }
+                            p{font-size: 1rem; }
+                        }
+                    }
+                }
+                .graph-bot{
+                    .bot-head{
+                        @include flex(){flex-direction: column};
+                        p img{margin: 20px 0;}
+                        h4{font-size: 1.2rem; margin-top: 10px; font-weight: 400;}
+                    }
+                    .bot-body{
+                        padding: 5%;
+                        margin: 20px auto 0;
+                        background-color: #FEFBFB;
+                        ul{
+                            @include flex(){flex-direction: column;};
+                            li{ 
+                                width: 95%;
+                                font-size: 1rem;
+                                margin: 5px 0;
+                                height: 200%;
+                                width: 100%;
+                                p{ margin: 15px 0; }
+                            }
+                        }
+                    }
+                }
+                .waytogo{
+                    h4{font-size: 1.3rem;}
+                    ul{
+                        li{
+                            strong{font-size: 1rem; }
+                            p{ font-size: 1rem; font-weight: 300; }
+                        }
+                    }
+                }
+            }
+            .sub-foot{
+                .user-satisfy{
+                    width: 95%; margin: 0 auto;
+                    h3{ font-size: 1rem; color: #4A5677;}
+                    .radio-five{ flex-wrap: wrap;
+                        label{
+                            width: 30%;
+                            span{ font-size: 1rem; }
+                        }
+                    }
+                    .answer-submit{
+                        @include flex(){flex-direction: column};
+                        textarea{width: 90%; }
+                        button{width: 90%; height: 50px; font-size: 0.8rem;}
+                        }
+                }   
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+} 
+/*==============================태블릿768=============================================*/
+@media (min-width: 768px) and (max-width: 1279px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-250%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            .sub-body{
+                width: 85%; margin: 3% auto;
+                .sub-title{
+                    padding-top: 5%;
+                    h3{font-size: 1.8rem;}
+                    h3::after{ display: none;}
+                    div{font-size: 1.03rem;}
+                }
+                .graph-top{
+                    h4{font-size: 1.4rem;  font-weight: 500;}
+                    div{
+                        width: 100%;
+                        margin: 10px auto; padding: 15px 0;
+                        h2{font-size: 1.12rem;  font-weight: 500;}
+                        p{font-size: 1rem; }
+                        p::after{display: none;}
+                    }
+                }
+                .graph-mid{
+                    h4{font-size: 1.12rem;  font-weight: 500;}
+                    ul{
+                        @include flex(){flex-direction: column;}
+                        li{ 
+                            width: 95%; 
+                            border-radius: 100px;
+                            margin: 5px 0;
+                            strong{font-size: 1.1rem; }
+                            p{font-size: 1rem; }
+                        }
+                    }
+                }
+                .graph-bot{
+                    .bot-head{
+                        @include flex(){flex-direction: column};
+                        p img{margin: 20px 0;}
+                        h4{font-size: 1.2rem; margin-top: 10px; font-weight: 400;}
+                    }
+                    .bot-body{
+                        padding: 5%;
+                        margin: 20px auto 0;
+                        background-color: #FEFBFB;
+                        ul{
+                            @include flex(){flex-direction: column;};
+                            li{
+                                width: 95%;
+                                font-size: 1rem;
+                                margin: 5px 0;
+                                height: 200%;
+                                width: 100%;
+                                p{ margin: 15px 0; }
+                            }
+                        }
+                    }
+                }
+                .waytogo{
+                    h4{font-size: 1.3rem;}
+                    ul{
+                        li{
+                            strong{font-size: 1rem; }
+                            p{ font-size: 1rem; font-weight: 300; }
+                        }
+                    }
+                }
+            }
+            .sub-foot{
+                .user-satisfy{width: 95%; margin: 0 auto;}   
+                .answer-submit{button{font-size: 0.8rem;}}
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+}//end 태블릿

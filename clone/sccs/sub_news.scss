@@ -186,3 +186,218 @@ main{
         }//end sub-foot
     }//end sub-inner
 }//end main
+
+/*==============================모바일480=============================================*/
+@media (min-width: 320px) and (max-width: 480px) {
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 90%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            .sub-body{
+                table{
+                    width: 90%; margin: 2% auto;
+                    th,td{
+                        border-bottom: 1px solid #ddd;
+                        padding: 30px 10px; 
+                        text-align: center;
+                    }
+                    thead tr{
+                        border-top: none; 
+                        border-bottom: 2px solid #003568;
+                        background-color: #fff;
+                        height: 50px;
+                        th{display: none;}
+                    }
+
+                    tbody tr{@include flex(){flex-direction: column;}}
+                    tbody tr td:nth-of-type(1){
+                        display: none;
+                    }
+                    tbody tr td:nth-of-type(2){
+                        border-bottom: none; text-align: left;
+                        padding: 1% 3%; font-size: 1rem;
+                    }
+                    tbody tr td:nth-of-type(3){
+                        width: 100%; padding: 0 0 3% 3%;
+                        text-align: left; font-size: .8rem;
+                    }
+                    tfoot td{padding: 50px 0; border: none;}
+                    tfoot td a{margin: 0 10px;}
+                }
+                .manager{
+                    @include flex(){flex-wrap: wrap};
+                    margin: 10px 0;
+                    padding: 24px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    li{ font-size: 1rem; font-weight: 300;
+                        strong{font-weight: 500;}
+                    &:nth-of-type(2){flex-grow: 2; text-align: left; margin-left: 50px;}
+                    }
+                
+                }
+            }
+            .sub-foot{
+                .user-satisfy{
+                    width: 95%; margin: 0 auto;
+                    h3{ font-size: 1rem; color: #4A5677;}
+                    .radio-five{ flex-wrap: wrap;
+                        label{
+                            width: 30%;
+                            span{ font-size: 1rem; }
+                        }
+                    }
+                    .answer-submit{
+                        @include flex(){flex-direction: column};
+                        textarea{width: 90%; }
+                        button{width: 90%; height: 50px;}
+                        }
+                }   
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+}//end 모바일480
+
+@media (min-width: 481px) and (max-width: 767px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;}
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 90%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            
+            .sub-foot{
+                .user-satisfy{
+                    width: 95%; margin: 0 auto;
+                    h3{ font-size: 1rem; color: #4A5677;}
+                    .radio-five{ flex-wrap: wrap;
+                        label{
+                            width: 30%;
+                            span{ font-size: 1rem; }
+                        }
+                    }
+                    .answer-submit{
+                        @include flex(){flex-direction: column};
+                        textarea{width: 90%; }
+                        button{width: 90%; height: 50px;}
+                        }
+                }   
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+} 
+/*==============================태블릿768=============================================*/
+@media (min-width: 768px) and (max-width: 1279px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 90%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+            
+
+            .sub-foot{
+                .user-satisfy{width: 95%; margin: 0 auto;}   
+                .answer-submit{button{font-size: 0.8rem;}}
+            }//end sub-foot
+        }//end sub-inner
+    }//end main
+}//end 태블릿

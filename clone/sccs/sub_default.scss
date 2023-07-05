@@ -157,3 +157,132 @@ main{
         }//end sub-foot
     }//end sub-inner
 }//end main
+
+/*==============================모바일480=============================================*/
+@media (min-width: 320px) and (max-width: 480px) {
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+        }
+    }
+}//end 모바일480 
+@media (min-width: 481px) and (max-width: 767px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+        }
+    }
+} //end 모바일768
+/*==============================태블릿768=============================================*/
+@media (min-width: 768px) and (max-width: 1279px){
+    header{
+        .head-top{display: none;}
+        hr{display: none;}
+        .head-area{
+            padding: 5% 5%;
+            .dropdown{ display: none;   }
+        }
+        .head-area .dropdown a:hover{ display: none; }
+    }//end header
+    main{
+        .sub-inner{
+            width: 100%;
+            
+            .sub-head{
+                .head-title{
+                    h1{ width: 85%; margin: 5% auto;
+                        font-size: 2rem; transform: translateY(150%);}
+                }
+                .head-nav{
+                    height: 20%; transform: translateY(-200%);
+                    border-radius: 0px;
+                    .nav-left{
+                        width: 70%;
+                        @include flex(){};
+                        li{ 
+                            border:none;
+                            @include flex(flex-start,center){};
+                            &:nth-of-type(1){width: 45%;}
+                            a{ font-size: 1rem;}
+                            button{transform: rotate(-90deg); }
+                        }
+                    }
+                    .nav-right{display: none; }
+                }
+                .head-subject{h2{font-size: 2rem; 
+                    width: 85%; margin: 3% auto;
+                }}
+            }
+        }
+    }
+}//end 태블릿

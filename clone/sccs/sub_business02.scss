@@ -398,8 +398,8 @@ main{
                             }
                         }
                         .ul1{
-                            li{width:100%; height: 0;font-size: 0.75rem; 
-                                @include flex(){};
+                            li{width:100%; height: 0;font-size: 0.8rem; 
+                                @include flex(center,center){};
                             }
                         }
                         .ul2, .ul3{@include flex(){flex-direction: column;}
@@ -450,6 +450,7 @@ main{
     main{
         .sub-inner{
             width: 100%;
+            
             .sub-head{
                 .head-title{
                     h1{ width: 85%; margin: 5% auto;
@@ -484,13 +485,12 @@ main{
                     div{font-size: 1.03rem;}
                 }
                 .graph-top{
-                    h4{font-size: 1.4rem;  font-weight: 500;}
+                    h4{font-size: 1.4rem;  font-weight: 500; }
                     div{
                         width: 100%;
-                        margin: 10px auto; padding: 15px 0;
-                        h2{font-size: 1.12rem;  font-weight: 500;}
-                        p{font-size: 1rem; }
-                        p::after{display: none;}
+                        margin: 10px auto; padding: 25px 0;
+                        h2{font-size: 1rem;  font-weight: 500;}
+                        h2::after{display: none;}
                     }
                 }
                 .graph-mid{
@@ -517,15 +517,22 @@ main{
                         margin: 20px auto 0;
                         background-color: #FEFBFB;
                         ul{
-                            @include flex(){flex-direction: column;};
-                            li{ 
-                                width: 95%;
+                            @include flex(){flex-direction: row;};
+                            li{
                                 font-size: 1rem;
                                 margin: 5px 0;
                                 height: 200%;
                                 p{ margin: 15px 0; }
                             }
                         }
+                        .ul1{
+                            li{width:100%; height: 0;font-size: 0.9rem; 
+                                @include flex(center,center){};
+                            }
+                        }
+                        .ul2, .ul3{@include flex(){flex-direction: column;}
+                            li{width: 100%; font-size: 1rem;}
+                        }                        
                     }
                 }
                 .waytogo{
@@ -551,7 +558,7 @@ main{
                     .answer-submit{
                         @include flex(){flex-direction: column};
                         textarea{width: 90%; }
-                        button{width: 90%; height: 50px; font-size: 0.8rem;}
+                        button{width: 90%; height: 50px;}
                         }
                 }   
             }//end sub-foot
@@ -579,7 +586,7 @@ main{
                         font-size: 2rem; transform: translateY(150%);}
                 }
                 .head-nav{
-                    height: 20%; transform: translateY(-250%);
+                    height: 20%; transform: translateY(-200%);
                     border-radius: 0px;
                     .nav-left{
                         width: 70%;
@@ -607,13 +614,12 @@ main{
                     div{font-size: 1.03rem;}
                 }
                 .graph-top{
-                    h4{font-size: 1.4rem;  font-weight: 500;}
+                    h4{font-size: 1.4rem;  font-weight: 500; }
                     div{
                         width: 100%;
-                        margin: 10px auto; padding: 15px 0;
-                        h2{font-size: 1.12rem;  font-weight: 500;}
-                        p{font-size: 1rem; }
-                        p::after{display: none;}
+                        margin: 10px auto; padding: 25px 0;
+                        h2{font-size: 1rem;  font-weight: 500;}
+                        h2::after{display: none;}
                     }
                 }
                 .graph-mid{
@@ -640,15 +646,22 @@ main{
                         margin: 20px auto 0;
                         background-color: #FEFBFB;
                         ul{
-                            @include flex(){flex-direction: column;};
+                            @include flex(){flex-direction: row;};
                             li{
-                                width: 95%;
                                 font-size: 1rem;
                                 margin: 5px 0;
                                 height: 200%;
                                 p{ margin: 15px 0; }
                             }
                         }
+                        .ul1{
+                            li{width:100%; height: 0;font-size: 0.9rem; 
+                                @include flex(center,center){};
+                            }
+                        }
+                        .ul2, .ul3{@include flex(){flex-direction: column;}
+                            li{width: 100%; font-size: 1rem;}
+                        }                        
                     }
                 }
                 .waytogo{
@@ -662,8 +675,21 @@ main{
                 }
             }
             .sub-foot{
-                .user-satisfy{width: 95%; margin: 0 auto;}   
-                .answer-submit{button{font-size: 0.8rem;}}
+                .user-satisfy{
+                    width: 95%; margin: 0 auto;
+                    h3{ font-size: 1rem; color: #4A5677;}
+                    .radio-five{ flex-wrap: wrap;
+                        label{
+                            width: 30%;
+                            span{ font-size: 1rem; }
+                        }
+                    }
+                    .answer-submit{
+                        @include flex(){flex-direction: column};
+                        textarea{width: 90%; }
+                        button{width: 90%; height: 50px;}
+                        }
+                }   
             }//end sub-foot
         }//end sub-inner
     }//end main
