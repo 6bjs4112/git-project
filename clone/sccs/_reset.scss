@@ -63,13 +63,15 @@ footer{
                 border-radius: 10px;
                 position: fixed; left: 50%; top: 50%;
                 transform: translate(-50%,-50%);
-                display: none;
-                // display: flex;
+                @include flex(center,center){flex-direction: column};
+                // display: none;
+                display: flex;
                 .pop-head{
                     font-size: 20px; font-weight: lighter; 
-                    padding: 0 3%;
+                    padding: 0 5%; width: 100%; margin: 0;
                     @include flex(){};
                 }
+                hr{width: 90%; margin-top: 30px; margin: 3%;}
                 .pop-body{
                     height: 80%;
                     ul{
@@ -88,7 +90,6 @@ footer{
                                     display: inline-block;
                                     content: '';
                                     width: 16px; height: 16px;
-                                    // border: 1px solid red;
                                     background: url('../img/index/footer/ico_link_external.svg');
                                     margin-left: 2%;
                                 }
@@ -104,10 +105,10 @@ footer{
             top:0; left: 0; 
             width: 100%; height: 100vh;
             background: rgba(0, 0, 0, 0.8);
-            display: flex;
             justify-content: center; align-items: center;
             display: none;
         }
+        .familysite.active .pop-backg{display: flex;}
     } 
     .page_up{
         border-radius: 50%;

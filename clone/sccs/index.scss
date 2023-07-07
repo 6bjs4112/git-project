@@ -84,8 +84,8 @@ main{
         }
         .loading{
             z-index: 10;
-            width: 85%; height: 220px;
-            position: absolute; left: 50%; bottom: 0%;
+            width: 85%; height: 80px;
+            position: absolute; left: 50%; bottom: 15%;
             transform: translate(-50%, -50%);
             @include flex(center,){flex-direction: column;};
             .progress_bar{
@@ -124,7 +124,7 @@ main{
                 label:nth-of-type(2){transform: translateX(300px);}
                 label:nth-of-type(3){transform: translateX(450px);}
 
-                label:hover::after{
+                label:hover::after, label.active::after{
                     display: inline-block;
                     content: '';
                     width: 15px; height: 15px;
@@ -133,13 +133,13 @@ main{
                     transform: translateY(-15px);
                 }
             }
-            .tab-wrap{
+            .tab-wrap{overflow-x: hidden;
                 width: 100%; height: 969px;
-                overflow: hidden;
+                position: relative;  overflow: hidden;
                 .tab-wrap-more{
                     display: flex; transition: 1s; margin: 0; width: 100%;
                     div{img{
-                        z-index: -1; opacity: 1; 
+                        opacity: 1; 
                         position:absolute; left: 0; top: 0;
                         transition: 1s;}}
                 }
@@ -153,15 +153,15 @@ main{
         .tab .tab-wrap .tab-wrap-more div div{display: none; }
         .tab .tab-wrap .tab-wrap-more div strong img{opacity: 1;}
 
-        .tab-child01{
+        .tab-child01, .tab-child02, .tab-child03{
             position: absolute; left: 50%; bottom: 10%;
             transform: translate(-50%, 0);
             width: 80%;
-            text-align: center;
+            text-align: center; 
             @include flex(){};
-            strong{ 
-                padding-top: 55px;
-                overflow: hidden;
+            strong{
+                position: relative;
+                // padding: 10px; background-color: red;/
                 a{  
                     color: #fff;
                     font-size: 20px;
@@ -170,62 +170,64 @@ main{
                 }
                 img{
                     width: 126px; height: 126px;
-                    transform: translateY(220px); 
-                    z-index: 10;
+                    transform: translate(-10%,150%);
+                    z-index: 2;
                 }
-                &:hover img{transform: translateY(0%); transition: .5s;}
             }
+            strong:hover img{transform: translate(-10%,-20%); transition: .5s;}
+
         }
-        .tab-child02{
-            position: absolute; left: 50%; bottom: 10%;
-            transform: translate(-50%, 0);
-            width: 80%;
-            text-align: center;
-            @include flex(){};
-            strong{ 
-                padding-top: 55px;
-                overflow: hidden;
-                a{  
-                    color: #fff;
-                    font-size: 20px;
-                    text-decoration: none;
-                }
-                img{
-                    width: 126px; height: 126px;
-                    transform: translateY(220px); 
-                    z-index: 1;
-                }
-                &:hover img{transform: translateY(0%); transition: .5s;}
-            }
-            // display: none;
-        }
-        .tab-child03{
-            position: absolute; left: 50%; bottom: 10%;
-            transform: translate(-50%, 0);
-            width: 80%;
-            text-align: center;
-            @include flex(){};
-            strong{ 
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 60px;
-                overflow: hidden;
-                a{  
-                    color: #fff;
-                    font-size: 20px;
-                    text-decoration: none;
-                    z-index: -1;
-                }
-                img{
-                    width: 126px; height: 126px;
-                    transform: translateY(220px); 
-                    z-index: 10;
-                }
-                &:hover img{transform: translateY(0%); transition: .5s;}
-            }
-            // display: none;
-        }
+        // .tab-child02{
+        //     position: absolute; left: 50%; bottom: 10%;
+        //     transform: translate(-50%, 0);
+        //     width: 80%;
+        //     text-align: center;
+        //     @include flex(){};
+        //     strong{ 
+        //         padding-top: 55px;
+        //         position: relative;
+        //         a{  
+        //             color: #fff;
+        //             font-size: 20px;
+        //             text-decoration: none;
+        //         }
+        //         img{
+        //             width: 126px; height: 126px;
+        //             transform: translateY(220px); 
+        //             z-index: 1;
+        //         }
+        //         &:hover img{transform: translateY(0%); transition: .5s;}
+        //     }
+        //     // display: none;
+        // }
+        // .tab-child03{
+        //     position: absolute; left: 50%; bottom: 10%;
+        //     transform: translate(-50%, 0);
+        //     width: 80%;
+        //     text-align: center;
+        //     @include flex(){};
+        //     strong{ 
+        //          position: relative;
+        //         display: flex;
+        //         flex-direction: column;
+        //         align-items: center;
+        //         padding-top: 60px;
+        //         overflow: hidden;
+        //         a{  
+        //             color: #fff;
+        //             font-size: 20px;
+        //             text-decoration: none;
+        //             z-index: -1;
+        //         }
+        //         img{
+        //             width: 126px; height: 126px;
+        //             transform: translateY(220px); 
+        //             z-index: 10;
+        //         }
+        //         &:hover img{transform: translateY(0%); transition: .5s;}
+        //     }
+        //     // display: none;
+        // }
         .circle{ 
             width: 120px; height: 120px;
             border: 1px solid #ddd;
@@ -270,22 +272,29 @@ main{
                 padding: 40px;
                 border-radius: 20px;
                 margin: 0px;
+                
                 .category{@include flex(){}; font-size: 18px; color:#CA2C52;}
-                .subject{font-size: 24px; }
-                .descreption{font-size: 18px; font-weight:300; }
-                .date{font-size: 16px; font-weight:300;}
+                .subject{font-size: 24px;color:black; }
+                .descreption{font-size: 18px; font-weight:300; color:black;}
+                .date{font-size: 16px; font-weight:300;color:black;}
                 &:hover{
                     transform: translate(-1%,-1%); 
                     background-color: #fff;
                     box-shadow:4px 20px 40px rgba(0, 0, 0, 0.15);
                 }
             }
-            li:nth-child(4){
+            li:nth-child(4){//card-ad
                 transform: none;
                 box-shadow:none;
                 background-color:rgba(0, 0, 0, 0);
                 padding: 10px 0 0 0;
-                img{width: 100%}
+                .slide{
+                    overflow: hidden;
+                    figure{
+                        margin: 0; display: flex; transition: .5s; 
+                        img{width: 100%}
+                    }
+                }
                 .ctrl-slide{ 
                     @include flex(){}; 
                     margin-left: 360px;
@@ -294,7 +303,7 @@ main{
                         font-weight: 400;
                         span{color: #CA2C52;}
                     }
-                    
+                    // span img:nth-of-type(2){display: none;}
                 }
             }
         }
@@ -363,7 +372,7 @@ main{
 }//end main
 
 /*==============================모바일480=============================================*/
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
 header{
     width: 100%;
     height: 100px;
@@ -415,13 +424,12 @@ main{
         }
         // .loading{bottom: 40px;}
         .loading{bottom: 5%;}
-        .tab{
-            
+        .tab{overflow: hidden;
             .tab-label{ label{left: -25%; bottom: 40%;font-size: 16px;}
         }
             .tab-wrap{
                 width: 100%; height: 740px;
-                overflow: hidden;
+                overflow: hidden; position: relative;
                 .tab-wrap-more{
                     display: flex; transition: 1s; margin: 0; width: 100%;
                     div{img{z-index: -1;}}
@@ -457,14 +465,14 @@ main{
                 @include flex(center,center){};
                 a{font-size: 16px;}
                 img{display: none;}
-                &:hover img{display: none;}
+                &:hover img{display: flex;}
             }
         }
         
         .circle{bottom: -9%; }
     }//end visual
     .news{
-        margin-top: 50%;
+        margin-top: 10%;
         padding: 10%; 
         display: block; 
         .l-title{
@@ -488,11 +496,15 @@ main{
                 }
             }
             li:nth-child(4){
+                transform: none;
+                box-shadow:none;
+                background-color:rgba(0, 0, 0, 0);
                 .ctrl-slide{ 
                     @include flex(flex-end,center){}; 
                     margin-left: 0px;
                     margin: 1% 1% 0 1%;
                 }
+                
             }
         }
     }//end news
@@ -631,7 +643,7 @@ main{
             .circle{bottom: -9%; }
         }//end visual
         .news{
-            margin-top: 50%;
+            margin-top: 5%;
             padding: 10%; 
             display: block; 
             .l-title{
@@ -651,6 +663,9 @@ main{
                     }
                 }
                 li:nth-child(4){
+                    transform: none;
+                    box-shadow:none;
+                    background-color:rgba(0, 0, 0, 0);      
                     .ctrl-slide{ 
                         @include flex(flex-end,center){}; 
                         margin-left: 0px;
@@ -753,15 +768,13 @@ main{
                 padding-right: 3%;
             }
             // .loading{bottom: 40px;}
-            .loading{bottom: -5%;}
+            .loading{bottom: 5%;}
             .tab{
-                
-                .tab-label{ label{left: -13%; bottom: 37%;font-size: 16px;}
-
-            }
+                .tab-label{ label{left: -13%; bottom: 37%;font-size: 16px;} }
                 .tab-wrap{
                     width: 100%; height: 740px;
-                    overflow: hidden;
+                    position: relative;
+                    overflow: hidden; 
                     .tab-wrap-more{
                         display: flex; transition: 1s; margin: 0; width: 100%;
                         div{img{z-index: -1;}}
@@ -770,8 +783,7 @@ main{
             }//end tab
             .tab-child01,.tab-child02{
                 left: 10%; bottom: -15%;
-                transform: translate(0, 0);
-                
+                transform: translateY(-130px);
                 @include flex(left,center){flex-wrap: wrap};
                 strong{ 
                     width: 30%; height: 60px;
@@ -786,7 +798,7 @@ main{
             }
             .tab-child03{
                 left: 10%; bottom: -5%;
-                transform: translate(0, 0);
+                transform: translateY(-130px);
                 
                 @include flex(left,center){flex-wrap: wrap};
                 strong{ 
@@ -803,11 +815,11 @@ main{
             .circle{bottom: -9%; }
         }//end visual
         .news{
-            margin-top: 30%;
+            margin-top: 10%;
             padding: 10%; 
             display: block; 
             .l-title{
-                width: 100%; margin: 10% 0;
+                width: 100%; margin: 0% 0;
                 b::after{display: none;}
                 h2{ font-size: 30px; span{color:#787878} }
             }
@@ -824,10 +836,13 @@ main{
                     }
                 }
                 li:nth-child(4){
+                    transform: none;
+                    box-shadow:none;
+                    background-color:rgba(0, 0, 0, 0);
                     .ctrl-slide{ 
                         @include flex(flex-end,center){}; 
-                        margin-left: 0px;
                         margin: 1% 1% 0 1%;
+                        margin-left: 200px;
                     }
                 }
             }

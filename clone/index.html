@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>클론 코딩_메인</title>
     <link rel="stylesheet" href="./css/index.css">
-    <script defer src="./sccs/index.js"></script>
+    <script defer src="./js/index.js"></script>
 </head>
 <body>
     <header>
@@ -23,14 +23,14 @@
         </div>
         <hr>
         <div class="head-area">
-            <a href="#" class="logo">
+            <a href="./index.html" class="logo">
                 <img src="./img/index/header/logo_kto_white.svg">
                 <img src="./img/index/header/logo_kto.svg">
             </a>
             <nav class="dropdown">
-                <a href="#">주요사업</a>
-                <a href="#">알림마당</a>
-                <a href="#">공사소개</a>
+                <a href="./sub_business01.html">주요사업</a>
+                <a href="./sub_news.html">알림마당</a>
+                <a href="./sub_aboutkto.html">공사소개</a>
             </nav>
             <div class="icon">
                 <a href="#"><img src="./img/index/header/btn_header_search_w.svg"></a>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="tab-wrap">
                     <div class="tab-wrap-more">
-                        <div class="tab01" id="content01">
+                        <div class="tab-sub" id="content01">
                             <img src="./img/index/visual/main_visual_01.png" class="active">
                             <div class="tab-child01 active">
                                 <strong>
@@ -74,7 +74,7 @@
                                     <img src="./img/index/visual/main_tour_service01.png">
                                 </strong>
                                 <strong>
-                                    <a href="#">VISITKOREA</a>
+                                    <a href="#">VISIT<br>KOREA</a>
                                     <img src="./img/index/visual/main_tour_service02.png">
                                 </strong>
                                 <strong>
@@ -103,7 +103,7 @@
                                 </strong>
                             </div>
                         </div>
-                        <div class="tab02" id="content02">
+                        <div class="tab-sub" id="content02">
                             <img src="./img/index/visual/main_visual_05.png">
                             <div class="tab-child02">
                                 <strong>
@@ -140,7 +140,7 @@
                                 </strong>
                             </div>
                         </div>
-                        <div class="tab03" id="content03">
+                        <div class="tab-sub" id="content03">
                             <img src="./img/index/visual/main_visual_08.png">
                             <div class="tab-child03">
                                 <strong>
@@ -175,19 +175,22 @@
             </div>
             <ul class="r-body">
                 <li class="card01">
-                    <div class="category">
-                        <p>보도자료</p><br>
-                        <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
-                    </div>
-                    <h3 class="subject">감당할 수 없는 한국의 매력에 도전해봐! 챌린지코리아(Challenge Korea)!</h3>
-                    <br>
-                    <p class="descreption">
-                        감당할 수 없는 한국의 매력에 도전해봐! 챌린지코리아 (Chal⋯
-                    </p>
-                    <br>
-                    <p class="date">2023-06-27</p>
+                    <a href="./sub_news_p3.html">
+                        <div class="category">
+                            <p>보도자료</p><br>
+                            <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
+                        </div>
+                        <h3 class="subject">감당할 수 없는 한국의 매력에 도전해봐! 챌린지코리아(Challenge Korea)!</h3>
+                        <br>
+                        <p class="descreption">
+                            감당할 수 없는 한국의 매력에 도전해봐! 챌린지코리아 (Chal⋯
+                        </p>
+                        <br>
+                        <p class="date">2023-06-27</p>
+                    </a>
                 </li>
                 <li class="card02">
+                    <a href="./sub_news_p2.html">
                     <div class="category">
                         <p>보도자료</p><br>
                         <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
@@ -199,32 +202,39 @@
                     </p>
                     <br>
                     <p class="date">2023-06-23</p>
+                    </a>
                 </li>
                 <li class="card03">
-                    <div class="category">
-                        <p>보도자료</p><br>
-                        <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
-                    </div>
-                    <h3 class="subject">한국관광공사, ‘2023 펫관광 포럼’ 개최</h3>
-                    <br><br>
-                    <p class="descreption">
-                        한국관광공사, ‘2023 펫관광 포럼’ 개최- 전문가․지자체 등 15⋯
-                    </p>
-                    <br>
-                    <p class="date">2023-06-19</p>
+                    <a href="./sub_news_p1.html">
+                        <div class="category">
+                            <p>보도자료</p><br>
+                            <span><img src="./img/index/content_news/btn_main_news_more.svg"></span>
+                        </div>
+                        <h3 class="subject">한국관광공사, ‘2023 펫관광 포럼’ 개최</h3>
+                        <br><br>
+                        <p class="descreption">
+                            한국관광공사, ‘2023 펫관광 포럼’ 개최- 전문가․지자체 등 15⋯
+                        </p>
+                        <br>
+                        <p class="date">2023-06-19</p>
+                    </a>
                 </li>
                 <li class="card-ad">
-                    <a>
-                        <img src="./img/index/content_news/card_ad_1.png">
-                        <!-- <img src="./img/index/content_news/card_ad_2.png">
-                        <img src="./img/index/content_news/card_ad_3.png"> -->
-                    </a>
+                    <div class="slide">
+                        <figure>
+                            <img src="./img/index/content_news/card_ad_1.png">
+                            <img src="./img/index/content_news/card_ad_2.png">
+                            <img src="./img/index/content_news/card_ad_3.png">
+                        </figure>
+                    </div>
                     <div class="ctrl-slide">
-                        <a href="#"><img src="./img/index/content_news/btn_slide_prev.svg"></a>
+                        <a><img src="./img/index/content_news/btn_slide_prev.svg"></a>
                         <p><span>01</span> / 03</p>
-                        <span><img src="./img/index/content_news/slide_btn_pause.svg"></span>
-                        <!-- <span><img src="./img/index/content_news/slide_btn_play.svg"></span> -->
-                        <a href="#"><img src="./img/index/content_news/btn_slide_next.svg"></a>
+                        <span>
+                            <img src="./img/index/content_news/slide_btn_pause.svg">
+                            <img src="./img/index/content_news/slide_btn_play.svg">
+                        </span>
+                        <a><img src="./img/index/content_news/btn_slide_next.svg"></a>
                     </div>
                 </li>
             </ul>
@@ -242,7 +252,7 @@
                             <div class="gone">
                                 <strong>국제관광지원</strong>
                                 <p>코로나19로 인해 침체된 방한관광시장의 조기 회복과 재도약을 위해 노력합니다.</p>
-                                <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
+                                <a href="./sub_business01.html"><button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button></a>
                             </div>
                         </div>
                     </li>
@@ -252,7 +262,7 @@
                             <div class="gone">
                                 <strong>국민관광지원</strong>
                                 <p>국민이 안심하고 편안하게 여행할 수 있는 관광복지를 통한 지역경제 활성화를 위해 노력합니다.</p>
-                                <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
+                                <a href="./sub_business02.html"><button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button></a>
                             </div>
                         </div>
                     </li>
@@ -262,7 +272,7 @@
                             <div class="gone">
                                 <strong>관광산업지원</strong>
                                 <p>민간이 주도하고 지역이 발전하는 관광산업 성장을 지원합니다.</p>
-                                <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
+                                <a href="./sub_business03.html"><button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button></a>
                             </div>
                         </div>
                     </li>
@@ -272,7 +282,7 @@
                             <div class="gone">
                                 <strong>디지털전환지원</strong>
                                 <p>여행하기 좋은 디지털 관광국가 실현을 위해 노력합니다.</p>
-                                <button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button>
+                                <a href="./sub_business04.html"><button><img src="./img/index/content_business/slide_btn_go_arw.svg"></button></a>
                             </div>
                         </div>
                     </li>
@@ -298,8 +308,8 @@
                 Copyright © 한국관광공사. All rights reserved.</p>
             </div>
             <div class="familysite">
-                <a href="#">Family Site</a>
-                <a href="#"><img src="./img/index/footer/footer_familyselect.png"></a>
+                <a>Family Site</a>
+                <a><img src="./img/index/footer/footer_familyselect.png"></a>
                 
                 <div class="pop-backg">
                 <article class="pop-up">
@@ -334,7 +344,6 @@
                 </div>
             </div>
         </div>
-        
         <a class="page_up" href="#top"><img src="./img/index/btn_page_up.svg"></a>
     </footer>
 </body>

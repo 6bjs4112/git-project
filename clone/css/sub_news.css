@@ -106,16 +106,28 @@ footer .f-inner .familysite .pop-up {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
 }
 footer .f-inner .familysite .pop-up .pop-head {
   font-size: 20px;
   font-weight: lighter;
-  padding: 0 3%;
+  padding: 0 5%;
+  width: 100%;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+}
+footer .f-inner .familysite .pop-up hr {
+  width: 90%;
+  margin-top: 30px;
+  margin: 3%;
 }
 footer .f-inner .familysite .pop-up .pop-body {
   height: 80%;
@@ -162,10 +174,12 @@ footer .f-inner .familysite .pop-backg {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
+}
+footer .f-inner .familysite.active .pop-backg {
+  display: flex;
 }
 footer .page_up {
   border-radius: 50%;
@@ -507,6 +521,10 @@ main .sub-inner .sub-body table tbody tr td:nth-of-type(2) {
   color: #191919;
   text-align: left;
   cursor: pointer;
+}
+main .sub-inner .sub-body table tbody tr td:nth-of-type(2) a {
+  text-decoration: none;
+  color: #191919;
 }
 main .sub-inner .sub-body table tfoot td {
   padding: 50px 0;
