@@ -566,7 +566,7 @@ main .visual .tab .tab-wrap .tab-wrap-more div img {
   position: absolute;
   left: 0;
   top: 0;
-  transition: 1s;
+  transition: 0.3s;
 }
 main .visual .tab input {
   display: none;
@@ -576,6 +576,7 @@ main .visual .tab .tab-wrap .tab-wrap-more div img.active {
 }
 main .visual .tab .tab-wrap .tab-wrap-more div img {
   opacity: 0;
+  z-index: -10;
 }
 main .visual .tab .tab-wrap .tab-wrap-more div div.active {
   display: flex;
@@ -606,16 +607,20 @@ main .visual .tab-child01 strong a, main .visual .tab-child02 strong a, main .vi
   font-size: 20px;
   text-decoration: none;
   z-index: -1;
+  transition: 0.8s;
 }
 main .visual .tab-child01 strong img, main .visual .tab-child02 strong img, main .visual .tab-child03 strong img {
   width: 126px;
   height: 126px;
   transform: translate(-10%, 150%);
-  z-index: 2;
+  z-index: 20;
 }
 main .visual .tab-child01 strong:hover img, main .visual .tab-child02 strong:hover img, main .visual .tab-child03 strong:hover img {
   transform: translate(-10%, -20%);
-  transition: 0.5s;
+  z-index: 20;
+}
+main .visual .tab-child01 strong:hover a, main .visual .tab-child02 strong:hover a, main .visual .tab-child03 strong:hover a {
+  opacity: 0;
 }
 main .visual .circle {
   width: 120px;
@@ -750,16 +755,16 @@ main .business .t-title h2 {
 main .business .t-title h2 span {
   color: #787878;
 }
-main .business .b-body {
+main .business .bBody {
   text-align: left;
   margin: 150px 0;
 }
-main .business .b-body .accordion {
+main .business .bBody .accordion {
   width: 100%;
   margin: 50px auto;
   display: flex;
 }
-main .business .b-body .accordion li {
+main .business .bBody .accordion li {
   height: 444px;
   padding: 135px 80px;
   border-radius: 20px;
@@ -767,57 +772,57 @@ main .business .b-body .accordion li {
   flex-grow: 1;
   transition: 1.5s;
 }
-main .business .b-body .accordion li .txt-wrap {
+main .business .bBody .accordion li .txt-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-main .business .b-body .accordion li .txt-wrap .ver {
+main .business .bBody .accordion li .txt-wrap .ver {
   font-size: 32px;
   writing-mode: vertical-lr;
 }
-main .business .b-body .accordion li .txt-wrap .gone {
+main .business .bBody .accordion li .txt-wrap .gone {
   text-align: left;
   display: none;
   writing-mode: sideways-lr;
 }
-main .business .b-body .accordion li .txt-wrap .gone strong {
+main .business .bBody .accordion li .txt-wrap .gone strong {
   font-size: 32px;
 }
-main .business .b-body .accordion li .txt-wrap .gone p {
+main .business .bBody .accordion li .txt-wrap .gone p {
   font-size: 18px;
   font-weight: 300;
   margin: 10% 0 5% 0;
 }
-main .business .b-body .accordion li .txt-wrap .gone button {
+main .business .bBody .accordion li .txt-wrap .gone button {
   width: 56px;
   height: 56px;
   background-color: #E1002A;
   border-radius: 50%;
   border: none;
 }
-main .business .b-body .accordion li:hover {
+main .business .bBody .accordion li:hover {
   flex-grow: 10;
 }
-main .business .b-body .accordion li:hover .txt-wrap .ver {
+main .business .bBody .accordion li:hover .txt-wrap .ver {
   display: none;
   transition: 1s;
 }
-main .business .b-body .accordion li:hover .txt-wrap .gone {
+main .business .bBody .accordion li:hover .txt-wrap .gone {
   display: block;
   transition: 1s;
 }
-main .business .b-body .accordion .pack01 {
+main .business .bBody .accordion .pack01 {
   background-image: url("../img/index/content_business/main_section_business_slide04.png");
 }
-main .business .b-body .accordion .pack02 {
+main .business .bBody .accordion .pack02 {
   background-image: url("../img/index/content_business/main_section_business_slide03.png");
 }
-main .business .b-body .accordion .pack03 {
+main .business .bBody .accordion .pack03 {
   background-image: url("../img/index/content_business/main_section_business_slide02.png");
 }
-main .business .b-body .accordion .pack04 {
+main .business .bBody .accordion .pack04 {
   background-image: url("../img/index/content_business/main_section_business_slide01.png");
 }
 
@@ -898,7 +903,7 @@ main .business .b-body .accordion .pack04 {
     padding-right: 3%;
   }
   main .visual .loading {
-    bottom: 5%;
+    bottom: 26%;
   }
   main .visual .tab {
     overflow: hidden;
@@ -954,6 +959,9 @@ main .business .b-body .accordion .pack04 {
   main .visual .tab-child01 strong:hover img, main .visual .tab-child02 strong:hover img {
     display: none;
   }
+  main .visual .tab-child01 strong:hover a, main .visual .tab-child02 strong:hover a {
+    opacity: 1;
+  }
   main .visual .tab-child03 {
     left: 10%;
     bottom: 14%;
@@ -983,7 +991,10 @@ main .business .b-body .accordion .pack04 {
     display: none;
   }
   main .visual .tab-child03 strong:hover img {
-    display: flex;
+    display: none;
+  }
+  main .visual .tab-child03 strong:hover a {
+    opacity: 1;
   }
   main .visual .circle {
     bottom: -9%;
@@ -1053,11 +1064,11 @@ main .business .b-body .accordion .pack04 {
   main .business .t-title h2 {
     font-size: 30px;
   }
-  main .business .b-body {
+  main .business .bBody {
     overflow: hidden;
     margin: 0 0;
   }
-  main .business .b-body .accordion {
+  main .business .bBody .accordion {
     width: 1060px;
     margin: 5% auto;
     display: flex;
@@ -1065,28 +1076,31 @@ main .business .b-body .accordion .pack04 {
     align-items: center;
     text-align: center;
   }
-  main .business .b-body .accordion li {
+  main .business .bBody .accordion li {
     width: 25%;
     height: 320px;
     padding: 0px 0px;
     margin-right: 10px;
   }
-  main .business .b-body .accordion li .txt-wrap .ver {
+  main .business .bBody .accordion li .txt-wrap .ver {
     display: none;
   }
-  main .business .b-body .accordion li .txt-wrap .gone {
+  main .business .bBody .accordion li .txt-wrap .gone {
     text-align: left;
     display: flex;
     flex-direction: column;
     padding: 72px 18px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone strong {
+  main .business .bBody .accordion li .txt-wrap .gone strong {
     font-size: 21px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone p {
+  main .business .bBody .accordion li .txt-wrap .gone p {
     font-size: 16px;
     margin: 10px 0;
     font-weight: 400;
+  }
+  main .business .bBody .accordion li:hover {
+    flex-grow: 1;
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
@@ -1165,7 +1179,7 @@ main .business .b-body .accordion .pack04 {
     padding-right: 3%;
   }
   main .visual .loading {
-    bottom: 5%;
+    bottom: 26%;
   }
   main .visual .tab .tab-label label {
     left: -25%;
@@ -1217,6 +1231,9 @@ main .business .b-body .accordion .pack04 {
   main .visual .tab-child01 strong:hover img, main .visual .tab-child02 strong:hover img {
     display: none;
   }
+  main .visual .tab-child01 strong:hover a, main .visual .tab-child02 strong:hover a {
+    opacity: 1;
+  }
   main .visual .tab-child03 {
     left: 10%;
     bottom: 14%;
@@ -1247,6 +1264,9 @@ main .business .b-body .accordion .pack04 {
   }
   main .visual .tab-child03 strong:hover img {
     display: none;
+  }
+  main .visual .tab-child03 strong:hover a {
+    opacity: 1;
   }
   main .visual .circle {
     bottom: -9%;
@@ -1317,11 +1337,11 @@ main .business .b-body .accordion .pack04 {
   main .business .t-title h2 span {
     color: #787878;
   }
-  main .business .b-body {
+  main .business .bBody {
     overflow: hidden;
     margin: 0 0;
   }
-  main .business .b-body .accordion {
+  main .business .bBody .accordion {
     margin: 5% auto;
     width: 1060px;
     display: flex;
@@ -1329,28 +1349,31 @@ main .business .b-body .accordion .pack04 {
     align-items: center;
     text-align: center;
   }
-  main .business .b-body .accordion li {
+  main .business .bBody .accordion li {
     width: 25%;
     height: 320px;
     padding: 0px 0px;
     margin-right: 10px;
   }
-  main .business .b-body .accordion li .txt-wrap .ver {
+  main .business .bBody .accordion li .txt-wrap .ver {
     display: none;
   }
-  main .business .b-body .accordion li .txt-wrap .gone {
+  main .business .bBody .accordion li .txt-wrap .gone {
     text-align: left;
     display: flex;
     flex-direction: column;
     padding: 72px 18px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone strong {
+  main .business .bBody .accordion li .txt-wrap .gone strong {
     font-size: 21px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone p {
+  main .business .bBody .accordion li .txt-wrap .gone p {
     font-size: 16px;
     margin: 10px 0;
     font-weight: 400;
+  }
+  main .business .bBody .accordion li:hover {
+    flex-grow: 1;
   }
 }
 /*==============================태블릿768=============================================*/
@@ -1430,7 +1453,7 @@ main .business .b-body .accordion .pack04 {
     padding-right: 3%;
   }
   main .visual .loading {
-    bottom: 5%;
+    bottom: 26%;
   }
   main .visual .tab .tab-label label {
     left: -13%;
@@ -1483,6 +1506,9 @@ main .business .b-body .accordion .pack04 {
   main .visual .tab-child01 strong:hover img, main .visual .tab-child02 strong:hover img {
     display: none;
   }
+  main .visual .tab-child01 strong:hover a, main .visual .tab-child02 strong:hover a {
+    opacity: 1;
+  }
   main .visual .tab-child03 {
     left: 10%;
     bottom: -5%;
@@ -1513,6 +1539,9 @@ main .business .b-body .accordion .pack04 {
   }
   main .visual .tab-child03 strong:hover img {
     display: none;
+  }
+  main .visual .tab-child03 strong:hover a {
+    opacity: 1;
   }
   main .visual .circle {
     bottom: -9%;
@@ -1573,11 +1602,11 @@ main .business .b-body .accordion .pack04 {
   main .business .t-title h2 {
     font-size: 30px;
   }
-  main .business .b-body {
+  main .business .bBody {
     overflow: hidden;
     margin: 0 0;
   }
-  main .business .b-body .accordion {
+  main .business .bBody .accordion {
     margin: 5% auto;
     width: 1060px;
     display: flex;
@@ -1585,27 +1614,30 @@ main .business .b-body .accordion .pack04 {
     align-items: center;
     text-align: center;
   }
-  main .business .b-body .accordion li {
+  main .business .bBody .accordion li {
     width: 25%;
     height: 320px;
     padding: 0px 0px;
     margin-right: 10px;
   }
-  main .business .b-body .accordion li .txt-wrap .ver {
+  main .business .bBody .accordion li .txt-wrap .ver {
     display: none;
   }
-  main .business .b-body .accordion li .txt-wrap .gone {
+  main .business .bBody .accordion li .txt-wrap .gone {
     text-align: left;
     display: flex;
     flex-direction: column;
     padding: 72px 18px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone strong {
+  main .business .bBody .accordion li .txt-wrap .gone strong {
     font-size: 21px;
   }
-  main .business .b-body .accordion li .txt-wrap .gone p {
+  main .business .bBody .accordion li .txt-wrap .gone p {
     font-size: 16px;
     margin: 10px 0;
     font-weight: 400;
+  }
+  main .business .bBody .accordion li:hover {
+    flex-grow: 1;
   }
 }/*# sourceMappingURL=index.css.map */

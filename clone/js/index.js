@@ -84,6 +84,34 @@ function loop(){
     slideInterval = setInterval(slidePlay,5000,'next')
 }
 
+//////////////pc사이즈 이하 아코디언->스와이퍼 ////////////////////
+const swBbody = document.querySelector('main .business .bBody');
+const swAccordion = document.querySelector('main .business .bBody .accordion');
+const swPackNum = document.querySelectorAll('main .business .bBody .accordion li');
+
+if (document.body.clientWidth < 1280) {
+    //pc이외에 클래스 추가하기
+    swBbody.classList.add('swiper');
+    swBbody.classList.add('mySwiper');
+    //swBbody.classList.add('swiper mySwiper');
+    swAccordion.classList.add('swiper-wrapper');
+    swPackNum.forEach(function(ele,key){
+        swPackNum[key].classList.add('swiper-slide');
+    })
+
+    //스와이퍼 스크립트
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+    //아코디언 지우기
+    
+}
 
 
 
