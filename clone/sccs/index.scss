@@ -52,6 +52,17 @@ header{
             a:nth-child(3),a:nth-child(4){display: none;}
         }
     }
+    .menuDetail{
+            .wholeMenuDetail{
+                @include flex(){flex-direction: row};
+                width: 90%;
+                margin: auto 300px;
+                ul{
+                    border: 1px solid red;
+                    li{}
+                }
+            }
+        }
     &:hover .head-top a, &:hover .head-area .dropdown a{
         color: #222;
     }
@@ -83,7 +94,7 @@ main{
             width: 80%;
         }
         .loading{
-            z-index: 10;
+            z-index: 3;
             width: 85%; height: 80px;
             position: absolute; left: 50%; bottom: 15%;
             transform: translate(-50%, -50%);
@@ -167,7 +178,7 @@ main{
                     color: #fff;
                     font-size: 20px;
                     text-decoration: none;
-                    z-index: -1;
+                    z-index: 10;
                     transition: .8s;
                 }
                 img{

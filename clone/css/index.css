@@ -443,6 +443,18 @@ header .head-area .icon a:nth-child(1), header .head-area .icon a:nth-child(2) {
 header .head-area .icon a:nth-child(3), header .head-area .icon a:nth-child(4) {
   display: none;
 }
+header .menuDetail .wholeMenuDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  width: 90%;
+  margin: auto 300px;
+}
+header .menuDetail .wholeMenuDetail ul {
+  border: 1px solid red;
+}
 header:hover .head-top a, header:hover .head-area .dropdown a {
   color: #222;
 }
@@ -482,7 +494,7 @@ main .visual h1 {
   width: 80%;
 }
 main .visual .loading {
-  z-index: 10;
+  z-index: 3;
   width: 85%;
   height: 80px;
   position: absolute;
@@ -606,7 +618,7 @@ main .visual .tab-child01 strong a, main .visual .tab-child02 strong a, main .vi
   color: #fff;
   font-size: 20px;
   text-decoration: none;
-  z-index: -1;
+  z-index: 10;
   transition: 0.8s;
 }
 main .visual .tab-child01 strong img, main .visual .tab-child02 strong img, main .visual .tab-child03 strong img {

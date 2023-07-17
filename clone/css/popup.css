@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+.onedayPopup{
+    width: 660px; z-index: 20;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);background-color: #fff;
+}
+.popHead{width: 100%;}
+.popFoot{
+    width: 97%; margin: 1.2%; 
+    display: flex; justify-content: space-between; align-items: center;}
+.popFoot .leftFoot{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px; font-weight: 400;
+    color: #555;
+    display: flex; text-align: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 1% 1% 1%; 
+}
+.leftFoot input{
+    width: 20px;
+    height: 21px;
+    appearance: none;cursor: pointer; 
+    background-image: url("../img/index/popup_checkbox_default.svg");
+    }
+.leftFoot label{cursor: pointer; margin-left: 5px;}
+.leftFoot input:checked{
+    background-image: url("../img/index/popup_checkbox_checked.svg");
+}
