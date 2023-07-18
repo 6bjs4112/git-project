@@ -108,12 +108,33 @@ if (document.body.clientWidth < 1280) {
           clickable: true,
         },
       });
+}//end 아코디언->스와이프
 
-    //아코디언 지우기
-    
-}
+///////////////////////비주얼탭 오토플레이///////////////////////////////////////////////
+const loadingBarGauge = document.querySelector('.loading .progress_bar .progress_gauge');
+const visaulTabs = document.querySelectorAll('main .visual .tab input');
+const tabClick = document.querySelectorAll('main .visual .tab .tab-label label');
 
+//라디오 체크에 반응하게 
+tabClick.forEach(function(label,key){
+    label.onclick = function(){
+        
+    }
+})
 
+//기본 실행 로딩바
+let autoNum = 0;
+let visualLoading = setInterval(function(){
+    if(autoNum<1000){
+        autoNum++;
+        loadingBarGauge.style =`width:${autoNum/10}%`;
+    }else{
+        clearInterval(visualLoading);
+        autoNum=0;
+        //다음탭 체크하기
+    }
+},10)
+visualLoading();
 
 
 

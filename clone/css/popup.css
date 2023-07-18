@@ -4,6 +4,7 @@
     width: 660px; z-index: 20;
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);background-color: #fff;
+    box-shadow: 4px 20px 40px rgba(0, 0, 0, 0.15);
 }
 .popHead{width: 100%;}
 .popFoot{
@@ -27,4 +28,9 @@
 .leftFoot label{cursor: pointer; margin-left: 5px;}
 .leftFoot input:checked{
     background-image: url("../img/index/popup_checkbox_checked.svg");
+}
+@media (max-width: 767px){ 
+    .onedayPopup{ width: 90%; margin: 20% auto; top: 25%; }
+    .onedayPopup img{width: 100%;}
+    .popFoot .leftFoot{font-size: 1rem;}
 }

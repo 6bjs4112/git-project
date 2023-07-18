@@ -5,11 +5,11 @@ header{
     position: absolute; left: 0; top: 0;
     width: 100%;
     z-index: 2;
-    transition: 0.5s;
     .bot{margin: 0px; display: none;}
     &:hover .bot{display: block;}
-    &:hover{
+    &:hover, &:hover .hoverBox{
         background-color: #fff; z-index: 1;
+        transition: .5s;
     }
     .head-top{
         width: 100%;
@@ -28,41 +28,49 @@ header{
     }
     hr{width: 100%;}
     .head-area{
+        height: 50%;
         padding: 0 5%;
-        @include flex(){};
+        @include flex(center, center){};
         .logo{ 
-            display: flex;
-            flex-grow: 2; left: 0;
+            // position: absolute; left: 2%; top: 9%;
+            flex-grow: 1;
             img:nth-of-type(1){display: block;}
             img:nth-of-type(2){display: none;}
         }
-        .dropdown{@include flex(){flex-grow: 6; };
-            a{
-                font-size: 18px; 
-                color: #fff;
-                text-decoration: none;
-                left: 50%;
-                padding: 28px 40px;
-                border-bottom: 2px solid transparent;
+        .dropdown{
+            @include flex(space-evenly,flex-start){flex-grow: 8; };
+            div{@include flex(){flex-direction: column};
+            position: relative;
+                .gnb{
+                    font-size: 18px; 
+                    color: #fff;
+                    text-decoration: none;
+                    left: 50%;
+                    padding: 28px 40px;
+                    border-bottom: 2px solid transparent;
+                }
+                .skip{
+                    display: none;
+                    position: absolute; top: 100%;
+                    margin-top: 10px; font-weight: 300;
+                    z-index: 10;
+                    li { 
+                        display: flex; justify-content: center;
+                        a{padding: 5px 0; color: #222;}
+                        .act{
+                            font-weight: 500;
+                            &:hover{color:#CA2C52;transition: .5s;}
+                        }
+                    }
+                }
             }
         }
-        .icon{ flex-grow: 1; text-align: right; z-index: 2;
+        .icon{ flex-grow: 1; text-align: right; z-index: 2; 
             a{padding: 10px;}
             a:nth-child(1),a:nth-child(2){display: inline-block;}
             a:nth-child(3),a:nth-child(4){display: none;}
         }
     }
-    .menuDetail{
-            .wholeMenuDetail{
-                @include flex(){flex-direction: row};
-                width: 90%;
-                margin: auto 300px;
-                ul{
-                    border: 1px solid red;
-                    li{}
-                }
-            }
-        }
     &:hover .head-top a, &:hover .head-area .dropdown a{
         color: #222;
     }
@@ -74,11 +82,13 @@ header{
         a:nth-child(1),a:nth-child(2){display: none;}
         a:nth-child(3),a:nth-child(4){display: inline-block;}
     }
-    .head-area .dropdown a:hover{
+    .head-area .dropdown .gnb:hover{
         color:#CA2C52; transition: .5s;
         border-bottom: 2px solid #CA2C52;
     }
-    .head-area .dropdown a:hover::after{border-bottom: 2px solid #CA2C52;}
+    .head-area .dropdown .gnb:hover::after{border-bottom: 2px solid #CA2C52;}
+    .hoverBox{width: 100%; height: 500%; background-color: transparent;}
+    &:hover .head-area .dropdown div .skip{display: block;}
 }//end header
 main{
     .visual{
@@ -108,16 +118,17 @@ main{
                     position: absolute; left: 0; top: -2px;
                     height: 5px; 
                     background-color: #fff;
+                    width: 5%;
 
                     animation-name: loading-bar;
                     animation-duration: 5s;
                     animation-iteration-count: infinite;
                     animation-timing-function: ease-out;
                 }
-                @keyframes loading-bar {
-                    0%{width: 0;}
-                    100%{width: 100%;}
-                }
+                // @keyframes loading-bar {
+                //     0%{width: 0;}
+                //     100%{width: 100%;}
+                // }
             }
         }
         .tab{
