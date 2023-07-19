@@ -21,4 +21,14 @@ jQuery(document).ready(function($){
             popupAll.style='display: none;'
         }else{popupAll.style='display: block;'}
     });
+
+    // $('body').prepend('<div class="menu_moblie" ></div>');
+    // $('.menu_moblie').load('./mobile_menu.html article',function(){
+    //     $('.mobile_menu_wrap .head-area .dropdown div').on('click',function(e){
+    //         e.preventDefault();
+    //         $('.mobile_menu_wrap .head-area .dropdown div>ul').stop().slideUp();
+    //         $(this).find('ul').stop().slideToggle();        
+    //         $(this).toggleClass('active')
+    //     })  
+    // })
 });

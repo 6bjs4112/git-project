@@ -563,12 +563,17 @@ main .visual .tab .tab-label label {
   font-size: 18px;
   color: #fff;
   font-weight: lighter;
+  opacity: 0.7;
+  transition: 0.5s;
 }
 main .visual .tab .tab-label label:nth-of-type(2) {
   transform: translateX(300px);
 }
 main .visual .tab .tab-label label:nth-of-type(3) {
   transform: translateX(450px);
+}
+main .visual .tab .tab-label label:hover, main .visual .tab .tab-label label.active {
+  opacity: 1;
 }
 main .visual .tab .tab-label label:hover::after, main .visual .tab .tab-label label.active::after {
   display: inline-block;
@@ -578,6 +583,7 @@ main .visual .tab .tab-label label:hover::after, main .visual .tab .tab-label la
   background-color: #CA2C52;
   border-radius: 50%;
   transform: translateY(-15px);
+  opacity: 1;
 }
 main .visual .tab .tab-wrap {
   overflow-x: hidden;
@@ -754,10 +760,9 @@ main .news .r-body li:nth-child(4) .slide figure img {
 }
 main .news .r-body li:nth-child(4) .ctrl-slide {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  margin-left: 360px;
 }
 main .news .r-body li:nth-child(4) .ctrl-slide p {
   font-size: 18px;
@@ -870,7 +875,7 @@ main .business .bBody .accordion .pack04 {
     display: none;
   }
   header:hover {
-    display: none;
+    pointer-events: none;
   }
   header .head-top {
     display: none;

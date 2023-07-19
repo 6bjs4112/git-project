@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+*{ box-sizing: border-box; }
+html, body{
+    margin: 0; padding: 0; 
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}
+h1, h2,h3,h4, p, figure{margin:0;}
+ul, li, ol{list-style-type: none; margin: 0; padding: 0;}
+strong{margin: 0; padding: 0; }
+table{border-collapse: collapse;}
+a{text-decoration: none;}
+img{vertical-align: middle;}
+button{margin: 0; pad: 0; border: 0;}
+
+
+.mobile_menu_wrap{
+    width: 100%; display: flex; flex-direction: column; 
+    position: absolute; top: 0; left: 0;
+}
+.mobile_menu_wrap .mHead-top{
+    background-color: #374058; padding: 1rem .5rem; 
+    display: flex; justify-content: space-between; align-items: center; text-align: center;
+}
+.mobile_menu_wrap .mHead-top .x img{position: absolute; top: 3%; right: 3%;}
+.mobile_menu_wrap .mHead-top .wrap_a{ display: flex; flex-wrap: wrap;}
+.mobile_menu_wrap .mHead-top .wrap_a a{
+    padding: 2% 4%;
+    display: flex; align-items: center;
+    color:#fff; 
+    font-size: 1rem; font-weight: 600;
+}
+.mobile_menu_wrap .mHead-area .mDropdown div a{
+    color: #222; 
+    border-bottom: 1px solid #ddd;
+
+    padding: 2.6rem 4rem 2.6rem 4rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+
+    display: block;
+    position: relative;
+}
+.mobile_menu_wrap .mHead-area .mDropdown div .mGnb::after{
+    content:url('../img/index/header/icon_gnb_arw_haschild.svg');
+    position: absolute; right: 10%; top: 30%; 
+}
+.mobile_menu_wrap .mHead-area .mDropdown div .mSkip{
+    display: none;
+    color: #4A5677; background-color: #F8F8F8; 
+    border-left:8px solid #4A5677; border-bottom: 1px solid #ddd;
+}
+.mobile_menu_wrap .mHead-area .mDropdown div .mSkip a{
+    color: #4A5677; 
+    font-size: 1.1rem; padding: 1rem;
+}
+.mobile_menu_wrap .mHead-area .mDropdown div.active .mSkip{display: block;}
+.mobile_menu_wrap .mHead-area .mDropdown div.active .mGnb::after{transform: rotate(180deg);}
+
+/* 옆으로 치워두기 */
+.mobile_menu_wrap{transform: translateX(100%);}
