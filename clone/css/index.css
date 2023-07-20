@@ -365,10 +365,16 @@ header .bot {
 header:hover .bot {
   display: block;
 }
-header:hover, header:hover .hoverBox {
+header:hover {
   background-color: #fff;
   z-index: 1;
   transition: 0.5s;
+}
+header:hover .hoverBox {
+  background-color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  height: 200px;
 }
 header .head-top {
   width: 100%;
@@ -498,7 +504,7 @@ header .head-area .dropdown .gnb:hover::after {
 }
 header .hoverBox {
   width: 100%;
-  height: 500%;
+  height: 0;
   background-color: transparent;
 }
 header:hover .head-area .dropdown div .skip {
@@ -865,68 +871,33 @@ main .business .bBody .accordion .pack04 {
 /*==============================모바일480=============================================*/
 @media (max-width: 480px) {
   header {
+    display: none;
+  }
+  .mobile_header {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100px;
+    z-index: 2;
   }
-  header .bot {
-    display: none;
+  .mobile_header .mHead {
+    padding: 0 0 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: center;
   }
-  header:hover .bot {
-    display: none;
-  }
-  header:hover {
-    pointer-events: none;
-  }
-  header .head-top {
-    display: none;
-  }
-  header hr {
-    display: none;
-  }
-  header .head-area .dropdown {
-    display: none;
-  }
-  header .head-area .logo img:nth-of-type(1) {
+  .mobile_header .mHead .mLogo {
     display: block;
     transform: translate(-10%, 15%);
   }
-  header .head-area .icon a {
-    padding: 10px;
-  }
-  header .head-area .icon a:nth-child(3), header .head-area .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .icon a:nth-child(1), header .head-area .icon a:nth-child(2) {
+  .mobile_header .mHead .mIcon {
     display: flex;
-    position: absolute;
-    right: 1%;
-    top: 10%;
+    justify-content: flex-end;
+    width: 20%;
   }
-  header .head-area .icon a:nth-child(1) {
-    position: absolute;
-    right: 10%;
-    top: 10%;
-  }
-  header:hover .head-top a, header:hover .head-area .dropdown a {
-    display: none;
-  }
-  header:hover .logo img:nth-of-type(1), header:hover .head-top a img:nth-of-type(1) {
-    display: flex;
-  }
-  header:hover .logo img:nth-of-type(2), header:hover .head-top a img:nth-of-type(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(1), header:hover .icon a:nth-child(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(3), header:hover .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .dropdown a:hover {
-    display: none;
-  }
-  header .head-area .dropdown a:hover::after {
-    display: none;
+  .mobile_header .mHead .mIcon a {
+    padding: 0 5%;
   }
   main .visual {
     width: 100%;
@@ -1141,68 +1112,33 @@ main .business .bBody .accordion .pack04 {
 }
 @media (min-width: 481px) and (max-width: 767px) {
   header {
+    display: none;
+  }
+  .mobile_header {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100px;
+    z-index: 2;
   }
-  header .bot {
-    display: none;
+  .mobile_header .mHead {
+    padding: 0 0 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: center;
   }
-  header:hover .bot {
-    display: none;
-  }
-  header:hover {
-    display: none;
-  }
-  header .head-top {
-    display: none;
-  }
-  header hr {
-    display: none;
-  }
-  header .head-area .dropdown {
-    display: none;
-  }
-  header .head-area .logo img:nth-of-type(1) {
+  .mobile_header .mHead .mLogo {
     display: block;
     transform: translate(-10%, 15%);
   }
-  header .head-area .icon a {
-    padding: 10px;
-  }
-  header .head-area .icon a:nth-child(3), header .head-area .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .icon a:nth-child(1), header .head-area .icon a:nth-child(2) {
+  .mobile_header .mHead .mIcon {
     display: flex;
-    position: absolute;
-    right: 1%;
-    top: 10%;
+    justify-content: flex-end;
+    width: 20%;
   }
-  header .head-area .icon a:nth-child(1) {
-    position: absolute;
-    right: 10%;
-    top: 10%;
-  }
-  header:hover .head-top a, header:hover .head-area .dropdown a {
-    display: none;
-  }
-  header:hover .logo img:nth-of-type(1), header:hover .head-top a img:nth-of-type(1) {
-    display: flex;
-  }
-  header:hover .logo img:nth-of-type(2), header:hover .head-top a img:nth-of-type(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(1), header:hover .icon a:nth-child(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(3), header:hover .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .dropdown a:hover {
-    display: none;
-  }
-  header .head-area .dropdown a:hover::after {
-    display: none;
+  .mobile_header .mHead .mIcon a {
+    padding: 0 5%;
   }
   main .visual {
     width: 100%;
@@ -1415,68 +1351,33 @@ main .business .bBody .accordion .pack04 {
 /*==============================태블릿768=============================================*/
 @media (min-width: 768px) and (max-width: 1279px) {
   header {
+    display: none;
+  }
+  .mobile_header {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100px;
+    z-index: 2;
   }
-  header .bot {
-    display: none;
+  .mobile_header .mHead {
+    padding: 0 0 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: center;
   }
-  header:hover .bot {
-    display: none;
-  }
-  header:hover {
-    display: none;
-  }
-  header .head-top {
-    display: none;
-  }
-  header hr {
-    display: none;
-  }
-  header .head-area .dropdown {
-    display: none;
-  }
-  header .head-area .logo img:nth-of-type(1) {
+  .mobile_header .mHead .mLogo {
     display: block;
     transform: translate(-10%, 15%);
   }
-  header .head-area .icon a {
-    padding: 10px;
-  }
-  header .head-area .icon a:nth-child(3), header .head-area .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .icon a:nth-child(1), header .head-area .icon a:nth-child(2) {
+  .mobile_header .mHead .mIcon {
     display: flex;
-    position: absolute;
-    right: 1%;
-    top: 10%;
+    justify-content: flex-end;
+    width: 20%;
   }
-  header .head-area .icon a:nth-child(1) {
-    position: absolute;
-    right: 10%;
-    top: 10%;
-  }
-  header:hover .head-top a, header:hover .head-area .dropdown a {
-    display: none;
-  }
-  header:hover .logo img:nth-of-type(1), header:hover .head-top a img:nth-of-type(1) {
-    display: flex;
-  }
-  header:hover .logo img:nth-of-type(2), header:hover .head-top a img:nth-of-type(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(1), header:hover .icon a:nth-child(2) {
-    display: none;
-  }
-  header:hover .icon a:nth-child(3), header:hover .icon a:nth-child(4) {
-    display: none;
-  }
-  header .head-area .dropdown a:hover {
-    display: none;
-  }
-  header .head-area .dropdown a:hover::after {
-    display: none;
+  .mobile_header .mHead .mIcon a {
+    padding: 0 5%;
   }
   main .visual {
     width: 100%;
@@ -1675,5 +1576,11 @@ main .business .bBody .accordion .pack04 {
   }
   main .business .bBody .accordion li:hover {
     flex-grow: 1;
+  }
+}
+/*==============================PC이상============================================*/
+@media (min-width: 1280px) {
+  .mobile_header {
+    display: none;
   }
 }/*# sourceMappingURL=index.css.map */

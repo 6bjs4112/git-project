@@ -7,10 +7,13 @@ header{
     z-index: 2;
     .bot{margin: 0px; display: none;}
     &:hover .bot{display: block;}
-    &:hover, &:hover .hoverBox{
+    &:hover{
         background-color: #fff; z-index: 1;
         transition: .5s;
     }
+    &:hover .hoverBox{
+        background-color: #fff; z-index: 1;
+        transition: .5s; height: 200px;}
     .head-top{
         width: 100%;
         padding: 0 5%;
@@ -87,7 +90,7 @@ header{
         border-bottom: 2px solid #CA2C52;
     }
     .head-area .dropdown .gnb:hover::after{border-bottom: 2px solid #CA2C52;}
-    .hoverBox{width: 100%; height: 500%; background-color: transparent;}
+    .hoverBox{width: 100%; height: 0; background-color: transparent;}
     &:hover .head-area .dropdown div .skip{display: block;}
 }//end header
 main{
@@ -348,47 +351,22 @@ main{
 }//end main
 /*==============================모바일480=============================================*/
 @media (max-width: 480px) {
-header{
-    // pointer-events: none;
+header{display: none;}
+.mobile_header{
+    position: absolute; left: 0; top: 0;
     width: 100%;
-    height: 100px;
-    .bot{display: none;}
-    &:hover .bot{display: none;}
-    &:hover{pointer-events: none;}
-    .head-top{display: none;}
-    hr{display: none;}
-    .head-area{ 
-        .dropdown{display: none;}
-        .logo{ 
-            img:nth-of-type(1){display: block; transform: translate(-10%, 15%);} }
-        .icon{ 
-            a{padding: 10px;}
-            a:nth-child(3),a:nth-child(4){display: none;}
-            a:nth-child(1),a:nth-child(2){
-                display:flex; 
-                position: absolute; right: 1%; top: 10%;
-            }
-            a:nth-child(1){
-                position: absolute; right: 10%; top: 10%;
-            }
+    z-index: 2;
+    .mHead{
+        padding: 0 0 0 5%;
+        @include flex(space-between,flex-end){};
+        .mLogo{display: block; transform: translate(-10%, 15%);}
+        .mIcon {
+            display: flex; justify-content: flex-end;
+            width: 20%;
+            a{ padding: 0 5%;}
         }
     }
-    &:hover .head-top a, &:hover .head-area .dropdown a{
-        display: none;;
-    }
-    &:hover .logo, &:hover .head-top a{
-        img:nth-of-type(1){display: flex;}
-        img:nth-of-type(2){display: none;}
-    }
-    &:hover .icon{
-        a:nth-child(1),a:nth-child(2){display: none;}
-        a:nth-child(3),a:nth-child(4){display: none;}
-    }
-    .head-area .dropdown a:hover{
-        display: none;
-    }
-    .head-area .dropdown a:hover::after{display: none;}
-}//end header
+}
 main{
     .visual{
         width: 100%;
@@ -517,48 +495,24 @@ main{
     }//end business
 }//end main
 }//end 모바일
+
 @media (min-width: 481px) and (max-width: 767px){
-    header{
-        // pointer-events: none;
+    header{display: none;}
+    .mobile_header{
+        position: absolute; left: 0; top: 0;
         width: 100%;
-        height: 100px;
-        .bot{display: none;}
-        &:hover .bot{display: none;}
-        &:hover{display: none;}
-        .head-top{display: none;}
-        hr{display: none;;}
-        .head-area{ 
-            .dropdown{display: none;}
-            .logo{ 
-                img:nth-of-type(1){display: block; transform: translate(-10%, 15%);} }
-            .icon{ 
-                a{padding: 10px;}
-                a:nth-child(3),a:nth-child(4){display: none;}
-                a:nth-child(1),a:nth-child(2){
-                    display:flex; 
-                    position: absolute; right: 1%; top: 10%;
-                }
-                a:nth-child(1){
-                    position: absolute; right: 10%; top: 10%;
-                }
+        z-index: 2;
+        .mHead{
+            padding: 0 0 0 5%;
+            @include flex(space-between,flex-end){};
+            .mLogo{display: block; transform: translate(-10%, 15%);}
+            .mIcon {
+                display: flex; justify-content: flex-end;
+                width: 20%;
+                a{ padding: 0 5%;}
             }
         }
-        &:hover .head-top a, &:hover .head-area .dropdown a{
-            display: none;;
-        }
-        &:hover .logo, &:hover .head-top a{
-            img:nth-of-type(1){display: flex;}
-            img:nth-of-type(2){display: none;}
-        }
-        &:hover .icon{
-            a:nth-child(1),a:nth-child(2){display: none;}
-            a:nth-child(3),a:nth-child(4){display: none;}
-        }
-        .head-area .dropdown a:hover{
-            display: none;
-        }
-        .head-area .dropdown a:hover::after{display: none;}
-    }//end header
+    }
     main{
         .visual{
             width: 100%;
@@ -695,47 +649,22 @@ main{
 } 
 /*==============================태블릿768=============================================*/
 @media (min-width: 768px) and (max-width: 1279px){
-    header{
-        // pointer-events: none;
+    header{display: none;}
+    .mobile_header{
+        position: absolute; left: 0; top: 0;
         width: 100%;
-        height: 100px;
-        .bot{display: none;}
-        &:hover .bot{display: none;}
-        &:hover{display: none;}
-        .head-top{display: none;}
-        hr{display: none;;}
-        .head-area{ 
-            .dropdown{display: none;}
-            .logo{ 
-                img:nth-of-type(1){display: block; transform: translate(-10%, 15%);} }
-            .icon{ 
-                a{padding: 10px;}
-                a:nth-child(3),a:nth-child(4){display: none;}
-                a:nth-child(1),a:nth-child(2){
-                    display:flex; 
-                    position: absolute; right: 1%; top: 10%;
-                }
-                a:nth-child(1){
-                    position: absolute; right: 10%; top: 10%;
-                }
+        z-index: 2;
+        .mHead{
+            padding: 0 0 0 5%;
+            @include flex(space-between,flex-end){};
+            .mLogo{display: block; transform: translate(-10%, 15%);}
+            .mIcon {
+                display: flex; justify-content: flex-end;
+                width: 20%;
+                a{ padding: 0 5%;}
             }
         }
-        &:hover .head-top a, &:hover .head-area .dropdown a{
-            display: none;;
-        }
-        &:hover .logo, &:hover .head-top a{
-            img:nth-of-type(1){display: flex;}
-            img:nth-of-type(2){display: none;}
-        }
-        &:hover .icon{
-            a:nth-child(1),a:nth-child(2){display: none;}
-            a:nth-child(3),a:nth-child(4){display: none;}
-        }
-        .head-area .dropdown a:hover{
-            display: none;
-        }
-        .head-area .dropdown a:hover::after{display: none;}
-    }//end header
+    }
     main{
         .visual{
             width: 100%;
@@ -858,4 +787,5 @@ main{
         }//end business
     }//end main
 }//end 태블릿
-
+/*==============================PC이상============================================*/
+@media (min-width: 1280px){.mobile_header{display: none;}}

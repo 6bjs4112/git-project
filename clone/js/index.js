@@ -65,13 +65,6 @@ function visualPlay(){
 function vloop(){
     visualLoading = setInterval(visualPlay,10)
 }
-
-/*==========familysite======================================familysite=======================================familysite===================familysite===========*/
-const elFamily = document.querySelector('.f-inner .familysite');
-
-elFamily.onclick = function(){
-    elFamily.classList.toggle('active');
-}
 /*==========ad-slide======================================card-ad=======================================familysite==============
 =====advertise===========*/
 const elSlide = document.querySelector('.card-ad figure');
@@ -142,16 +135,4 @@ if (document.body.clientWidth < 1280) {
         },
     });
 }//end 아코디언->스와이프
-////////////헤더 옮기기
-const moveMobileMenu = document.querySelector('.mobile_menu_wrap');
-const openMmenu = document.querySelector('.icon .mMenu'); 
-const closeMmenu = document.querySelector('.mobile_menu_wrap .mHead-top .x img'); 
 
-openMmenu.onclick=function(){
-    moveMobileMenu.style='transform: translateX(-100%)';
-    alert('눌렀나');
-}
-closeMmenu.onclick=function(){
-    moveMobileMenu.style='transform: translateX(100%)';
-    alert('눌렀나');
-}

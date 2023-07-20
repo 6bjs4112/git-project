@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
         function popClick(){
             if(checkbox.checked){
                 let popDay = new Date();
-                popDay.setSeconds(popDay.getSeconds()+10);
+                popDay.setDate(popDay.getDate()+10);
                 document.cookie = `event=oneday;expires=${popDay.toUTCString()}`;
             }
             popupAll.style='display: none;'

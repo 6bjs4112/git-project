@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 *{ box-sizing: border-box; }
 html, body{
     margin: 0; padding: 0; 
@@ -11,16 +11,17 @@ strong{margin: 0; padding: 0; }
 table{border-collapse: collapse;}
 a{text-decoration: none;}
 img{vertical-align: middle;}
-button{margin: 0; pad: 0; border: 0;}
+button{margin: 0; pad: 0; border: 0;} */
 
-
+.mobile_menu{ display: none; }
+.mobile_menu.active{ display: block; }
 .mobile_menu_wrap{
     width: 100%; display: flex; flex-direction: column; 
     position: absolute; top: 0; left: 0;
 }
 .mobile_menu_wrap .mHead-top{
     background-color: #374058; padding: 1rem .5rem; 
-    display: flex; justify-content: space-between; align-items: center; text-align: center;
+    display: flex; justify-content: space-between; align-items: flex-start; text-align: center;
 }
 .mobile_menu_wrap .mHead-top .x img{position: absolute; top: 3%; right: 3%;}
 .mobile_menu_wrap .mHead-top .wrap_a{ display: flex; flex-wrap: wrap;}
@@ -31,7 +32,7 @@ button{margin: 0; pad: 0; border: 0;}
     font-size: 1rem; font-weight: 600;
 }
 .mobile_menu_wrap .mHead-area .mDropdown div a{
-    color: #222; 
+    color: #222; background-color: #fff; 
     border-bottom: 1px solid #ddd;
 
     padding: 2.6rem 4rem 2.6rem 4rem;
@@ -56,6 +57,3 @@ button{margin: 0; pad: 0; border: 0;}
 }
 .mobile_menu_wrap .mHead-area .mDropdown div.active .mSkip{display: block;}
 .mobile_menu_wrap .mHead-area .mDropdown div.active .mGnb::after{transform: rotate(180deg);}
-
-/* 옆으로 치워두기 */
-.mobile_menu_wrap{transform: translateX(100%);}

@@ -18,7 +18,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="./css/mobile_menu.css">
-    
+    <script defer src="./js/reset.js"></script>    
 </head>
 
 <body>
@@ -54,10 +54,10 @@
                 <div>
                     <a href="./sub_business01.html" class="gnb">주요사업</a>
                     <ul class="skip">
-                        <li><a href="#" class="act">국제관광지원</a></li>
-                        <li><a href="#" class="act">국민관광지원</a></li>
-                        <li><a href="#" class="act">국민산업지원</a></li>
-                        <li><a href="#" class="act">디지털전환지원</a></li>
+                        <li><a href="./sub_business01.html" class="act">국제관광지원</a></li>
+                        <li><a href="./sub_business02.html" class="act">국민관광지원</a></li>
+                        <li><a href="./sub_business03.html" class="act">국민산업지원</a></li>
+                        <li><a href="./sub_business04.html" class="act">디지털전환지원</a></li>
                     </ul>
                 </div>
                 <div>
@@ -65,7 +65,7 @@
                     <ul class="skip">
                         <li><a href="#">KTO소식</a></li>
                         <li><a href="#">공고</a></li>
-                        <li><a href="#" class="act">보도자료</a></li>
+                        <li><a href="./sub_news.html" class="act">보도자료</a></li>
                         <li><a href="#">관광도우미</a></li>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
                 <div>
                     <a href="./sub_aboutkto.html" class="gnb">공사소개</a>
                     <ul class="skip">
-                        <li><a href="#" class="act">CEO인사말</a></li>
+                        <li><a href="./sub_aboutkto.html" class="act">CEO인사말</a></li>
                         <li><a href="#">조직도</a></li>
                         <li><a href="#">설립목적 및 비전</a></li>
                         <li><a href="#">오시는길</a></li>
@@ -108,8 +108,21 @@
             </div>
         </div>
         <hr class="bot">
-        <div class="hoverBox"><br><br><br><br><br><br><br><br></div>
-        <!-- 오버레이 -->
+        <div class="hoverBox"></div>    
+    </header>
+
+    <section class="mobile_header" >
+        <div class="mHead">
+            <a href="./index.html" class="mLogo">
+                <img src="./img/index/header/logo_kto_white.svg">
+            </a>
+            <div class="mIcon">
+                <a href=""><img src="./img/index/header/btn_header_search_w.svg"></a>
+                <a href="" class="mBtn"><img src="./img/index/header/btn_header_menuall_w.svg"></a>
+            </div>
+        </div>
+    </section>
+    <div class="mobile_menu">
         <div class="mobile_menu_wrap">
             <div class="mHead-top">
                 <div class="wrap_a">
@@ -122,7 +135,7 @@
                         <img src="./img/index/header/img_bi_w.svg">
                     </a>
                 </div>
-                <a class="x" href="#"><img src="./img/index/header/btn_header_close_white.svg"></a>
+                <a href="#" class="xBtn"><img src="./img/index/header/btn_header_close_white.svg"></a>
             </div><!-- end head-top-->
             <div class="mHead-area">
                 <nav class="mDropdown">
@@ -186,8 +199,7 @@
                 </nav>
             </div><!-- end head-area-->
         </div><!-- end mobile_menu_wrap-->
-
-    </header>
+    </div>
 
     <main>
         <div class="visual">
