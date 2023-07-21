@@ -10,6 +10,7 @@ const elMobileMenu = document.querySelector('.mobile_menu');
 const elHeader = document.querySelector('.mobile_header');
 const elMain = document.querySelector('main');
 const elTopBtn = document.querySelector('.page_up');
+const elFooter = document.querySelector('footer');
 
 const openMmenu = document.querySelector('.mobile_header .mHead .mIcon .mBtn'); 
 const closeMmenu = document.querySelector('.mobile_menu_wrap .mHead-top .xBtn'); 
@@ -21,6 +22,7 @@ openMmenu.onclick=function(e){
     elHeader.style=`display: none`;
     elMain.style=`display: none`;
     elTopBtn.style=`display: none`;
+    elFooter.style=`display: none`;
 }
 closeMmenu.onclick=function(){
     elMobileMenu.classList.remove('active');
@@ -28,6 +30,7 @@ closeMmenu.onclick=function(){
     elHeader.style=`display: block`;
     elMain.style=`display: block`;
     elTopBtn.style=`display: block`;
+    elFooter.style=`display: block`;
 }
 //아코디언
 $('.mobile_menu_wrap .mHead-area .mDropdown div').on('click',function(){
@@ -38,9 +41,7 @@ $('.mobile_menu_wrap .mHead-area .mDropdown div').on('click',function(){
 //모바일끝~===================================
 
 //서브페이지 헤드-nav
-const subNav = document.querySelector('.head-nav .nav-left li .findThis');
-const subNavBtn = document.querySelector('.head-nav .nav-left li:nth-of-type(2) a button');
-
-$('.head-nav .nav-left li:nth-of-type(2) a').on('click',function(){
-    $('.subNav-drop').stop().slidedown(); 
+$('.head-nav .nav-left li').on('click',function(){
+    $('li>div').stop().slideUp(); 
+    $(this).find('div').stop().slideToggle();
 })

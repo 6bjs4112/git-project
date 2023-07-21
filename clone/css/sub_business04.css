@@ -66,6 +66,9 @@ footer .f-inner .copyright div {
   font-weight: 400;
   margin: 1%;
 }
+footer .f-inner .copyright div a img {
+  transform: translateX(-10%) translateY(-5%);
+}
 footer .f-inner .copyright p {
   text-align: left;
   color: #555;
@@ -223,6 +226,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-4%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;
@@ -273,6 +277,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-3%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;
@@ -324,6 +329,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-3%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;
@@ -512,7 +518,6 @@ main .sub-inner .sub-head .head-nav {
   text-align: center;
   margin-top: 40px;
   background-color: #4A5677;
-  overflow: hidden;
   border-radius: 10px;
 }
 main .sub-inner .sub-head .head-nav .nav-left {
@@ -523,6 +528,7 @@ main .sub-inner .sub-head .head-nav .nav-left {
   width: 40%;
 }
 main .sub-inner .sub-head .head-nav .nav-left li {
+  position: relative;
   width: 100%;
   height: 64px;
   border-right: 2px solid rgba(255, 255, 255, 0.2);
@@ -530,6 +536,11 @@ main .sub-inner .sub-head .head-nav .nav-left li {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+}
+main .sub-inner .sub-head .head-nav .nav-left li:hover {
+  -webkit-text-decoration: 2px underline;
+          text-decoration: 2px underline;
+  color: white;
 }
 main .sub-inner .sub-head .head-nav .nav-left li:nth-of-type(1) {
   width: 40%;
@@ -547,12 +558,37 @@ main .sub-inner .sub-head .head-nav .nav-left li a {
 main .sub-inner .sub-head .head-nav .nav-left li button {
   background-color: transparent;
 }
+main .sub-inner .sub-head .head-nav .nav-left li a {
+  display: block;
+}
+main .sub-inner .sub-head .head-nav .nav-left li .subNav-drop {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  display: none;
+  z-index: 10;
+}
+main .sub-inner .sub-head .head-nav .nav-left li .subNav-drop a {
+  display: block;
+  background-color: #232939;
+  padding: 1rem 1.2rem;
+  text-align: left;
+  color: #fff;
+  width: 100%;
+  height: 64px;
+}
+main .sub-inner .sub-head .head-nav .nav-left li .subNav-drop a:hover {
+  -webkit-text-decoration: 2px underline;
+          text-decoration: 2px underline;
+  color: white;
+}
 main .sub-inner .sub-head .head-nav .nav-right {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  width: 15%;
+  width: 13%;
 }
 main .sub-inner .sub-head .head-nav .nav-right li {
   background-color: #CA2C52;
@@ -570,6 +606,10 @@ main .sub-inner .sub-head .head-nav .nav-right li:nth-child(1) {
   border-right: 2px solid rgba(255, 255, 255, 0.2);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
+}
+main .sub-inner .sub-head .head-nav .nav-right li:nth-child(2) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 main .sub-inner .sub-head .head-subject h2 {
   font-size: 36px;
