@@ -66,6 +66,9 @@ footer .f-inner .copyright div {
   font-weight: 400;
   margin: 1%;
 }
+footer .f-inner .copyright div a img {
+  transform: translateX(-10%) translateY(-5%);
+}
 footer .f-inner .copyright p {
   text-align: left;
   color: #555;
@@ -223,6 +226,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-4%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;
@@ -273,6 +277,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-3%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;
@@ -324,6 +329,7 @@ footer .page_up img {
     text-align: left;
     font-weight: 400;
     padding: 10px;
+    transform: translateX(-3%);
   }
   footer .f-inner .copyright .forMobile div a {
     padding: 5px 10px;

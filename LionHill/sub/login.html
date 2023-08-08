@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../common/reset.css">
+    <script defer="" src="../javascript/login.js"></script>
+</head>
+<body>
+    <div class="login_backg">
+        <article class="login">
+            <div class="login_head">
+                <div class="login_head_top">
+                    <figure><img src="./img/LionHill_logo/logo_horizontal.png"></figure>
+                    <a><img src="./img/members/btn_close.png"></a>
+                </div>
+                <div class="login_head_bot">
+                    <hr>
+                    <h2>로그인</h2>
+                </div>
+            </div>
+            <div class="login_body">
+                <div class="login_left">
+                    <div class="idpw">
+                        <input type="text" placeholder="이메일 주소">
+                        <input type="password" placeholder="비밀번호">
+                    </div>
+                    <div class="login_pageMove">
+                        <div class="checkbox">
+                            <input type="checkbox" id="cbox">
+                            <label for="cbox"></label>
+                        </div>
+                        <div class="btnLogin">
+                            <button>로그인</button>
+                            <!-- <a href="#">비밀번호 찾기</a> -->
+                            <a href="#">회원가입</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="login_right">
+                    <ul class="login_noneMember">
+                        <li>
+                            <a href="#"><span>비회원 로그인</span></a>
+                        </li>
+                    </ul>
+                    <ul class="login_kakao">
+                        <li onclick="kakaoLogin();">
+                            <a href="javascript:void(0)">
+                                <span>카카오 아이디로 로그인</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="login_google">
+                        <li id="GgCustomLogin">
+                            <a href="javascript:void(0)">
+                                <span>구글 아이디로 로그인</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
