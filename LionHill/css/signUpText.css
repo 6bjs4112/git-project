@@ -22,7 +22,7 @@
 .signUp_backg .signUp .signUp_head {
   width: 85%;
   margin: 0 auto;
-  padding: 7% 0;
+  padding: 7% 0 3% 0;
 }
 .signUp_backg .signUp .signUp_head .signUp_head_top {
   display: flex;
@@ -41,54 +41,33 @@
   background: #23402A;
   margin-top: 10px;
 }
-.signUp_backg .signUp .signUp_head .signUp_head_bot h2 {
-  margin-top: 2rem;
-  color: #23402A;
-  text-align: left;
-  font-size: 35px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.signUp_backg .signUp .signUp_head .signUp_head_bot h2 span {
-  font-weight: 400;
-}
 .signUp_backg .signUp .signUp_body {
   width: 85%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
-.signUp_backg .signUp .signUp_body .signUp_left {
-  width: 49%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.signUp_backg .signUp .signUp_body .signUp_left .signUp_email {
-  background: #EBEBEB;
-  width: 95%;
-  height: 93%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.signUp_backg .signUp .signUp_body .signUp_left .signUp_email a figure {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.signUp_backg .signUp .signUp_body .signUp_left .signUp_email a figure figcaption {
+.signUp_backg .signUp .signUp_body .signUp_left h2 {
   color: #23402A;
-  text-align: center;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
+  text-align: left;
+  font-size: 35px;
+  font-weight: 700;
   line-height: normal;
 }
+.signUp_backg .signUp .signUp_body .signUp_left h2 span {
+  font-weight: 400;
+}
+.signUp_backg .signUp .signUp_body .signUp_left p {
+  padding: 10% 0;
+  color: #23402A;
+  font-size: 16px;
+  font-weight: 400;
+}
+.signUp_backg .signUp .signUp_body .signUp_left p span {
+  font-weight: 700;
+}
 .signUp_backg .signUp .signUp_body .signUp_right {
+  border: 1px solid red;
   width: 49%;
   display: flex;
   flex-direction: column;
@@ -127,4 +106,4 @@
 }
 .signUp_backg .signUp .signUp_body .signUp_right .signUp_google li a span {
   color: #BD2E2E;
-}/*# sourceMappingURL=signUp.css.map */
+}/*# sourceMappingURL=signUpText.css.map */

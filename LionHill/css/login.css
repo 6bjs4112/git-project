@@ -10,6 +10,7 @@
   align-items: center;
 }
 .login_backg .login {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 864px;
   height: 55vh;
   border-radius: 29px;
@@ -74,16 +75,15 @@
   border: 2px solid #23402A;
   background: #FFF;
   margin-bottom: 15px;
+  padding: 5%;
 }
 .login_backg .login .login_body .login_left .idpw input::-moz-placeholder {
-  padding: 5%;
   color: #D9D9D9;
   text-align: left;
   font-size: 16px;
   font-weight: 600;
 }
 .login_backg .login .login_body .login_left .idpw input::placeholder {
-  padding: 5%;
   color: #D9D9D9;
   text-align: left;
   font-size: 16px;
