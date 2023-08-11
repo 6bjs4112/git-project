@@ -11,7 +11,7 @@
 .signUp_backg .signUp {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 864px;
-  height: 58vh;
+  padding-bottom: 50px;
   border-radius: 29px;
   background: #FFF;
   position: absolute;

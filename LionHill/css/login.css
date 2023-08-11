@@ -12,7 +12,7 @@
 .login_backg .login {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 864px;
-  height: 55vh;
+  padding-bottom: 50px;
   border-radius: 29px;
   background: #FFF;
   position: absolute;
