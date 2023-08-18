@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../common/reset.css">
     <script defer="" src="../javascript/newMember.js"></script>
 </head>
-<body>
+<body style="overflow-x: hidden">
     <div class="newMember_backg">
         <article class="newMember">
             <div class="newMember_head">
@@ -32,7 +32,7 @@
                         <li>
                             <p>이메일 주소<span> *</span></p>
                             <div class="email">
-                                <input type="text" placeholder="이메일 주소">
+                                <input type="text" placeholder="이메일 주소" class="emailInput">
                                 <button>전송하기</button>
                             </div>
                         </li>
@@ -65,11 +65,11 @@
                             
                         </li>
                     </ul>
-                    <div class="plz_agree">
+                    <div class="plz_agree" id="plzAgreeID">
                         <div class="agree_top">
                             <div>
                                 <!-- 전체 약관 동의 -->
-                                <input type="checkbox" id="all">
+                                <input type="checkbox" id="checkAll">
                                 <label for="all"></label>
                             </div>
                             <a href="#">전문보기 ></a>
@@ -101,7 +101,7 @@
                             </li>
                         </ul>
                         <div class="agree_bot">
-                            <button>가입하기</button>
+                            <button type="submit">가입하기</button>
                         </div>
                     </div>
                 </div>

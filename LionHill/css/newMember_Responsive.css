@@ -1,8 +1,14 @@
 @charset "UTF-8";
 /*============모바일~480============================*/
 @media (max-width: 480px) {
+  .newMember_backg {
+    position: relative;
+    width: 100%;
+    height: 1100px;
+  }
   .newMember_backg .newMember {
     width: 400px;
+    transform: translate(-50%, -48%);
   }
   .newMember_backg .newMember .newMember_body {
     flex-direction: column;
@@ -18,8 +24,14 @@
 }
 /*=================태블릿 481px ~ 1439px  ===========*/
 @media (min-width: 481px) and (max-width: 1439px) {
+  .newMember_backg {
+    position: relative;
+    width: 100%;
+    height: 1250px;
+  }
   .newMember_backg .newMember {
     width: 600px;
+    transform: translate(-50%, -50%);
   }
   .newMember_backg .newMember .newMember_body {
     flex-direction: column;
@@ -39,7 +51,10 @@
     width: 100%;
   }
   .newMember_backg .newMember .newMember_body .newMember_right .info_input li button {
-    padding: 5%;
+    padding: 0%;
+  }
+  .newMember_backg .newMember .newMember_body .newMember_right .info_input li .emailInput {
+    padding: 0 0 0 5%;
   }
   .newMember_backg .newMember .newMember_body .newMember_right .info_input .names {
     justify-content: flex-start;
