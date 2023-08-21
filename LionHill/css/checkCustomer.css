@@ -29,7 +29,6 @@
 }
 .checkCus .checkCus_body {
   width: 60%;
-  height: 556px;
   margin: 70px auto 0 auto;
   border: 1px solid #23402A;
   border-top: 3px solid #23402A;
@@ -56,6 +55,29 @@
 }
 .checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .top_tel select, .checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .top_tel input {
   width: 30%;
+}
+.checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .nice-select {
+  width: 30%;
+  height: 45px;
+  border: 1px solid #23402A;
+  background: #fff;
+  margin-top: 15px;
+  padding: 5%;
+  border-radius: 8px;
+}
+.checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .nice-select:after {
+  border-bottom: 2px solid #23402A;
+  border-right: 2px solid #23402A;
+}
+.checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .nice-select .current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 17px;
+}
+.checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top .nice-select ul {
+  width: 100%;
 }
 .checkCus .checkCus_body .checkCus_body_inner .checkCus_body_top p {
   color: #D9D9D9;
@@ -112,4 +134,5 @@
   font-weight: 400;
   line-height: normal;
   margin: 10px;
+  margin-bottom: 50px;
 }/*# sourceMappingURL=checkCustomer.css.map */

@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0);
+
 .login_backg{
     position: fixed;
     top:0; left: 0; 
@@ -51,14 +53,16 @@
                 .idpw{
                     display: flex; flex-direction: column;
                     align-items: flex-end;
+                    position: relative;
                     input{
-                        // box-sizing: border-box;
+                        box-sizing: border-box;
                         width: 22.5rem; height: 45px;
                         border-radius: 8px;
                         border: 2px solid #23402A;
                         background: #FFF;
                         margin-bottom: 15px;
                         padding: 5%;
+                        position: relative;
                         &::placeholder{
                             color: #D9D9D9;
                             text-align: left;
@@ -66,6 +70,11 @@
                             font-weight: 600;
                         }
                     }
+                    .eyeBtn{
+                        position: absolute; bottom: 20.5%; right: 2%;
+                    }
+                    .eyeBtn .on{display: none;}
+                    .eyeBtn .off{display: block;}
                 }
                 .login_pageMove{
                     
@@ -160,3 +169,9 @@
         }
     }
 }
+//비밀번호 토글용 active
+// .eyeBtn.active :nth-child(1){display: block;}
+.eyeBtn.active{
+    .on{ display: block !important; }
+    .off{ display: none !important; }
+} 

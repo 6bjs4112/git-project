@@ -5,6 +5,7 @@ plzAgreeID.addEventListener('click',(e)=>{
     
     //모두 동의 누르면 전부 눌리게
     if(e.target.id=='checkAll'){
+        console.log('눌리나요');
         agree1.checked =e.target.checked;
         agree2.checked =e.target.checked;
         agree3.checked =e.target.checked;

@@ -29,7 +29,6 @@
 }
 .checkRes .checkRes_body {
   width: 60%;
-  height: 556px;
   margin: 70px auto 0 auto;
   border: 1px solid #23402A;
   border-top: 3px solid #23402A;
@@ -91,6 +90,7 @@
   background: #23402A;
   border: 1px solid #23402A;
   border-radius: 8px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;

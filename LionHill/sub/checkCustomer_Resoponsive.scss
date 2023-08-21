@@ -1,0 +1,54 @@
+//예약 정보 조회 페이지 반응형
+
+/*============모바일~480============================*/
+@media (max-width: 480px) {
+    .checkCus {
+        padding: 0 20px; 
+        .checkCus_head{
+            .checkCus_head_inner a img {
+                width: 63px;
+            }
+        }
+        .checkCus_body {
+            width: 95% ; 
+            .checkCus_body_inner {
+                width: 75%; 
+                .checkCus_body_top {
+                    margin: 0 10px;
+                    height:auto;
+                }
+                .checkCus_body_bot_wrap{
+                    .checkCus_body_bot{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+/*=================태블릿 481px ~ 1439px  ===========*/
+@media (min-width: 481px) and (max-width: 1439px) {
+    .checkCus {
+        padding: 0 20px; 
+        .checkCus_head{
+            .checkCus_head_inner a img {
+                width: 63px;
+            }
+        }
+        .checkCus_body {
+            width: 80% ; 
+            .checkCus_body_inner {
+                width: 75%; 
+                .checkCus_body_top {
+                    margin: 0 10px;
+                    height:auto;
+                }
+                .checkCus_body_bot_wrap{
+                    .checkCus_body_bot{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

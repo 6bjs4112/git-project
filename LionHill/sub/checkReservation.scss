@@ -1,4 +1,4 @@
-// 예약 정보 확인 가능한 창
+// 예약 확인 페이지
 .checkRes{
     max-width: 1440px;
     margin: 0 auto;
@@ -32,7 +32,7 @@
     .checkRes_body{
         // width: 634px; 
         width: 60%; 
-        height: 556px;
+        // height: 556px;
         margin: 70px auto 0 auto;
 
         border: 1px solid #23402A;
@@ -89,7 +89,7 @@
                 background: #23402A;
                 border: 1px solid #23402A;
                 border-radius: 8px;
-
+                margin-bottom: 50px;
                 display: flex; justify-content: center; align-items: center;
                 button{
                     color: #FFF;

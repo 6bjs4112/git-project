@@ -5,8 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>예약 정보 조회</title>
-    <link rel="stylesheet" href="../css/checkCustomer.css">
     <link rel="stylesheet" href="../common/reset.css">
+    <link rel="stylesheet" href="../css/checkCustomer.css">
+    <link rel="stylesheet" href="../css/checkCustomer_Resoponsive.css">
+    <!-- 셀렉트 박스 플러그인 -->
+    <script src="../javascript/jquery.js"></script>
+    <script src="../javascript/jquery.nice-select.js"></script>
+    <link rel="stylesheet" href="../css/nice-select.css">
+    <script>
+        $(document).ready(function(){
+            $('select').niceSelect();
+        })
+    </script>
 </head>
 <body>
     <section class="checkCus">
@@ -40,7 +50,7 @@
                 </div>
                 <div class="checkCus_body_bot_wrap">
                     <div class="checkCus_body_bot">
-                        <button>예약 확인</button>
+                        <button><a href="./checkReservation.html">예약 확인</a></button>
                     </div>
                     <p>※ 위에 입력한 정보는 저장되지 않습니다.</p>
                 </div>
