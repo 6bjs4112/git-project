@@ -15,4 +15,4 @@
 
 <a href="https://6bjs4112.github.io/git-project/clone">한국 관광공사 바로가기</a>
 <br>
-<a href="https://6bjs4112.github.io/git-project/LionHil">라이온힐 바로가기</a>
+<a href="https://6bjs4112.github.io/git-project/LionHill">라이온힐 바로가기</a>
