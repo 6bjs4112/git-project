@@ -13,6 +13,11 @@
 git repository > Issues > New Issue 버튼 > 이미지 끌어다 넣기 > url 생성 후 복붙<br>
 ![profilepic](https://github.com/6bjs4112/git-project/assets/133857196/333c6ee8-9fac-4a90-baa3-b812fe60f7a4)
 
-<a href="https://6bjs4112.github.io/git-project/KTO">한국 관광공사 바로가기</a>
+## 목록
+* ul li 같은 느낌
+  * 이런 식으로 두개도 가능합니다
+
+## 링크
+<a href="https://6bjs4112.github.io/git-project/KTO">한국 관광 공사 바로가기</a>
 <br>
 <a href="https://6bjs4112.github.io/git-project/LionHill">라이온힐 바로가기</a>
