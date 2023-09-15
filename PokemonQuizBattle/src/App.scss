@@ -1,0 +1,254 @@
+@import "reset";
+
+$color-main:#0E1F40;
+$color-sub:#86B5DF;
+$color-bg:#F6F6F6;
+
+@mixin bg_ball(){
+  background-image: url('../public/img/background_ball.png');
+  background-position: center;
+  background-size: cotain;
+}
+@mixin flex($x:space-between, $y:center){
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+  text-align: center;
+  @content;
+}
+@mixin fontSuit(){
+  font-family: 'SUIT-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin fontPx(){
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+//=========↓↓↓======홈 메인화면===========↓↓↓=====================
+.homepage{
+  @include bg_ball();
+  height: 100vh;
+  background-color: $color-sub;
+  @include flex(center,center){flex-direction: column};
+  .logo{
+    width: 394px; height: 189px;
+    img{width: 100%;height: 100%;}
+  }
+  strong{
+    @include fontPx();
+    font-size: 36px;
+    display: inline-flex;
+    text-align: center;
+    margin: 40px auto;
+  }
+  .forNav{
+    .navBtn{
+      border-radius: 9px;
+      background-color: $color-main;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      padding: 10px 20px;
+      margin: 15px auto;
+      @include flex();
+      figure{
+        width: 32px; height: 32px;
+        @include flex(center,center){text-align: center};
+      }
+      a{
+        color: #FFF;
+        font-size: 30px;
+        @include fontPx();
+      }
+    }
+  }
+}
+//=========↓↓↓======퀴즈==========↓↓↓=======퀴즈==============
+.quiz{
+  @include bg_ball();
+  height: 100%;
+  background-color: $color-bg;
+  @include flex(flex-start,flex-start){flex-direction: column};
+  h1{
+    @include fontPx();
+    color: #FFF;
+    text-align: center;
+    font-size: 30px;
+
+    border-radius: 9px;
+    background-color: $color-main;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    margin: 15px;
+    @include flex();
+  }
+  .targetHp{
+    width: 350px; height: 85px;
+    margin-left: 15px;
+    border: 5px solid black;
+    border-top: none; border-right: none;
+    border-left-width: 10px;
+    border-bottom-left-radius: 40px;
+    position: relative;
+    .innerbar{
+      display: flex;
+      position: absolute; left: 5%; top: 15%;
+      .hp{
+        border: 5px solid black; background-color: black;
+        color: #FACC15;
+        font-family: 'DungGeunMo';
+        font-size: 30px;
+      }
+      .hpTank{
+        border: 5px solid black;
+        border-top: none;
+        border-right-width: 10px;
+        width: 250px;
+        .hpColor{
+          margin-top: 12px;
+          background-color: #22C55E;
+          width: 100%
+        }
+      }
+    }
+  }
+}
+//=========↓↓↓======도감전체===========↓↓↓=====도감전체============
+.pokedex{
+  @include bg_ball();
+  height: 100%;
+  background-color: $color-bg;
+  @include flex(flex-start,flex-start){flex-direction: column};
+  h1{
+    @include fontPx();
+    color: #FFF;
+    text-align: center;
+    font-size: 30px;
+
+    border-radius: 9px;
+    background-color: $color-main;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    margin: 15px;
+    @include flex();
+  }
+  .dexHead{
+    padding: 25px;
+    position: relative;
+    width: 100%; 
+    .headLeft{
+      h2{
+        margin: 10px 0;
+        color: #000;
+        text-align: left;
+        font-family: SUIT;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: normal;
+      }
+      p{
+        text-align: left;
+        color: #888;
+        font-family: SUIT;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    .headRight{
+      width: 160px; height: 80px;
+      @include flex(center,center){flex-direction: column};
+      position: absolute; top: 0%; right: 5%; 
+      p{
+        font-family: SUIT;
+        color: #888;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .coinBag{
+        @include flex(center,center);
+        
+        img{}
+        b{
+          color: #000;
+          text-align: center;
+          font-family: SUIT;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+    
+  }
+  .pokemonList{    
+    width: 100%;
+    margin-top: 20px;
+    @include flex(center, ){flex-wrap: wrap};
+    div{
+      margin: 13px;
+      // border: 1px solid blue;
+      width: 180px; height: 180px;
+      border-radius: 21px;
+      background: #FFF;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+.myPkm{
+  background-color: rgb(134, 181, 223,0.5) ;
+  .collectGauge{
+    width: 180px; height: 45px;
+    position: absolute; top: 25%; left: 50%;
+    transform: translate(-50%,0);
+
+    border-radius: 25px;
+    background-color: $color-main;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    color: #FFF;
+    text-align: center; 
+    font-family: SUIT;
+    font-size: 20px;
+    font-weight: 700;
+    @include flex(center,center);
+  }
+  .pokemonList{
+    margin-top: 70px ;
+  }
+}
+//=========↓↓↓=====공통=네비===========↓↓↓====공통=네비============
+.botNav{
+  width: 95%; height: 55px;
+  border-radius: 9px;
+  background-color: $color-main;
+
+  position: fixed;
+  bottom: 2%; left: 50%;
+  transform: translate(-50%,);
+  .navWrap{
+    width: 100%; height: 100%;
+    @include flex(space-around);
+    .navBtn{
+      width: 32px; height: 40px;
+      @include flex(center, center);
+      a{
+        width: 100%; height: 100%;
+        @include flex(center,center ){flex-direction: column};
+        @include fontSuit();
+        color: #FFF; font-size: 8px;
+        text-align: center;
+        img{margin-bottom: 5px;}
+      }
+    }
+  }
+}
+.upBtn{
+  position: fixed;
+  bottom: 8%; right: 3%;
+}
