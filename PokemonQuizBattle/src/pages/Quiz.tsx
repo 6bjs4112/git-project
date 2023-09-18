@@ -17,14 +17,40 @@ const Quiz = (props: Props) => {
       </div>
 
       <figure className='whatType'>
-        <img src='/'/>
+        <img src='./img/pkmTypeColor/mobile/fire.png'/>
       </figure>
       
       <figure className='guessWho'>
-        <img src='/'/>
+        <img src='./img/quizpkm.png'/>
       </figure>
 
+      <div className='whatScript'>
+        <div>
+          <p>
+            꼬리를 휘둘러 상대를 쓰러트리고 날카로운 발톱으로 갈기갈기 찢어버린다.
+          </p>
+        </div>
+      </div>
+
+      <figure className='howManyBalls'>
+        <img className='fiveBalls' src='./img/icon/emptyBall.png'/>
+        <img className='fiveBalls' src='./img/icon/emptyBall.png'/>
+        <img className='fiveBalls' src='./img/icon/haveBall.png'/>
+        <img className='fiveBalls' src='./img/icon/haveBall.png'/>
+        <img className='fiveBalls' src='./img/icon/haveBall.png'/>
+      </figure>
         
+      <section className='whatAction'>
+        <article className='forBg'>
+          <div className='actions'>
+              <button className='bigAct'>싸우다</button>
+            <div className='forDivide'>
+              <button className='smallAct'>조사하다</button>
+              <button className='smallAct'>도망치다</button>
+            </div>
+          </div>
+        </article >
+      </section>
 
       <nav className='botNav'>
         <div className='navWrap'>

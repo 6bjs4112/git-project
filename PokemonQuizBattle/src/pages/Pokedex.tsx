@@ -1,8 +1,43 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Pokemon } from '../types';
 
 type Props = {}
+type NameData = { language: { name: string }; name: string };
 
 const Pokedex = (props: Props) => {
+  const [pokemonNameData, setPokemonNameData] = useState<Pokemon[]>([]);
+
+  const pkmDB = axios.create({
+    baseURL: 'https://pokeapi.co/api/v2'
+    // https://pokeapi.co/api/v2/pokemon?offset=0&limit=151
+  })
+
+//데이터 뽑아오고 이름 한국어로 바꾼 배열 만들기
+  useEffect(() => {
+    const fetchData = async () => {
+    const allPokemonData = [];
+      for (let i = 1; i <= 151; i++) {
+        const basicData = await pkmDB.get(`/pokemon/${i}`);
+        const speciesData = await pkmDB.get(`/pokemon-species/${i}`);
+        const krNameData = speciesData.data.names.find((name:NameData) => name.language.name === 'ko');
+        // 
+        const pokemon: Pokemon = {
+          name: basicData.data.name,
+          url: basicData.data.url,
+          ...basicData.data,
+          krName: krNameData ? krNameData.name : "N/A"
+        };
+  
+        allPokemonData.push(pokemon);
+      }
+      setPokemonNameData(allPokemonData);
+    }
+    fetchData();
+  }, []);
+  console.log(pokemonNameData);
+
   return (
       <section className='pokedex'>
         <h1>포켓몬 도감</h1>
@@ -24,18 +59,46 @@ const Pokedex = (props: Props) => {
         </section>
 
         <section className='pokemonList'>
-          <div>#001</div>
-          <div>#002</div>
-          <div>#003</div>
-          <div>#004</div>
-          <div>#005</div>
-          <div>#006</div>
-          <div>#001</div>
-          <div>#002</div>
-          <div>#003</div>
-          <div>#004</div>
-          <div>#005</div>
-          <div>#006</div>
+        
+              {
+                pokemonNameData.map((pokemon:any,num)=>(
+                  <div className='eachPokemon'>
+                    <div className='eachInner'>
+                      <p>#{String(pokemon.id).padStart(3, '0')}<span>{pokemon.krName}</span></p>
+                      <img src={pokemon.sprites.other.dream_world.front_default}/>
+                      {/* <img src={pokemon.sprites.front_default}/> */}
+                      <article className='pkmType'>
+                        <figure className='type ty1'>
+                          <img src='./img/pkmTypeColor/tablet/grass.svg'/>
+                          <figcaption>풀</figcaption>
+                        </figure>
+                        <figure className='type ty2'>
+                          <img src='./img/pkmTypeColor/tablet/poison.svg'/>
+                          <figcaption>독</figcaption>
+                        </figure>
+                      </article>
+                    </div>
+                  </div>
+                ))
+              }
+            
+          <div className='eachPokemon'>
+            <div className='eachInner'>
+              <p>#001<span>이상해씨</span></p>
+              <img src='./img/detailpkm.png'/>
+              <article className='pkmType'>
+                <figure className='type ty1'>
+                  <img src='./img/pkmTypeColor/tablet/grass.svg'/>
+                  <figcaption>풀</figcaption>
+                </figure>
+                <figure className='type ty2'>
+                  <img src='./img/pkmTypeColor/tablet/poison.svg'/>
+                  <figcaption>독</figcaption>
+                </figure>
+              </article>
+            </div>
+          </div>
+          
         </section>
         
         <a className='upBtn'>

@@ -5,7 +5,7 @@ $color-sub:#86B5DF;
 $color-bg:#F6F6F6;
 
 @mixin bg_ball(){
-  background-image: url('../public/img/background_ball.png');
+  background-image: url('../public/img/bg_veryBig.png');
   background-position: center;
   background-size: cotain;
 }
@@ -17,9 +17,9 @@ $color-bg:#F6F6F6;
   @content;
 }
 @mixin fontSuit(){
-  font-family: 'SUIT-Regular';
+  font-family: 'SUIT';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 @mixin fontPx(){
@@ -30,7 +30,9 @@ $color-bg:#F6F6F6;
 }
 //=========↓↓↓======홈 메인화면===========↓↓↓=====================
 .homepage{
-  @include bg_ball();
+  background-image: url('../public/img/bg_veryBigBlue.png');
+  background-position: center;
+  background-size: cotain;
   height: 100vh;
   background-color: $color-sub;
   @include flex(center,center){flex-direction: column};
@@ -68,7 +70,7 @@ $color-bg:#F6F6F6;
 //=========↓↓↓======퀴즈==========↓↓↓=======퀴즈==============
 .quiz{
   @include bg_ball();
-  height: 100%;
+  height: 100vh;
   background-color: $color-bg;
   @include flex(flex-start,flex-start){flex-direction: column};
   h1{
@@ -110,6 +112,106 @@ $color-bg:#F6F6F6;
           margin-top: 12px;
           background-color: #22C55E;
           width: 100%
+        }
+      }
+    }
+  }
+  .whatType{
+    img{margin-left: 40px;}
+  } 
+  .guessWho{
+    width: 100%; height: 300px;
+    position: relative;
+    img{
+      position: absolute; right: -0%; top: -20%;
+
+      //처음 단계
+      filter: blur(15px) brightness(0%);
+      //타입 알려줌 left4
+      filter: blur(15px) brightness(40%);
+      //설명 알려줌 left3
+      filter: blur(10px) brightness(50%);
+      //left2
+      // filter: blur(5px) brightness(80%);
+      //left1
+      // filter: blur(3px) brightness(100%);
+      //결과
+      // filter: blur(0px) brightness(100%);
+    }
+  }
+  .whatScript{
+    position: fixed; top: 48%; left: 50%;
+    transform: translate(-50%,0%);
+    width: 100%;
+    @include flex(center,center){};
+    z-index: 2;
+    div{
+      width: 80%;
+      border: 3px solid #000;
+      border-radius: 6px;
+      p{
+        margin: 5px; 
+        border: 5px solid #000;
+        border-radius: 6px;
+        background-color: #FFF;
+
+        color: #000;
+        text-align: center;
+        font-family: DungGeunMo;
+        font-size: 25px;
+        font-weight: 400;
+        padding: 5% 10%;
+        @include flex(center,center){};
+      }
+    }
+    // display: none;
+  }
+  .howManyBalls{
+    width: 100%;
+    position: fixed; bottom: 30%;
+    @include flex(center,center){};
+    z-index: 3;
+    .fiveballs{}
+  }
+  .whatAction{
+    width: 100%; 
+    @include flex(center,center){};
+    button{
+      color: #000;
+      font-family: DungGeunMo;
+      font-size: 30px;
+      font-weight: 400;
+    }
+    .forBg{
+      width: 95%; height: 190px;
+      position: fixed; bottom: 7%; right: 50%;
+      transform: translate(50%,-15%);
+      border-radius: 9px;
+      background-color: $color-main;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      .actions{
+        height: 100%;
+        padding: 5px;
+        @include flex(center,center){flex-direction: column};
+        .bigAct{
+          height: 50%; width: 75%;
+          margin: 5px 0;
+          border-radius: 9px;
+          background: #E0E0E0;
+          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+          @include flex(center,center){};
+        }
+        .forDivide{
+          height: 50%; width: 95%;
+          @include flex(center,center){};
+          .smallAct{
+            height: 90%; width: 48%;
+            margin: 0 5px;
+            border-radius: 9px;
+            background: #E0E0E0;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            @include flex(center,center){};
+          }
         }
       }
     }
@@ -190,16 +292,178 @@ $color-bg:#F6F6F6;
     width: 100%;
     margin-top: 20px;
     @include flex(center, ){flex-wrap: wrap};
-    div{
+    .eachPokemon{
       margin: 13px;
       // border: 1px solid blue;
       width: 180px; height: 180px;
       border-radius: 21px;
       background: #FFF;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      .eachInner{
+        width: 100%; height: 100%;
+        @include flex(center,center){flex-direction: column};
+        p{
+          @include fontSuit();
+          font-size: 16px;
+          color: #888;
+          text-align: left;
+          padding: 15px;
+          span{
+            color: #000;
+            font-weight: 700;
+            margin-left: 5px;
+          }
+        }
+        img{width: 70px; height: 70px;}
+        .pkmType{
+          width: 100%;
+          margin-top: 10px;
+          @include flex(center,center);
+          .type{
+            @include flex(center,center);
+            margin: 5px;
+            width: 78px; height: 17px; border-radius: 25px;
+            img{width: 10px;height: 10px; object-fit: cover;}
+            figcaption{
+              @include fontSuit();
+              color: #FFF;
+              font-size: 8px;
+              font-weight: 700;
+            }
+          }
+          .ty1{
+            background-color: #42BF24;
+          }
+          .ty2{
+            background-color: #994DCF;
+          }
+        }
+      }
     }
   }
 }
+//=========↓↓↓======디테일===========↓↓↓=====도감디테일============
+.detail{
+  @include bg_ball();
+  height: 100vh;
+  background-color: $color-bg;
+  @include flex(flex-start,flex-start){flex-direction: column};
+  .header{
+    width: 100%;
+    @include flex();
+    h1{
+      @include fontPx();
+      color: #FFF;
+      text-align: center;
+      font-size: 30px;
+
+      border-radius: 9px;
+      background-color: $color-main;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      padding: 10px 20px;
+      margin: 15px;
+    }
+    .backBtn{}
+  }
+  .pkmHead{
+    width: 100%;
+    position: relative;
+    .bg_typecolor{ 
+      margin-top: 15px;
+      width: 100%; height: 350px;
+      background: #42BF24;
+      opacity: .5; z-index: -1;
+    }
+    .bg_above{
+      width: 100%; height: 350px;
+      position: absolute; top: 0; left: 0;
+      z-index: 1;
+
+      margin-top: 110px;
+
+      color: #000;
+      text-align: center;
+      @include fontSuit();
+      h3,h2{
+        font-size: 36px;
+        font-weight: 900;
+        margin: 15px auto;
+      }
+      img{}
+    }
+  }
+  .pkmType{
+    width: 100%;
+    margin-top: 70px;
+    @include flex(center,center);
+    .type{
+      @include flex(center,center);
+      margin: 5px;
+      width: 180px; height: 40px; border-radius: 25px;
+      img{width: 22px;height: 22px; object-fit: cover;}
+      figcaption{
+        @include fontSuit();
+        color: #FFF;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+    .ty1{
+      background-color: #42BF24;
+    }
+    .ty2{
+      background-color: #994DCF;
+    }
+  }
+  .pkmDescription{
+    width: 100%;
+    @include flex(center,center );
+    .wrapDesc{
+      width: 100%;
+      padding: 10%;
+      color: #888888;
+      @include fontSuit();
+      .desc{
+        height: 130px;
+        font-size: 20px;
+        font-weight: 700;
+        @include flex(center,center );
+        text-align: left;
+      }
+      .pkmProfile{
+        @include flex( ){};
+        div{
+          width: 33.3333%;
+          height: 36px;
+          font-size: 16px;
+          font-weight: 700;
+          border-right: 3px solid #D9D9D9;
+          @include flex(center,center){};
+          span{}
+        }
+        .which{border: none;}
+      }
+    }
+  }
+  .buyOrNot{
+    width: 100%;
+    @include flex(center,center){};
+    .buyBtn{
+      width: 180px; height: 40px; border-radius: 25px;
+      background: #FFF;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      @include flex(center,center){};
+      @include fontSuit(); font-size: 16px; font-weight: 700;
+      p{margin-right: 5px;}
+      .have{
+        @include flex(center,center){};
+        img{width: 22px; height: 22px;}
+        code{}
+      }
+    }
+  }
+}
+//=========↓↓↓======내포켓몬===========↓↓↓=====마이페이지============
 .myPkm{
   background-color: rgb(134, 181, 223,0.5) ;
   .collectGauge{
@@ -252,3 +516,6 @@ $color-bg:#F6F6F6;
   position: fixed;
   bottom: 8%; right: 3%;
 }
+//세로 스크롤바 삭제
+body{ -ms-overflow-style: none;}
+::-webkit-scrollbar{display: none;}

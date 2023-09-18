@@ -17,7 +17,8 @@ function App() {
           <Route path='/quiz'element={<Quiz/>}/>
           <Route path='/pokedex'element={<Pokedex/>}/>
           <Route path='/mypokemon'element={<MyPokemon/>}/>
-          <Route path='/pokedex/:id'element={<Detail/>}/>
+          <Route path='/detail'element={<Detail/>}/>
+          {/* <Route path='/pokedex/:id'element={<Detail/>}/> */}
         </Routes>
       </main>
     </HashRouter>
