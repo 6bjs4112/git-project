@@ -1,44 +1,61 @@
-import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Pokemon } from '../types';
+import krTypeData from '../typeData.json'
+// import InfiniteScroll from 'react-infinite-scroll-component';
+import { usePokemonData  } from '../PokemonContext';
 
 type Props = {}
-type NameData = { language: { name: string }; name: string };
+
 
 const Pokedex = (props: Props) => {
-  const [pokemonNameData, setPokemonNameData] = useState<Pokemon[]>([]);
+//Pokedex에서 떼옴
+const [pokemonData, setPokemonData] = useState<Pokemon[]>([]);
 
-  const pkmDB = axios.create({
+const pkmDB = axios.create({
     baseURL: 'https://pokeapi.co/api/v2'
-    // https://pokeapi.co/api/v2/pokemon?offset=0&limit=151
-  })
+})
 
+//타입 데이터 가져오기
+const getKrType: any = (typeName: []) => {
+    const typeInfo = krTypeData.filter((type) => {
+        let a = typeName.filter((o:any)=>(o.type.name == type.name));
+        return a.length > 0
+    });
+    return typeInfo;
+}
 //데이터 뽑아오고 이름 한국어로 바꾼 배열 만들기
-  useEffect(() => {
+useEffect(() => {
     const fetchData = async () => {
     const allPokemonData = [];
-      for (let i = 1; i <= 151; i++) {
-        const basicData = await pkmDB.get(`/pokemon/${i}`);
-        const speciesData = await pkmDB.get(`/pokemon-species/${i}`);
-        const krNameData = speciesData.data.names.find((name:NameData) => name.language.name === 'ko');
-        // 
-        const pokemon: Pokemon = {
-          name: basicData.data.name,
-          url: basicData.data.url,
-          ...basicData.data,
-          krName: krNameData ? krNameData.name : "N/A"
-        };
-  
-        allPokemonData.push(pokemon);
-      }
-      setPokemonNameData(allPokemonData);
+        for (let i = 1; i <= 151; i++) {
+            const [basicData, speciesData] = await Promise.all([
+                pkmDB.get(`/pokemon/${i}`),//basic
+                pkmDB.get(`/pokemon-species/${i}`),//species
+            ]);
+            const typeName = basicData.data.types;
+            const krTypeInfo = getKrType(typeName);
+
+            const pokemon: Pokemon = {
+                name: basicData.data.name,
+                speciesData: speciesData.data,
+                ...basicData.data,
+                krType: krTypeInfo
+            };
+            allPokemonData.push(pokemon);
+        }
+        setPokemonData(allPokemonData);
     }
     fetchData();
-  }, []);
-  console.log(pokemonNameData);
+}, []);
+console.log(pokemonData);
+
+  // const {pokemonData, setPokemonData} = useContext(usePokemonData);
+  // console.log(pokemonData);
 
   return (
+    <>
       <section className='pokedex'>
         <h1>포켓몬 도감</h1>
         <section className='dexHead'>
@@ -61,44 +78,32 @@ const Pokedex = (props: Props) => {
         <section className='pokemonList'>
         
               {
-                pokemonNameData.map((pokemon:any,num)=>(
-                  <div className='eachPokemon'>
-                    <div className='eachInner'>
-                      <p>#{String(pokemon.id).padStart(3, '0')}<span>{pokemon.krName}</span></p>
-                      <img src={pokemon.sprites.other.dream_world.front_default}/>
-                      {/* <img src={pokemon.sprites.front_default}/> */}
-                      <article className='pkmType'>
-                        <figure className='type ty1'>
-                          <img src='./img/pkmTypeColor/tablet/grass.svg'/>
-                          <figcaption>풀</figcaption>
-                        </figure>
-                        <figure className='type ty2'>
-                          <img src='./img/pkmTypeColor/tablet/poison.svg'/>
-                          <figcaption>독</figcaption>
-                        </figure>
-                      </article>
-                    </div>
+                pokemonData.map((pokemon:any,num:number)=>(
+                  <div className='eachPokemon' key={num}>
+                    <Link to={`/${pokemon.id}`}>
+                      <div className='eachInner' id={pokemon.id}>
+                        <div>
+                          <p>
+                            #{String(pokemon.id).padStart(3, '0')}
+                            <span>{pokemon.speciesData.names[2]?.name}</span>
+                          </p>
+                        </div>
+                        <img src={pokemon.sprites.other.dream_world.front_default}/>
+                        <article className='pkmType'>
+                          {
+                            pokemon.krType.map((obj:any)=>(
+                                <figure className='type'key={obj.id} style={{background:obj.color}}>
+                                <img src={obj.imgL}/>
+                                <figcaption>{obj.krName}</figcaption>
+                                </figure>
+                              ))
+                          }
+                        </article>
+                      </div>
+                    </Link>
                   </div>
                 ))
-              }
-            
-          <div className='eachPokemon'>
-            <div className='eachInner'>
-              <p>#001<span>이상해씨</span></p>
-              <img src='./img/detailpkm.png'/>
-              <article className='pkmType'>
-                <figure className='type ty1'>
-                  <img src='./img/pkmTypeColor/tablet/grass.svg'/>
-                  <figcaption>풀</figcaption>
-                </figure>
-                <figure className='type ty2'>
-                  <img src='./img/pkmTypeColor/tablet/poison.svg'/>
-                  <figcaption>독</figcaption>
-                </figure>
-              </article>
-            </div>
-          </div>
-          
+              }          
         </section>
         
         <a className='upBtn'>
@@ -134,6 +139,7 @@ const Pokedex = (props: Props) => {
           </div>
         </nav>
       </section>
+    </>
   )
 }
 

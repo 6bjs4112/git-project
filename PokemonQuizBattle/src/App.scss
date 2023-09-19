@@ -291,51 +291,51 @@ $color-bg:#F6F6F6;
   .pokemonList{    
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 100px;
     @include flex(center, ){flex-wrap: wrap};
     .eachPokemon{
       margin: 13px;
-      // border: 1px solid blue;
       width: 180px; height: 180px;
       border-radius: 21px;
       background: #FFF;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      .eachInner{
-        width: 100%; height: 100%;
-        @include flex(center,center){flex-direction: column};
-        p{
-          @include fontSuit();
-          font-size: 16px;
-          color: #888;
-          text-align: left;
-          padding: 15px;
-          span{
-            color: #000;
-            font-weight: 700;
-            margin-left: 5px;
-          }
-        }
-        img{width: 70px; height: 70px;}
-        .pkmType{
-          width: 100%;
-          margin-top: 10px;
-          @include flex(center,center);
-          .type{
-            @include flex(center,center);
-            margin: 5px;
-            width: 78px; height: 17px; border-radius: 25px;
-            img{width: 10px;height: 10px; object-fit: cover;}
-            figcaption{
+      a{
+        .eachInner{
+          width: 100%; height: 100%;
+          @include flex(center,center){flex-direction: column};
+          div{
+            @include flex();width: 100%; 
+            p{
               @include fontSuit();
-              color: #FFF;
-              font-size: 8px;
-              font-weight: 700;
+              font-size: 16px;
+              color: #888;
+              text-align: left;
+              padding: 15px;
+              span{
+                color: #000;
+                font-weight: 700;
+                margin-left: 5px;
+              }
             }
           }
-          .ty1{
-            background-color: #42BF24;
-          }
-          .ty2{
-            background-color: #994DCF;
+          img{width: 70px; height: 70px;}
+          .pkmType{
+            width: 100%;
+            margin-top: 10px;
+            @include flex(center,center);
+            .type{
+              @include flex(center,center);
+              margin: 5px;
+              width: 78px; height: 17px; border-radius: 25px;
+              img{width: 15px;height: 15px; object-fit: cover; margin-right: 2px;}
+              figcaption{
+                @include fontSuit();
+                color: #FFF;
+                font-size: 8px;
+                font-weight: 700;
+                margin-top: 2px;
+              }
+            }
           }
         }
       }
@@ -389,7 +389,7 @@ $color-bg:#F6F6F6;
         font-weight: 900;
         margin: 15px auto;
       }
-      img{}
+      img{width: 180px; height: 180px; object-fit: contain;}
     }
   }
   .pkmType{
@@ -397,6 +397,7 @@ $color-bg:#F6F6F6;
     margin-top: 70px;
     @include flex(center,center);
     .type{
+      background-color: #42BF24;
       @include flex(center,center);
       margin: 5px;
       width: 180px; height: 40px; border-radius: 25px;
@@ -408,12 +409,6 @@ $color-bg:#F6F6F6;
         font-weight: 700;
       }
     }
-    .ty1{
-      background-color: #42BF24;
-    }
-    .ty2{
-      background-color: #994DCF;
-    }
   }
   .pkmDescription{
     width: 100%;
@@ -424,11 +419,12 @@ $color-bg:#F6F6F6;
       color: #888888;
       @include fontSuit();
       .desc{
-        height: 130px;
+        height: 120px;
         font-size: 20px;
         font-weight: 700;
-        @include flex(center,center );
+        @include flex(center,flex-start );
         text-align: left;
+        line-height: 150%
       }
       .pkmProfile{
         @include flex( ){};

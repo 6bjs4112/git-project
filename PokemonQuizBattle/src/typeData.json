@@ -1,0 +1,20 @@
+[
+    {"id":6, "name":"rock", "krName":"바위", "color":"#B2AA82", "imgS":"./img/pkmTypeColor/mobile/rock.svg", "imgL":"./img/pkmTypeColor/tablet/rock.svg"},
+    {"id":7, "name":"bug", "krName":"벌레", "color":"#8EA218", "imgS":"./img/pkmTypeColor/mobile/bug.svg", "imgL":"./img/pkmTypeColor/tablet/bug.svg"},
+    {"id":8, "name":"ghost", "krName":"고스트", "color":"#704270", "imgS":"./img/pkmTypeColor/mobile/ghost.svg", "imgL":"./img/pkmTypeColor/tablet/ghost.svg"},
+    {"id":10, "name":"fire", "krName":"불꽃", "color":"#FF612C", "imgS":"./img/pkmTypeColor/mobile/fire.svg", "imgL":"./img/pkmTypeColor/tablet/fire.svg"},
+    {"id":11, "name":"water", "krName":"물", "color":"#2992FF", "imgS":"./img/pkmTypeColor/mobile/water.svg", "imgL":"./img/pkmTypeColor/tablet/water.svg"},
+    {"id":12, "name":"grass", "krName":"풀", "color":"#42BF24", "imgS":"./img/pkmTypeColor/mobile/grass.svg", "imgL":"./img/pkmTypeColor/tablet/grass.svg"},
+    {"id":13, "name":"electric", "krName":"전기", "color":"#FCC001", "imgS":"./img/pkmTypeColor/mobile/electric.svg", "imgL":"./img/pkmTypeColor/tablet/electric.svg"},
+    {"id":4, "name":"poison", "krName":"독", "color":"#994DCF", "imgS":"./img/pkmTypeColor/mobile/poison.svg", "imgL":"./img/pkmTypeColor/tablet/poison.svg"},
+    {"id":9, "name":"steel", "krName":"강철", "color":"#61A0BB", "imgS":"./img/pkmTypeColor/mobile/steel.svg", "imgL":"./img/pkmTypeColor/tablet/steel.svg"},
+    {"id":5, "name":"ground", "krName":"땅", "color":"#AB7939", "imgS":"./img/pkmTypeColor/mobile/ground.svg", "imgL":"./img/pkmTypeColor/tablet/ground.svg"},
+    {"id":1, "name":"normal", "krName":"노말", "color":"#9FA2A1", "imgS":"./img/pkmTypeColor/mobile/normal.svg", "imgL":"./img/pkmTypeColor/tablet/normal.svg"},
+    {"id":2, "name":"fighting", "krName":"격투", "color":"#FFA202", "imgS":"./img/pkmTypeColor/mobile/fighting.svg", "imgL":"./img/pkmTypeColor/tablet/fighting.svg"},
+    {"id":15, "name":"ice", "krName":"얼음", "color":"#42D8FF", "imgS":"./img/pkmTypeColor/mobile/ice.svg", "imgL":"./img/pkmTypeColor/tablet/ice.svg"},
+    {"id":14, "name":"psychic", "krName":"에스퍼", "color":"#F24074", "imgS":"./img/pkmTypeColor/mobile/psychic.svg", "imgL":"./img/pkmTypeColor/tablet/psychic.svg"},
+    {"id":16, "name":"dragon", "krName":"드래곤", "color":"#4F62E1", "imgS":"./img/pkmTypeColor/mobile/dragon.svg", "imgL":"./img/pkmTypeColor/tablet/dragon.svg"},
+    {"id":3, "name":"flying", "krName":"비행", "color":"#82B9ED", "imgS":"./img/pkmTypeColor/mobile/flying.svg", "imgL":"./img/pkmTypeColor/tablet/flying.svg"},
+    {"id":17, "name":"dark", "krName":"악", "color":"#4F4747", "imgS":"./img/pkmTypeColor/mobile/dark.svg", "imgL":"./img/pkmTypeColor/tablet/dark.svg"},
+    {"id":18, "name":"fairy", "krName":"페어리", "color":"#FFB1FF", "imgS":"./img/pkmTypeColor/mobile/fairy.svg", "imgL":"./img/pkmTypeColor/tablet/fairy.svg"}
+]
