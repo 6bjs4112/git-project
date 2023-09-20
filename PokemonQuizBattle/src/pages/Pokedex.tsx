@@ -3,25 +3,26 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Pokemon } from '../types';
 import krTypeData from '../typeData.json'
-// import InfiniteScroll from 'react-infinite-scroll-component';
-import { usePokemonData  } from '../PokemonContext';
+
+
 
 type Props = {}
 
 
 const Pokedex = (props: Props) => {
-//Pokedex에서 떼옴
+
+//Pokedex 전용 151데이터
 const [pokemonData, setPokemonData] = useState<Pokemon[]>([]);
 
 const pkmDB = axios.create({
     baseURL: 'https://pokeapi.co/api/v2'
 })
 
-//타입 데이터 가져오기
+//한글 타입 데이터 가져오기
 const getKrType: any = (typeName: []) => {
     const typeInfo = krTypeData.filter((type) => {
-        let a = typeName.filter((o:any)=>(o.type.name == type.name));
-        return a.length > 0
+        let match = typeName.filter((o:any)=>(o.type.name == type.name));
+        return match.length > 0
     });
     return typeInfo;
 }
@@ -51,11 +52,7 @@ useEffect(() => {
 }, []);
 console.log(pokemonData);
 
-  // const {pokemonData, setPokemonData} = useContext(usePokemonData);
-  // console.log(pokemonData);
-
   return (
-    <>
       <section className='pokedex'>
         <h1>포켓몬 도감</h1>
         <section className='dexHead'>
@@ -139,7 +136,6 @@ console.log(pokemonData);
           </div>
         </nav>
       </section>
-    </>
   )
 }
 

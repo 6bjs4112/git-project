@@ -1,60 +1,20 @@
-import axios from 'axios';
-import React,{ useEffect, useState } from 'react';
+import React,{ useContext, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Pokemon } from '../types';
-import krTypeData from '../typeData.json'
+
+import { UsePokemonData  } from '../PokemonContext';
+
 type Props = {}
 
 const Detail = (props: Props) => {
   const { id } = useParams(); 
-
-//Pokedex에서 떼옴
-const [pokemonData, setPokemonData] = useState<Pokemon[]>([]);
-
-const pkmDB = axios.create({
-    baseURL: 'https://pokeapi.co/api/v2'
-})
-
-//타입 데이터 가져오기
-const getKrType: any = (typeName: []) => {
-    const typeInfo = krTypeData.filter((type) => {
-        let a = typeName.filter((o:any)=>(o.type.name == type.name));
-        return a.length > 0
-    });
-    return typeInfo;
-}
-//도감설명 한글 데이터만 가져오기
-const getKrText:any = ()=>{
-
-}
-
-//데이터 뽑아오고 이름 한국어로 바꾼 배열 만들기
-useEffect(() => {
-    const fetchData = async () => {
-    const allPokemonData = [];
-      const [basicData, speciesData] = await Promise.all([
-        pkmDB.get(`/pokemon/${id}`),//basic
-        pkmDB.get(`/pokemon-species/${id}`),//species
-    ]);
-    const typeName = basicData.data.types;
-    const krTypeInfo = getKrType(typeName);
-    
-    const flavor_text_entries= speciesData.data.flavor_text_entries;
-    const krText = 0;
-
-    const pokemon: Pokemon = {
-        name: basicData.data.name,
-        speciesData: speciesData.data,
-        ...basicData.data,
-        krType: krTypeInfo
-    };
-    allPokemonData.push(pokemon);
-        setPokemonData(allPokemonData);
-    }
-    fetchData();
-}, [id]);
-console.log(pokemonData);
-
+  const { fetchData } = useContext(UsePokemonData);
+  
+  useEffect(() => {
+    fetchData(id); 
+  }, [fetchData, id]);
+  
+  const {pokemonData, setPokemonData} = useContext(UsePokemonData);
+  
   return (
     <section className='pokedex detail'>
       <div className='header'>
@@ -93,7 +53,7 @@ console.log(pokemonData);
             <article className='pkmDescription'>
               <div className='wrapDesc'>
                 <div className='desc'>
-                  {obj.speciesData.flavor_text_entries.find((entry:any) => entry.language.name === 'ko')?.flavor_text}
+                {obj.krDexText[2].flavor_text}
                 </div>
                 <section className='pkmProfile'>
                   <div className='height'>키:<span>{(obj.height)/10}m</span></div>

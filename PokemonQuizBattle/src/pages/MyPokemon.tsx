@@ -16,7 +16,7 @@ const MyPokemon = (props: Props) => {
             </section>
 
             <h3 className='collectGauge'>
-            <span>30</span>/151
+                <span>30</span>/151
             </h3>
 
             <section className='pokemonList'>

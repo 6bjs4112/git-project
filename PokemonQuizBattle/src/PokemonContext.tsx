@@ -2,54 +2,56 @@ import { createContext, useState, useEffect } from 'react';
 import { Pokemon } from './types';
 import krTypeData from './typeData.json'
 import axios from 'axios';
-export const usePokemonData =  createContext<any>([]);
+export const UsePokemonData =  createContext<any>([]);
 
 const PokemonContext:any = ({ children }:any) => {
-//Pokedex에서 떼옴
+
+
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([]);
 
     const pkmDB = axios.create({
         baseURL: 'https://pokeapi.co/api/v2'
     })
-
-    //타입 데이터 가져오기
+    
+    //한글 타입 데이터 가져오기
     const getKrType: any = (typeName: []) => {
         const typeInfo = krTypeData.filter((type) => {
-            let a = typeName.filter((o:any)=>(o.type.name == type.name));
-            return a.length > 0
+            let match = typeName.filter((o:any)=>(o.type.name == type.name));
+            return match.length > 0
         });
         return typeInfo;
     }
-    //데이터 뽑아오고 이름 한국어로 바꾼 배열 만들기
-    useEffect(() => {
-        const fetchData = async () => {
+
+    const fetchData = async (id:any) => {
         const allPokemonData = [];
-            for (let i = 1; i <= 151; i++) {
-                const [basicData, speciesData] = await Promise.all([
-                    pkmDB.get(`/pokemon/${i}`),//basic
-                    pkmDB.get(`/pokemon-species/${i}`),//species
-                ]);
-                const typeName = basicData.data.types;
-                const krTypeInfo = getKrType(typeName);
-
-                const pokemon: Pokemon = {
-                    name: basicData.data.name,
-                    speciesData: speciesData.data,
-                    ...basicData.data,
-                    krType: krTypeInfo
-                };
-                allPokemonData.push(pokemon);
-            }
-            setPokemonData(allPokemonData);
-        }
-        fetchData();
+        const [basicData, speciesData] = await Promise.all([
+            pkmDB.get(`/pokemon/${id}`),//basic
+            pkmDB.get(`/pokemon-species/${id}`),//species
+        ]);
+        const typeName = basicData.data.types;
+        const krTypeInfo = getKrType(typeName);
+        
+        //도감설명 한글 데이터만 가져오기
+        const krFlavorText = speciesData.data.flavor_text_entries
+            .filter((entry: any) => entry.language.name === 'ko');
+    
+        const pokemon: Pokemon = {
+            name: basicData.data.name,
+            speciesData: speciesData.data,
+            ...basicData.data,
+            krType: krTypeInfo,
+            krDexText: krFlavorText,
+        };
+        allPokemonData.push(pokemon);
+        setPokemonData(allPokemonData);
+    };
+    useEffect(() => {
+        
     }, []);
-    console.log(pokemonData);
-
     return (
-        <PokemonContext.Provider value={{pokemonData, setPokemonData}}>
+        <UsePokemonData.Provider value={{pokemonData, fetchData}}>
             {children}
-        </PokemonContext.Provider>
+        </UsePokemonData.Provider>
     )
 }
 export default PokemonContext ;
