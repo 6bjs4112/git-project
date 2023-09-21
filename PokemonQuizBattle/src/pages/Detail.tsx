@@ -36,6 +36,7 @@ const Detail = (props: Props) => {
                 <h3>#{String(obj.id).padStart(3, '0')}</h3>
                 <h2>{obj.speciesData.names[2]?.name}</h2>
                 <img src={obj.sprites.other.dream_world.front_default}/>
+                {/* <img src={obj.sprites.front_default}/> */}
                 </div>
             </article>
 
@@ -52,7 +53,7 @@ const Detail = (props: Props) => {
 
             <article className='pkmDescription'>
               <div className='wrapDesc'>
-                <div className='desc'>
+                <div className='desc'style={{ wordBreak: 'keep-all' }}>
                 {obj.krDexText[2].flavor_text}
                 </div>
                 <section className='pkmProfile'>

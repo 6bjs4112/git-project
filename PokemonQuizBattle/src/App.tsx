@@ -6,12 +6,19 @@ import Pokedex from './pages/Pokedex';
 import Detail from './pages/Detail';
 import MyPokemon from './pages/MyPokemon';
 import PokemonContext from './PokemonContext';
+import axios from 'axios';
 // import Test from './pages/Test';
 
 
 
 function App() {
+  axios
+    .get('http://localhost:3030')
+    .then(res=>{
+      console.log(res.data);
+    })
 
+  
   return (
     <HashRouter>
       <main>

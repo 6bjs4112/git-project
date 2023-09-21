@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 
 import { UsePokemonData  } from '../PokemonContext';
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+import axios from 'axios';
 
 type Props = {}
 
@@ -27,11 +30,34 @@ const Quiz = (props: Props) => {
   const [thirdTry, setThirdTry] = useState<boolean>(false);  
   const [fourthTry, setFourthTry] = useState<boolean>(false);  
   const [fifthTry, setFifthTry] = useState<boolean>(false); 
+  
+  //hp창 잡기
+  const hpColorRef = useRef<HTMLDivElement | null>(null);
 
 // 볼 카운트 함수
   const ballMinus = async function(){
     setBallCount((ballCount-1));
     let updateBallCount = ballCount-1;
+
+    //카운트에 따라 hp변화
+    const hpColorWidth = (updateBallCount / 5) * 100 + '%';
+
+    // hpColor 스타일 업데이트
+    if (hpColorRef.current) {
+      hpColorRef.current.style.width = hpColorWidth;
+
+      if (updateBallCount <= 3) {
+        hpColorRef.current.classList.add('hpColor-yellow');
+        if(updateBallCount == 1){
+          hpColorRef.current.classList.remove('hpColor-yellow');
+          hpColorRef.current.classList.add('hpColor-red');
+        }
+      } else {
+        hpColorRef.current.classList.remove('hpColor-yellow');
+        hpColorRef.current.classList.remove('hpColor-red');
+      }
+    }
+
     if(updateBallCount==4){
       setFirstTry(true);
       setImgClassName('left4');
@@ -56,13 +82,20 @@ const Quiz = (props: Props) => {
       if(pokemonData[0].speciesData.names[2].name==inputValue){
         //정답일경우 nameSubmit 함수에서 처리
       }else{
-        alert('아앗! 포켓몬이 도망쳤다...');
+        Swal.fire({
+          title: '아앗!',
+          text: '포켓몬이 도망쳤다...',
+          icon: 'error',
+          confirmButtonText: '확인'
+        })
+        await delay(2000);
         window.location.reload();
       }
       
     }
     console.log('볼 카운트',ballCount);
   }
+
 
 //싸우다=================
   //인풋창 열기
@@ -78,18 +111,47 @@ const Quiz = (props: Props) => {
     //답 제출 후 볼감소
     ballMinus();
     const correctAnswer = pokemonData[0].speciesData.names[2].name;
+    const iconData = pokemonData[0].sprites.versions['generation-vii']['icons']['front_default'];
     
     if(inputValue===correctAnswer){
       setImgClassName('left0');
       setBallCount(5);
-      await delay(200);
-      alert(`신난다! ${inputValue} (을/를) 잡았다!`);
-      console.log(`${pokemonData[0].name}`);
+      await delay(500);
+      // console.log(pokemonData[0].id,pokemonData[0].name);
+      
+      axios.post('http://localhost:3030/insert',{id:pokemonData[0].id, name:pokemonData[0].name})
+      
+      Swal.fire({
+        title: '신난다!',
+        text: `${inputValue} (을/를) 잡았다!`,
+        icon: 'success',
+        // imageUrl:`${iconData}`,
+        // imageWidth:'200',
+        // imageHeight:'200',
+        confirmButtonText: '확인'
+      })
+      await delay(1500);
+      Swal.fire({
+        imageUrl:'./img/icon/icon_coin.svg',
+        imageWidth:'100',
+        imageHeight:'100',
+        title: `${ballCount} 코인 획득!`,
+        confirmButtonText: '확인'
+      })
+      await delay(2000);
       window.location.reload();
+
     }else{
-      alert(`오답! 포켓몬이 볼에서 나와버렸다!`);
-      setBallCount((ballCount-1));
-      console.log('볼 카운트',ballCount);
+      if(ballCount!=1){
+        Swal.fire({
+          title: '오답!',
+          text: '포켓몬이 볼에서 나와버렸다!',
+          icon: 'warning',
+          confirmButtonText: '확인'
+        })
+        setBallCount((ballCount-1));
+        console.log('볼 카운트',ballCount);
+      }
     }
     setInputValue('');//입력창 비우기
 
@@ -114,7 +176,12 @@ const Quiz = (props: Props) => {
       ballMinus();
       // setBallCount((ballCount-1));
     }else{
-      alert('더 이상 조사할 수 없다!')
+      Swal.fire({
+        text: '더 이상 조사할 수 없다!',
+        icon: 'warning',
+        confirmButtonText: '확인',
+        confirmButtonColor: '#0E1F40'
+      })
     }
     console.log('볼 카운트',ballCount);
   }
@@ -124,6 +191,7 @@ const Quiz = (props: Props) => {
   const delay = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
   
   const quizPass = async function(){
+    // ballMinus();
     setDidRun(true);
     await delay(1000);
     window.location.reload();
@@ -137,24 +205,25 @@ const Quiz = (props: Props) => {
         <section className='innerbar'>
           <div className='hp'>HP:</div>
           <div className='hpTank'>
-            <div className='hpColor'>&nbsp;</div>
+            <div className='hpColor'ref={hpColorRef}>&nbsp;</div>
           </div>
         </section>
       </div>
 
       {
         pokemonData.map((obj:any)=>(
-          <>
-            <figure className={`whatType ${firstReserch ? 'afterResearch': ''}`}>
+          <React.Fragment key={obj.id}>
+            <figure key={obj.id} className={`whatType ${firstReserch ? 'afterResearch': ''}`}>
               {
                 obj.krType.map((krT:any)=>(
-                  <img src={krT.imgS}/>
+                  <img key={krT.id} src={krT.imgS}/>
                 ))
               }
             </figure>
             
             <figure className='guessWho'>
             {/* <img src={obj.sprites.versions['generation-v']['black-white']['animated']['front_default']} /> */}
+            {/* <img className={imgClassName} src={obj.sprites.front_default} /> */}
             <img className={imgClassName} src={obj.sprites.other.home.front_default} />
             </figure>
 
@@ -165,7 +234,7 @@ const Quiz = (props: Props) => {
                 </p>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))
       }
 
@@ -176,10 +245,35 @@ const Quiz = (props: Props) => {
         <img className='fiveBalls' src={`${fourthTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
         <img className='fiveBalls' src={`${fifthTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
       </figure>
-        
+
+    {/* 팝업창들 */}
         <div className={`runScript ${didRun ? 'running': ''}`}>
           <div><p> 무사히 도망쳤다!</p></div>
         </div>
+
+        <div className="tutorial" style={{ opacity: firstTry ? '0' : '1' }}>
+          <div className='t_inner'>
+            <section>
+              <b>몬스터볼이 다 떨어지기 전에 포켓몬을 잡자!</b>
+              <span>(모든 행동은 몬스터볼 1개를 소모한다)</span><br/>
+              <dl>
+                <div>
+                  싸우다:<br/>
+                  <span>퀴즈를 맞추고<br/>포켓몬을 잡는다</span>
+                </div>
+                <div>
+                  조사하다:<br/>
+                  <span>힌트를 준다<br/>두 번 쓸 수 있다</span>
+                </div>
+                <div>
+                  도망치다:<br/>
+                  <span>다음 포켓몬으로 넘어간다<br/></span>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </div>
+
 
       <section className='whatAction'>
         <article className='forBg'>

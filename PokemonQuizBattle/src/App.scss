@@ -111,8 +111,11 @@ $color-bg:#F6F6F6;
         .hpColor{
           margin-top: 12px;
           background-color: #22C55E;
-          width: 100%
+          width: 100%;
+          transition: .5s;
         }
+        .hpColor-yellow{background-color: rgb(228, 207, 53);}
+        .hpColor-red{background-color: rgb(197, 34, 34);}
       }
     }
   }
@@ -182,12 +185,12 @@ $color-bg:#F6F6F6;
     width: 100%;
     position: fixed; bottom: 30%;
     @include flex(center,center){};
-    z-index: 3;
+    z-index: 4;
     .fiveballs{}
   }
   .whatAction{
     width: 100%; 
-    z-index: 3;
+    z-index: 4;
     @include flex(center,center){};
     button{
       color: #000;
@@ -250,7 +253,7 @@ $color-bg:#F6F6F6;
     transform: translate(-50%,0%);
     width: 120%; height: 100vh;
     @include flex(center,center){};
-    z-index: 2;
+    z-index: 3;
     background-color: rgb(0, 0, 0,0.9);
     div{
       width: 80%;
@@ -280,6 +283,47 @@ $color-bg:#F6F6F6;
   }
   .running{
     opacity: 1;
+  }
+  .tutorial{
+    transition: .5s;
+    position: fixed; top: 42.5%; left: 50%;
+    transform: translate(-50%,0%);
+    width: 120%; 
+    @include flex(center,center){};
+    z-index: 2;
+    .t_inner{
+      width: 80%;
+      border: 3px solid #000;
+      border-radius: 6px;
+      background-color: #FFF;
+      section{
+        b{line-height: 130%;}
+        word-break:keep-all;
+        margin: 5px; 
+        border: 5px solid #000;
+        border-radius: 6px;
+        background-color: #FFF;
+
+        color: #000;
+        font-family: DungGeunMo;
+        font-size: 25px;
+        font-weight: 400;
+        padding: 5% 10%;
+        @include flex(center,flex-start){flex-direction: column};
+        text-align: left;
+        z-index: 3;
+        
+        span{font-size: 15px; font-family: suit;}
+        dl{
+          width: 100%;
+          @include flex(space-between,flex-start){text-align: left};
+          div{
+            width: 33%;
+            font-size: 20px;
+          }
+        }
+      }
+    }
   }
 }
 //=========↓↓↓======도감전체===========↓↓↓=====도감전체============
@@ -581,3 +625,9 @@ $color-bg:#F6F6F6;
 //세로 스크롤바 삭제
 body{ -ms-overflow-style: none;}
 ::-webkit-scrollbar{display: none;}
+
+//스위트 alert 커스텀하기
+.swal2-popup {
+  font-size: 1rem !important;
+  font-family: 'DungGeunMo';
+}
