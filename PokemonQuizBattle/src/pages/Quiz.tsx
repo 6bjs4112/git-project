@@ -6,11 +6,6 @@ import { useContext, useEffect, useState } from 'react';
 type Props = {}
 
 const Quiz = (props: Props) => {
-  const imgBlurStep1: Element | null = document.querySelector('.guessWho img');
-if (imgBlurStep1 !== null) {
-  imgBlurStep1.classList.value = 'imgGuess'; // 클래스 이름을 기본으로 만듭니다.
-}
-
   //퀴즈 데이터 불러오기
   const { fetchData } = useContext(UsePokemonData);
   
@@ -18,8 +13,8 @@ if (imgBlurStep1 !== null) {
     const randomId = Math.floor(Math.random() * 151) + 1;
     fetchData(randomId); 
   }, []);
-  
   const {pokemonData, setPokemonData} = useContext(UsePokemonData);
+  
   // console.log(pokemonData);
   
 
@@ -36,34 +31,38 @@ if (imgBlurStep1 !== null) {
 // 볼 카운트 함수
   const ballMinus = async function(){
     setBallCount((ballCount-1));
-    if(ballCount==4){setFirstTry(true);}else
-    if(ballCount==3){setSecondTry(true);}else
-    if(ballCount==2){setThirdTry(true);}else
-    if(ballCount==1){setFourthTry(true);}else
-    if(ballCount==0){
+    let updateBallCount = ballCount-1;
+    if(updateBallCount==4){
+      setFirstTry(true);
+      setImgClassName('left4');
+    }
+    else if(updateBallCount==3){
+      setSecondTry(true);
+      setImgClassName('left3');
+    }
+    else if(updateBallCount==2){
+      setThirdTry(true);
+      setImgClassName('left2');
+    }
+    else if(updateBallCount==1){
+      setFourthTry(true);
+      setImgClassName('left1');
+    }
+    else if(updateBallCount==0){
       setFifthTry(true);
+      setImgClassName('left0');
+      
       await delay(200);
-      alert('아앗! 포켓몬이 도망쳤다...');
-      window.location.reload();
+      if(pokemonData[0].speciesData.names[2].name==inputValue){
+        //정답일경우 nameSubmit 함수에서 처리
+      }else{
+        alert('아앗! 포켓몬이 도망쳤다...');
+        window.location.reload();
+      }
+      
     }
     console.log('볼 카운트',ballCount);
   }
-// 볼 카운트에 따른 이미지 블러 변화
-  useEffect(() => {
-    if (ballCount === 4) {
-      setImgClassName('left4');
-    } else if (ballCount === 3) {
-      setImgClassName('left3');
-    } else if (ballCount === 2) {
-      setImgClassName('left2');
-    } else if (ballCount === 1) {
-      setImgClassName('left1');
-    } else {
-      setImgClassName('imgGuess');
-    }
-  }, [ballCount]); // ballCount가 변경될 때만 실행
-
-console.log('볼 카운트', ballCount);
 
 //싸우다=================
   //인풋창 열기
@@ -78,12 +77,12 @@ console.log('볼 카운트', ballCount);
     setInputVisible(false);//입력창 닫기
     //답 제출 후 볼감소
     ballMinus();
-
-    // console.log('입력 값:', inputValue);
-    // console.log('정답:',pokemonData[0].speciesData.names[2].name);
-    //답 비교
-    if(inputValue===pokemonData[0].speciesData.names[2].name){
+    const correctAnswer = pokemonData[0].speciesData.names[2].name;
+    
+    if(inputValue===correctAnswer){
+      setImgClassName('left0');
       setBallCount(5);
+      await delay(200);
       alert(`신난다! ${inputValue} (을/를) 잡았다!`);
       console.log(`${pokemonData[0].name}`);
       window.location.reload();
@@ -118,7 +117,6 @@ console.log('볼 카운트', ballCount);
       alert('더 이상 조사할 수 없다!')
     }
     console.log('볼 카운트',ballCount);
-    
   }
 
 //도망치다==============

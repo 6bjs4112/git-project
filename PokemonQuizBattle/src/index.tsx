@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  // 배포 후 app만 남기고 삭제하기
   <React.StrictMode>
     <App />
   </React.StrictMode>
