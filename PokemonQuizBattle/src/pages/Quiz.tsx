@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom';
-
-import { UsePokemonData  } from '../PokemonContext';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-// ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
+import { UsePokemonData  } from '../PokemonContext';
+
 import axios from 'axios';
+import Swal from 'sweetalert2'
+
 
 type Props = {}
 
 const Quiz = (props: Props) => {
+  
   //퀴즈 데이터 불러오기
   const { fetchData } = useContext(UsePokemonData);
   
@@ -87,9 +88,11 @@ const Quiz = (props: Props) => {
           text: '포켓몬이 도망쳤다...',
           icon: 'error',
           confirmButtonText: '확인'
-        })
-        await delay(2000);
-        window.location.reload();
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
       }
       
     }
@@ -97,21 +100,25 @@ const Quiz = (props: Props) => {
   }
 
 
-//싸우다=================
+
+//=======싸우다=====================================================================
   //인풋창 열기
-  const [isInputVisible, setInputVisible] = useState(false);
+  const [isInputVisible, setInputVisible] = useState<boolean>(false);
   const pkmNameInput = () => {
     setInputVisible(!isInputVisible);
   };
   //인풋창 값 받기
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
   
+
+
+  //답 제출버튼  
   const nameSubmit = async function(){
     setInputVisible(false);//입력창 닫기
     //답 제출 후 볼감소
     ballMinus();
     const correctAnswer = pokemonData[0].speciesData.names[2].name;
-    const iconData = pokemonData[0].sprites.versions['generation-vii']['icons']['front_default'];
+    // const iconData = pokemonData[0].sprites.versions['generation-vii']['icons']['front_default'];
     
     if(inputValue===correctAnswer){
       setImgClassName('left0');
@@ -119,27 +126,30 @@ const Quiz = (props: Props) => {
       await delay(500);
       // console.log(pokemonData[0].id,pokemonData[0].name);
       
-      axios.post('http://localhost:3030/insert',{id:pokemonData[0].id, name:pokemonData[0].name})
+      //서버에 데이터 저장
+      axios.post('http://localhost:3030/addPokemon',{id:pokemonData[0].id, name:correctAnswer,date:Date.now()})
+      axios.post('http://localhost:3030/addCoin',{coinAmount:`${ballCount}`})
       
       Swal.fire({
         title: '신난다!',
         text: `${inputValue} (을/를) 잡았다!`,
         icon: 'success',
-        // imageUrl:`${iconData}`,
-        // imageWidth:'200',
-        // imageHeight:'200',
         confirmButtonText: '확인'
+      }).then((result)=>{
+        if (result.isConfirmed) {
+          Swal.fire({
+            imageUrl:'./img/icon/icon_coin.svg',
+            imageWidth:'100',
+            imageHeight:'100',
+            title: `${ballCount} 코인 획득!`,
+            confirmButtonText: '확인'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
+        }
       })
-      await delay(1500);
-      Swal.fire({
-        imageUrl:'./img/icon/icon_coin.svg',
-        imageWidth:'100',
-        imageHeight:'100',
-        title: `${ballCount} 코인 획득!`,
-        confirmButtonText: '확인'
-      })
-      await delay(2000);
-      window.location.reload();
 
     }else{
       if(ballCount!=1){

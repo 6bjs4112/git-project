@@ -52,6 +52,13 @@ useEffect(() => {
 }, []);
 console.log(pokemonData);
 
+//코인 데이터 가져오기
+const [coinBag, setCoinBag] = useState<number>();
+axios.get('http://localhost:3030/coin')
+  .then((res)=>{
+    setCoinBag(res.data.coinAmount)    
+  })
+
   return (
       <section className='pokedex'>
         <h1>포켓몬 도감</h1>
@@ -67,7 +74,7 @@ console.log(pokemonData);
             <p>보유 코인</p>
             <div className='coinBag'>
               <img src='./img/icon/icon_coin.svg'/>
-              <b>31</b>
+              <b>{coinBag}</b>
             </div>
           </article>
         </section>

@@ -1,8 +1,23 @@
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import gifPokemon from '../animated_menu_sprites.json';
 
 type Props = {}
 
 const MyPokemon = (props: Props) => {
+    //퀴즈로 잡은 포켓몬 불러오기
+    const [boxList, setBoxList] = useState<[]>([]);
+    axios
+        .get('http://localhost:3030')
+        .then((res)=>{
+            setBoxList(res.data)
+        })
+    //밀리초를 년월일로 변환
+    function millisecToYMD(sec:number) {
+        return new Date(sec).toISOString().split('T')[0];
+    }
+
     return (
         <section className='pokedex myPkm'>
             <h1>내 포켓몬</h1>
@@ -16,20 +31,28 @@ const MyPokemon = (props: Props) => {
             </section>
 
             <h3 className='collectGauge'>
-                <span>30</span>/151
+                총&nbsp;<span>{boxList.length}</span>&nbsp;마리
             </h3>
 
             <section className='pokemonList'>
-                <div>#001</div>
-                <div>#002</div>
-                <div>#003</div>
-                <div>#004</div>
-                <div>#005</div>
-                <div>#006</div>
-                <div>#007</div>
-                <div>#008</div>
-                <div>#009</div>
-                <div>#010</div>
+                {
+                    boxList.map((boxList:any)=>(
+                        <div className='eachPokemon' key={boxList.date}>
+                            <Link to={`/${boxList.id}`}>
+                                <div className='eachInner' id={boxList.id}>
+                                    <div>
+                                        <p>
+                                            #{String(boxList.id).padStart(3, '0')}<br/>
+                                            <span>{boxList.name}</span>
+                                        </p>
+                                    </div>
+                                    <img src={gifPokemon[boxList.id-1].gif}/>
+                                    <p className='YMD'>{millisecToYMD(boxList.date)}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))
+                }
             </section>
             
             <a className='upBtn'>

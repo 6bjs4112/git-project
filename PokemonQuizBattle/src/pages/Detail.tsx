@@ -1,7 +1,9 @@
-import React,{ useContext, useEffect } from 'react';
+import React,{ useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { UsePokemonData  } from '../PokemonContext';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 type Props = {}
 
@@ -14,6 +16,65 @@ const Detail = (props: Props) => {
   }, [fetchData, id]);
   
   const {pokemonData, setPokemonData} = useContext(UsePokemonData);
+  
+
+  //퀴즈로 잡은 포켓몬 불러오기
+  const [boxList, setBoxList] = useState<[]>([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3030')
+      .then((res)=>{
+          setBoxList(res.data)
+      })
+  }, []); 
+
+  //박스에 있는 포켓몬인지 확인하기
+  const isPokemonInBox = 
+    boxList.some((pokemon:any) => pokemon.id == id);
+
+  //구입하기
+  const [coinBag, setCoinBag] = useState<[]>([]);
+  const purchase= function(){
+    axios.get('http://localhost:3030/coin')
+    .then((res)=>{
+      let howManyCoins = res.data.coinAmount
+      setCoinBag(howManyCoins)
+
+      if ( howManyCoins >=5){
+        //코인 소모
+        axios.post('http://localhost:3030/useCoin',{coinAmount:5})
+        //포켓몬 구입
+        axios.post('http://localhost:3030/addPokemon',{id:pokemonData[0].id, name:pokemonData[0].speciesData.names[2]?.name,date:Date.now()})
+        
+        Swal.fire({
+          text: `${pokemonData[0].speciesData.names[2]?.name} (을/를) 구입했습니다!`,
+          icon: 'success',
+          confirmButtonText: '확인'
+        }).then((result) => {//첫번째 확인 버튼 누른 뒤 실행
+          if (result.isConfirmed) {
+            Swal.fire({
+              text: `남은 코인: ${howManyCoins - 5}`,
+              icon: 'success',
+              confirmButtonText: '확인'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                //구입 후 새로고침
+                window.location.reload();
+              }
+            });
+          }
+        })
+        
+      } else {
+        Swal.fire({
+          text: '코인이 모자랍니다!',
+          titleText: `보유 코인: ${howManyCoins}`,
+          icon: 'error',
+          confirmButtonText: '확인'
+        })
+      }
+    })  
+  }
   
   return (
     <section className='pokedex detail'>
@@ -67,14 +128,23 @@ const Detail = (props: Props) => {
         ))
       }
       <article className='buyOrNot'>
-        <div className='buyBtn'>
-          <p>구입하기</p>
-          <div className='have'>
-            <img src='./img/icon/icon_coin.svg'/>
-            <code>5</code>
+        {isPokemonInBox ? (
+          <div className='buyBtn purchased'>
+            <p>획득 완료</p>
+            {/* <code>{boxList[id].date}</code> */}
+          
           </div>
-        </div>
+        ) : (
+          <div className='buyBtn' onClick={purchase}>
+            <p>구입하기</p>
+            <div className='pay'>
+              <img src='./img/icon/icon_coin.svg'/>
+              <code>5</code>
+            </div>
+          </div>
+        )}
       </article>
+        
 
       <nav className='botNav'>
         <div className='navWrap'>
