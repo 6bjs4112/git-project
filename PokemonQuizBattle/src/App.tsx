@@ -1,4 +1,5 @@
 import './App.scss';
+import './appResponsive.scss';
 import {Route, Routes, Link, HashRouter} from 'react-router-dom';
 import Home from './Home';
 import Quiz from './pages/Quiz';

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Pokemon } from '../types';
 import krTypeData from '../typeData.json'
-
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 type Props = {}
@@ -26,11 +26,20 @@ const getKrType: any = (typeName: []) => {
     });
     return typeInfo;
 }
+  //로딩 개선용
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const pokemonPerPage = 16;
+  const totalPokemon = 151;
+
+  const fetchMoreData = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
 //데이터 뽑아오고 이름 한국어로 바꾼 배열 만들기
 useEffect(() => {
     const fetchData = async () => {
     const allPokemonData = [];
-        for (let i = 1; i <= 151; i++) {
+        for (let i = 1; i <= Math.min(currentPage*pokemonPerPage, totalPokemon); i++) {
             const [basicData, speciesData] = await Promise.all([
                 pkmDB.get(`/pokemon/${i}`),//basic
                 pkmDB.get(`/pokemon-species/${i}`),//species
@@ -49,7 +58,7 @@ useEffect(() => {
         setPokemonData(allPokemonData);
     }
     fetchData();
-}, []);
+}, [currentPage]);
 console.log(pokemonData);
 
 //코인 데이터 가져오기
@@ -59,7 +68,23 @@ axios.get('http://localhost:3030/coin')
     setCoinBag(res.data.coinAmount)    
   })
 
+  //탑버튼
+  const scrollToTop=()=>{
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    })
+}
+
   return (
+    <InfiniteScroll
+    dataLength={pokemonData.length}
+    next={fetchMoreData}
+    hasMore={currentPage * pokemonPerPage < 151}
+    loader={<h4 className="loading-message">Loading...</h4>}
+    // endMessage={<p>All Pokémon have been loaded</p>}
+    className="container"
+  >
       <section className='pokedex'>
         <h1>포켓몬 도감</h1>
         <section className='dexHead'>
@@ -73,7 +98,7 @@ axios.get('http://localhost:3030/coin')
           <article className='headRight'>
             <p>보유 코인</p>
             <div className='coinBag'>
-              <img src='./img/icon/icon_coin.svg'/>
+              <img src='/3rdPkmQuiz/img/icon/icon_coin.svg'/>
               <b>{coinBag}</b>
             </div>
           </article>
@@ -110,39 +135,40 @@ axios.get('http://localhost:3030/coin')
               }          
         </section>
         
-        <a className='upBtn'>
-          <img src='./img/icon/upBtn_small.png'/>
+        <a className='upBtn' onClick={scrollToTop}>
+          <img src='/3rdPkmQuiz/img/icon/upBtn_small.png'/>
         </a>
 
         <nav className='botNav'>
           <div className='navWrap'>
             <figure className='navBtn'>
                 <Link to="/quiz">
-                  <img src='./img/icon/nav_white_pokeball.png'/>
+                  <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
                   퀴즈
                 </Link>
             </figure>
             <figure className='navBtn'>
                 <Link to="/">
-                  <img src='./img/icon/nav_home.png'/>
+                  <img id='home' src='/3rdPkmQuiz/img/icon/nav_home.png'/>
                   홈
                 </Link>
             </figure>
             <figure className='navBtn'>
                 <Link to="/pokedex">
-                  <img src='./img/icon/nav_dex.png'/>
+                  <img id='dex' src='/3rdPkmQuiz/img/icon/nav_dex.png'/>
                   도감
                 </Link>
             </figure>
             <figure className='navBtn'>
                 <Link to="/mypokemon">
-                  <img src='./img/icon/nav_love.png'/>
+                  <img id='love' src='/3rdPkmQuiz/img/icon/nav_love.png'/>
                   <span style={{whiteSpace: 'nowrap'}}>내 포켓몬</span>
                 </Link>
             </figure>
           </div>
         </nav>
       </section>
+      </InfiniteScroll>
   )
 }
 

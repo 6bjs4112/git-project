@@ -1,9 +1,10 @@
 import React,{ useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 import { UsePokemonData  } from '../PokemonContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import pricePokemon from '../animated_menu_sprites.json';
 
 type Props = {}
 
@@ -75,14 +76,18 @@ const Detail = (props: Props) => {
       }
     })  
   }
-  
+  //뒤로 버튼
+  const navigate = useNavigate();
+  const goBack = function(){
+    navigate(-1);
+  } 
   return (
     <section className='pokedex detail'>
       <div className='header'>
         <h1>포켓몬 도감</h1>
 
-        <a className='backBtn'>
-          <img src='./img/icon/backBtn_small.png'/>
+        <a className='backBtn' onClick={goBack}>
+          <img src='/3rdPkmQuiz/img/icon/backBtn_small.png'/>
         </a>
       </div>
       {
@@ -138,8 +143,15 @@ const Detail = (props: Props) => {
           <div className='buyBtn' onClick={purchase}>
             <p>구입하기</p>
             <div className='pay'>
-              <img src='./img/icon/icon_coin.svg'/>
-              <code>5</code>
+              <img src='/3rdPkmQuiz/img/icon/icon_coin.svg'/>
+              <code>
+                {
+                  pokemonData.map((obj:any)=>(
+                    pricePokemon[(obj.id)-1].price
+                  ))
+                }
+              </code>
+              
             </div>
           </div>
         )}
@@ -148,34 +160,35 @@ const Detail = (props: Props) => {
 
       <nav className='botNav'>
         <div className='navWrap'>
-            <figure className='navBtn'>
-                <Link to="/quiz">
-                <img src='./img/icon/nav_white_pokeball.png'/>
+          <figure className='navBtn'>
+              <Link to="/quiz">
+                <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
                 퀴즈
-                </Link>
-            </figure>
-            <figure className='navBtn'>
-                <Link to="/">
-                <img src='./img/icon/nav_home.png'/>
+              </Link>
+          </figure>
+          <figure className='navBtn'>
+              <Link to="/">
+                <img id='home' src='/3rdPkmQuiz/img/icon/nav_home.png'/>
                 홈
-                </Link>
-            </figure>
-            <figure className='navBtn'>
-                <Link to="/pokedex">
-                <img src='./img/icon/nav_dex.png'/>
+              </Link>
+          </figure>
+          <figure className='navBtn'>
+              <Link to="/pokedex">
+                <img id='dex' src='/3rdPkmQuiz/img/icon/nav_dex.png'/>
                 도감
-                </Link>
-            </figure>
-            <figure className='navBtn'>
-                <Link to="/mypokemon">
-                <img src='./img/icon/nav_love.png'/>
+              </Link>
+          </figure>
+          <figure className='navBtn'>
+              <Link to="/mypokemon">
+                <img id='love' src='/3rdPkmQuiz/img/icon/nav_love.png'/>
                 <span style={{whiteSpace: 'nowrap'}}>내 포켓몬</span>
-                </Link>
-            </figure>
+              </Link>
+          </figure>
         </div>
-    </nav>
+      </nav>
     </section>
   )
+  
 }
 
 export default Detail

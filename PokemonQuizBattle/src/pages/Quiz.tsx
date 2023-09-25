@@ -138,7 +138,7 @@ const Quiz = (props: Props) => {
       }).then((result)=>{
         if (result.isConfirmed) {
           Swal.fire({
-            imageUrl:'./img/icon/icon_coin.svg',
+            imageUrl:'/3rdPkmQuiz/img/icon/icon_coin.svg',
             imageWidth:'100',
             imageHeight:'100',
             title: `${ballCount} 코인 획득!`,
@@ -249,11 +249,11 @@ const Quiz = (props: Props) => {
       }
 
       <figure className='howManyBalls'>
-        <img className='fiveBalls' src={`${firstTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
-        <img className='fiveBalls' src={`${secondTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
-        <img className='fiveBalls' src={`${thirdTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
-        <img className='fiveBalls' src={`${fourthTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
-        <img className='fiveBalls' src={`${fifthTry? './img/icon/emptyBall.png':'./img/icon/haveBall.png'}`}/>
+        <img className='fiveBalls' src={`${firstTry? '/3rdPkmQuiz/img/icon/emptyBall.png':'/3rdPkmQuiz/img/icon/haveBall.png'}`}/>
+        <img className='fiveBalls' src={`${secondTry? '/3rdPkmQuiz/img/icon/emptyBall.png':'/3rdPkmQuiz/img/icon/haveBall.png'}`}/>
+        <img className='fiveBalls' src={`${thirdTry? '/3rdPkmQuiz/img/icon/emptyBall.png':'/3rdPkmQuiz/img/icon/haveBall.png'}`}/>
+        <img className='fiveBalls' src={`${fourthTry? '/3rdPkmQuiz/img/icon/emptyBall.png':'/3rdPkmQuiz/img/icon/haveBall.png'}`}/>
+        <img className='fiveBalls' src={`${fifthTry? '/3rdPkmQuiz/img/icon/emptyBall.png':'/3rdPkmQuiz/img/icon/haveBall.png'}`}/>
       </figure>
 
     {/* 팝업창들 */}
@@ -301,7 +301,7 @@ const Quiz = (props: Props) => {
                   </form>
                 )}
             <div className='forDivide'>
-              <button className='smallAct' onClick={reserch}>조사하다</button>
+              <button className='smallAct' onClick={reserch} style={{ opacity: secondReserch ? '0.5' : '1' }}>조사하다</button>
               <button className='smallAct' onClick={quizPass}>도망치다</button>
             </div>
           </div>
@@ -312,25 +312,25 @@ const Quiz = (props: Props) => {
         <div className='navWrap'>
           <figure className='navBtn'>
               <Link to="/quiz">
-                <img src='./img/icon/nav_white_pokeball.png'/>
+                <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
                 퀴즈
               </Link>
           </figure>
           <figure className='navBtn'>
               <Link to="/">
-                <img src='./img/icon/nav_home.png'/>
+                <img id='home' src='/3rdPkmQuiz/img/icon/nav_home.png'/>
                 홈
               </Link>
           </figure>
           <figure className='navBtn'>
               <Link to="/pokedex">
-                <img src='./img/icon/nav_dex.png'/>
+                <img id='dex' src='/3rdPkmQuiz/img/icon/nav_dex.png'/>
                 도감
               </Link>
           </figure>
           <figure className='navBtn'>
               <Link to="/mypokemon">
-                <img src='./img/icon/nav_love.png'/>
+                <img id='love' src='/3rdPkmQuiz/img/icon/nav_love.png'/>
                 <span style={{whiteSpace: 'nowrap'}}>내 포켓몬</span>
               </Link>
           </figure>
