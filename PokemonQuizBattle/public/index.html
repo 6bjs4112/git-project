@@ -11,7 +11,7 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicons/favicon-196x196.png" />
     
-    <link rel="/manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" />
@@ -52,5 +52,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if('serviceWorker' in navigator){
+        window.addEventListener('load',()=>{
+          navigator.serviceWorker.register('/3rdPkmQuiz/sw.js').then(reg=>{
+            console.log('Worker Registered');
+          }).catch(err=>{
+            console.log('error in service worker',err1)
+          })
+        })
+      }
+    </script>
   </body>
 </html>

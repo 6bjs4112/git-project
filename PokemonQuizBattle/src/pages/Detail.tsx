@@ -9,7 +9,7 @@ import pricePokemon from '../animated_menu_sprites.json';
 type Props = {}
 
 const Detail = (props: Props) => {
-  const { id } = useParams(); 
+  const { id } = useParams<{ id: string }>(); 
   const { fetchData } = useContext(UsePokemonData);
   
   useEffect(() => {
@@ -28,6 +28,7 @@ const Detail = (props: Props) => {
           setBoxList(res.data)
       })
   }, []); 
+  
 
   //박스에 있는 포켓몬인지 확인하기
   const isPokemonInBox = 
@@ -41,9 +42,14 @@ const Detail = (props: Props) => {
       let howManyCoins = res.data.coinAmount
       setCoinBag(howManyCoins)
 
-      if ( howManyCoins >=5){
+      //해당 포켓몬 가격 확인하기
+      const eachPrice:number = pokemonData.map((obj:any)=>(
+        pricePokemon[(obj.id)-1].price
+      ))
+
+      if ( howManyCoins >= eachPrice){
         //코인 소모
-        axios.post('http://localhost:3030/useCoin',{coinAmount:5})
+        axios.post('http://localhost:3030/useCoin',{coinAmount:eachPrice})
         //포켓몬 구입
         axios.post('http://localhost:3030/addPokemon',{id:pokemonData[0].id, name:pokemonData[0].speciesData.names[2]?.name,date:Date.now()})
         
@@ -54,7 +60,7 @@ const Detail = (props: Props) => {
         }).then((result) => {//첫번째 확인 버튼 누른 뒤 실행
           if (result.isConfirmed) {
             Swal.fire({
-              text: `남은 코인: ${howManyCoins - 5}`,
+              text: `남은 코인: ${howManyCoins - eachPrice}`,
               icon: 'success',
               confirmButtonText: '확인'
             }).then((result) => {
@@ -76,6 +82,7 @@ const Detail = (props: Props) => {
       }
     })  
   }
+
   //뒤로 버튼
   const navigate = useNavigate();
   const goBack = function(){
@@ -135,8 +142,12 @@ const Detail = (props: Props) => {
       <article className='buyOrNot'>
         {isPokemonInBox ? (
           <div className='buyBtn purchased'>
-            <p>획득 완료</p>
-            {/* <code>{boxList[id].date}</code> */}
+            <p>획득 완료</p><code>
+            {
+              pokemonData.map((obj:any)=>(
+                boxList[(obj.id).name]
+              ))
+            }</code>
           
           </div>
         ) : (
@@ -144,7 +155,7 @@ const Detail = (props: Props) => {
             <p>구입하기</p>
             <div className='pay'>
               <img src='/3rdPkmQuiz/img/icon/icon_coin.svg'/>
-              <code>
+              <code className='price'>
                 {
                   pokemonData.map((obj:any)=>(
                     pricePokemon[(obj.id)-1].price
@@ -161,15 +172,15 @@ const Detail = (props: Props) => {
       <nav className='botNav'>
         <div className='navWrap'>
           <figure className='navBtn'>
-              <Link to="/quiz">
-                <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
-                퀴즈
-              </Link>
-          </figure>
-          <figure className='navBtn'>
               <Link to="/">
                 <img id='home' src='/3rdPkmQuiz/img/icon/nav_home.png'/>
                 홈
+              </Link>
+          </figure>
+          <figure className='navBtn'>
+              <Link to="/quiz">
+                <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
+                퀴즈
               </Link>
           </figure>
           <figure className='navBtn'>

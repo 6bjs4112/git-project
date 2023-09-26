@@ -1,8 +1,8 @@
 const staticCacheName = "version-1"
 const urlsToCache = [
-    "/pokemon-quiz-battle/index.html",
-    '/pokemon-quiz-battle/static/js/bundle.js',
-    '/pokemon-quiz-battle/manifest.json'
+    "/",
+    '/3rdPkmQuiz/static/js/bundle.js',
+    '/3rdPkmQuiz/manifest.json'
 ]
 
 const dynamicCache = "dynamicCache";
@@ -18,6 +18,7 @@ const limitCacheSize = (name, size)=>{
 }
 
 this.addEventListener('install', (event)=>{
+    // console.log(`install`)
     event.waitUntil(
         caches.open(staticCacheName).then((cache)=>{
             console.log('Opend Cache')
@@ -27,6 +28,7 @@ this.addEventListener('install', (event)=>{
 })
 
 this.addEventListener('fetch', event => {
+    // console.log(`fetch`)
     event.respondWith(
         caches.match(event.request).then(cacheRes=>{
             return cacheRes || fetch(event.request).then(fetchRes=>{
@@ -45,6 +47,7 @@ this.addEventListener('fetch', event => {
 })
 
 this.addEventListener('activate', event=>{
+    // console.log(`activate`)
     event.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(keys

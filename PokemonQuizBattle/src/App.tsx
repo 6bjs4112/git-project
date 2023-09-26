@@ -1,6 +1,6 @@
 import './App.scss';
 import './appResponsive.scss';
-import {Route, Routes, Link, HashRouter} from 'react-router-dom';
+import {Route, Routes, Link, HashRouter,BrowserRouter} from 'react-router-dom';
 import Home from './Home';
 import Quiz from './pages/Quiz';
 import Pokedex from './pages/Pokedex';
@@ -11,11 +11,10 @@ import PokemonContext from './PokemonContext';
 function App() {
 
   return (
-    <HashRouter>
+    <BrowserRouter basename='/3rdPkmQuiz'>
       <main>
         <PokemonContext>
           <Routes>
-            {/* <Route path='/test'element={<Test/>}/> */}
             <Route path='/'element={<Home/>}/>
             <Route path='/quiz'element={<Quiz/>}/>
             <Route path='/pokedex'element={<Pokedex/>}/>
@@ -25,7 +24,7 @@ function App() {
           </Routes>
         </PokemonContext>
       </main>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

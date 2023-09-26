@@ -28,7 +28,10 @@ $color-bg:#F6F6F6;
   font-style: normal;
 }
 // html,body,main, #root{height: 100%;}
-html{@include bg_ball();}
+html{}
+body {@include bg_ball();
+  margin: 0;  padding: 0;
+}
 //=========↓↓↓======홈 메인화면===========↓↓↓=====================
 .homepage{
   background-image: url('../public/img/bg_veryBigBlue.png');
@@ -649,9 +652,17 @@ html{@include bg_ball();}
   position: fixed;
   bottom: 8%; right: 3%;
 }
-//세로 스크롤바 삭제
-body{ -ms-overflow-style: none;}
-::-webkit-scrollbar{display: none;}
+//세로 스크롤바 커스텀
+body::-webkit-scrollbar{//스크롤바 전체
+  width: 15px; 
+}
+body::-webkit-scrollbar-thumb{//스크롤바 막대
+  background-color: $color-main;
+  border-radius: 10px;    
+}
+body::-webkit-scrollbar-track{//스크롤바 뒷배경
+  background-color: #F1F1F1;
+}
 
 //스위트 alert 커스텀하기
 .swal2-popup {

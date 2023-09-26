@@ -74,15 +74,15 @@ const MyPokemon = (props: Props) => {
             <nav className='botNav'>
                 <div className='navWrap'>
                 <figure className='navBtn'>
-                    <Link to="/quiz">
-                        <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
-                        퀴즈
-                    </Link>
-                </figure>
-                <figure className='navBtn'>
                     <Link to="/">
                         <img id='home' src='/3rdPkmQuiz/img/icon/nav_home.png'/>
                         홈
+                    </Link>
+                </figure>
+                <figure className='navBtn'>
+                    <Link to="/quiz">
+                        <img id='pkball' src='/3rdPkmQuiz/img/icon/nav_white_pokeball.png'/>
+                        퀴즈
                     </Link>
                 </figure>
                 <figure className='navBtn'>
