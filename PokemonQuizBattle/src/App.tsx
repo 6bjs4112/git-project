@@ -12,7 +12,6 @@ function App() {
 
   return (
     <BrowserRouter basename='/3rdPkmQuiz'>
-      <main>
         <PokemonContext>
           <Routes>
             <Route path='/'element={<Home/>}/>
@@ -23,7 +22,6 @@ function App() {
             <Route path='/:id'element={<Detail/>}/>
           </Routes>
         </PokemonContext>
-      </main>
     </BrowserRouter>
   );
 }

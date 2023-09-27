@@ -127,8 +127,8 @@ const Quiz = (props: Props) => {
       // console.log(pokemonData[0].id,pokemonData[0].name);
       
       //서버에 데이터 저장
-      axios.post('http://localhost:3030/addPokemon',{id:pokemonData[0].id, name:correctAnswer,date:Date.now()})
-      axios.post('http://localhost:3030/addCoin',{coinAmount:`${ballCount}`})
+      axios.post('https://port-0-pkmquizserver-euegqv2bln1go1zj.sel5.cloudtype.app/addPokemon',{id:pokemonData[0].id, name:correctAnswer,date:Date.now()})
+      axios.post('https://port-0-pkmquizserver-euegqv2bln1go1zj.sel5.cloudtype.app/addCoin',{coinAmount:`${ballCount}`})
       
       Swal.fire({
         title: '신난다!',

@@ -63,7 +63,7 @@ console.log(pokemonData);
 
 //코인 데이터 가져오기
 const [coinBag, setCoinBag] = useState<number>();
-axios.get('http://localhost:3030/coin')
+axios.get('https://port-0-pkmquizserver-euegqv2bln1go1zj.sel5.cloudtype.app/coin')
   .then((res)=>{
     setCoinBag(res.data.coinAmount)    
   })
@@ -135,11 +135,11 @@ axios.get('http://localhost:3030/coin')
               }          
         </section>
         
-        <a className='upBtn' onClick={scrollToTop}>
-          <img src='/3rdPkmQuiz/img/icon/upBtn_small.png'/>
-        </a>
 
         <nav className='botNav'>
+          <a className='upBtn' onClick={scrollToTop}>
+            <img src='/3rdPkmQuiz/img/icon/upBtn_small.png'/>
+          </a>
           <div className='navWrap'>
             <figure className='navBtn'>
                 <Link to="/">

@@ -9,9 +9,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // 배포 후 app만 남기고 삭제하기
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
