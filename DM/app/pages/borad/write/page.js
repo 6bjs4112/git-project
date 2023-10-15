@@ -2,6 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import style from './page.module.scss'
 import krDigimonData from '../../borad/digimondata.json'
+import LoginCheck from '@/app/comp/LoginCheck';
+import Footer from '@/app/comp/Footer';
 
 export default function page() {
   // ~~~~기본값 지정~~~~
@@ -61,14 +63,7 @@ export default function page() {
     function eraseCanvas() {
       ctx.clearRect(0, 0, cSize.w, cSize.h);
     }
-    //~~~~~저장버튼~~~~~~
-    saveId.onclick = function () {
-      const dataURL = canvasId.toDataURL();
-      const a = document.createElement('a');
-      a.href = dataURL;
-      a.download = 'canvas-image.png';
-      a.click();
-    }
+    
 
     //~~~~~~~~~되돌리기 버튼~~~~~~~~~
     undoId.onclick = onClickUndo;
@@ -99,6 +94,27 @@ export default function page() {
 
   },[lineSize,undoArray])
 
+  //~~~~~저장버튼~~~~~~
+  const wantSave = function (){
+    if(selectedDigimon){
+    const dataURL = canvasId.toDataURL();
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = 'canvas-image.png';
+    a.click();
+
+    //db로 이미지 보내기
+    // const blob = dataURLtoBlob(dataURL);
+    // const formData = new FormData();
+    // formData.append('image', blob, `${회원id}_당시날짜?.png`);
+    // axios.post('/api/uploadImage', formData );
+
+    //db로 selectedDigimon 보내기
+    }else{alert('디지몬을 선택해 주세요')}
+
+    //저장 클릭후 로딩창 띄우기
+  }
+
   //~~~~~~~~~두께 슬라이더 토글~~~~~~~~~
   const [sliderOn, setSliderOn] = useState(false);
   const toggleSlider = () => {
@@ -115,9 +131,9 @@ export default function page() {
       const container = document.body;
       const width = container.clientWidth;
 
-      canvas.width = width >= 600 ? 489 : width*0.7;
+      canvas.width = width >= 639 ? 489 : width*0.7;
       setCanvasWidth(canvas.width);
-      canvas.height = width >= 600 ? 429 : canvasWidth*0.877;
+      canvas.height = width >= 639 ? 429 : canvasWidth*0.877;
     }
 
     window.addEventListener('resize',resizeCanvas)
@@ -127,8 +143,7 @@ export default function page() {
 
 
   //~~~~~~~~~~~~선택창 열고닫기~~~~~~~~~~~~
-  // const [isSelectDigimonOpen, setIsSelectDigimonOpen] = useState(false);
-  const [isSelectDigimonOpen, setIsSelectDigimonOpen] = useState(true);
+  const [isSelectDigimonOpen, setIsSelectDigimonOpen] = useState(false);
     
   const openSelectDigimon = () => {
     setIsSelectDigimonOpen(true);
@@ -139,21 +154,52 @@ export default function page() {
   const closeSelectDigimon = (e) => {
     if (e.target.id === 'selectDigimon') {
       setIsSelectDigimonOpen(false);
+      document.body.style.overflow = 'auto';
     }
   };
 
   //디지몬 json 배열로 변경
   const krDigimon = krDigimonData.content;
 
+  //디지몬 검색
+  const [searchByName, setSearchByName] = useState(''); 
+  const [searchResult, setSearchResult] = useState([]);
+  const [showAll, setShowAll] = useState(true);
+  const [ifNoDigimon, setIfNoDigimon] = useState(false);
+
+  const letsSearch = () => {
+    const result = krDigimon.filter(digimon => digimon.name.includes(searchByName));
+    setSearchResult(result);
+    setShowAll(false);
+    setIfNoDigimon(result.length === 0);
+  };
+  
+  const searchKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); 
+      letsSearch();
+    }
+  };
+
+  //클릭한 디지몬 저장
+  const [selectedDigimon, setSelectedDigimon] = useState('');
+
+  const selectFinish = function(digimonName){
+    setSelectedDigimon(digimonName);
+    setIsSelectDigimonOpen(false);
+    document.body.style.overflow = 'auto'; 
+  }
+
   return (
     <article className={style.board_write}>
+      {/* <LoginCheck /> */}
 
       <header>
         <figure className={style.logo}><img src='/img/board/write/logo.png'/></figure>
         <div className={style.profile}>
           <img className={style.pfDecoBox} src='/img/board/write/profilebox.png'/>
           <div className={style.pfInner}>
-            <p>[Rk.<span>1</span>]</p>
+            <p>[Rk.<span>100</span>]</p>
             <figure className={style.pfNickname}>
               <img src='/img/board/write/capsule (10).png'></img>
               <figcaption>행복포기</figcaption>
@@ -183,6 +229,12 @@ export default function page() {
         <div className={style.canvasWrapper}>
           <img className={style.canvasDeco} src='/img/board/write/canvas_deco.png'/>
           <canvas id="canvasId" ref={canvasRef} width={canvasWidth}></canvas>
+        </div>
+        <div className={style.selectedWrap}>
+          <figure className={style.SDigimonName}>
+            <img className={style.SNamePlate} src='/img/board/write/SNamePlate.png'/>
+            <figcaption className={style.SNameSlot}>{selectedDigimon}</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -215,65 +267,45 @@ export default function page() {
           </div>
         </div>
 
-        <div className={style.save} id="saveId">
-          <img className={style.saveDeco} src='/img/board/write/saveBtn.png'/>
+        <div className={style.save} id="saveId" onClick={wantSave}>
+          <img className={style.saveDeco} src='/img/board/write/saveBtn.png' style={selectedDigimon ? {} : { filter: 'brightness(0.7)' }} />
         </div>
       </section>
 
-      <footer>
-        <div className={style.footInner}>
-          <img className={style.footImg} src='/img/board/write/main_icon01.png'/>
-          <img className={style.footImg} src='/img/board/write/main_icon02.png'/>
-          <img className={style.footImg} src='/img/board/write/main_icon03.png'/>
-          <img className={style.footImg} src='/img/board/write/main_icon04.png'/>
-          <img className={style.footImg} src='/img/board/write/main_icon05.png'/>
-        </div>
-      </footer>
+      <Footer/>
 
       {/* 선택 팝업창 */}
       {isSelectDigimonOpen && (
       <section className={style.selectDigimon} id='selectDigimon' onClick={closeSelectDigimon}>
         <div className={style.selBg}>
-          <form>
-            <div className={style.searchBg}>
-              <div className={style.wrapSearch}>
-                <input className={style.searchInput} type='text' placeholder='디지몬을 검색해보세요.'/>
-                <div className={style.searchBtn}>
-                  <img src='/img/board/write/searchBtn.png'/>
-                </div>
+
+          <div className={style.searchBg}>
+            <div className={style.wrapSearch}>
+              <input className={style.searchInput} type='text' 
+                placeholder='디지몬을 검색해보세요'
+                onChange={(e)=> setSearchByName(e.target.value)}
+                onKeyPress={searchKeyPress}  
+              />
+              <div className={style.searchBtn} onClick={letsSearch}>
+                <img src='/img/board/write/searchBtn.png'/>
               </div>
             </div>
-            
-          </form>
+          </div>
 
           <ul className={style.digimonList}>
-            <li className={style.eachDigimon}>
-              <div className={style.cageWhole}>
-                <img className={style.cage} src='/img/board/write/eachDigimonCage.png'/>
-                <img className={style.mon} src='/img/board/write/testDigimon.png'/>
-              </div>
-              <div className={style.nameWhole}>
-                <img className={style.namePlate} src='/img/board/write/eachDigimonName.png'/>
-                <p className={style.name}>어쩌구저쩌구몬</p>
-              </div>
-            </li>
-            {
-              krDigimon.map((obj)=>(
-                <li className={style.eachDigimon} key={obj.id}>
-                  <div className={style.cageWhole}>
-                    <img className={style.cage} src='/img/board/write/eachDigimonCage.png'/>
-                    <img className={style.mon} src={ obj.image}/>
-                  </div>
-                  <div className={style.nameWhole}>
-                    <img className={style.namePlate} src='/img/board/write/eachDigimonName.png'/>
-                    <p className={style.name}>{obj.name}</p>
-                  </div>
-                </li>
-                )
-              )
-            }
-            
-            
+            {(showAll ? krDigimon : searchResult).map((digimon) => (
+              <li className={style.eachDigimon} key={digimon.id} onClick={()=>selectFinish(digimon.name)}>
+                <div className={style.cageWhole}>
+                  <img className={style.cage} src='/img/board/write/eachDigimonCage.png' />
+                  <img className={style.mon} src={digimon.image} />
+                </div>
+                <div className={style.nameWhole}>
+                  <img className={style.namePlate} src='/img/board/write/eachDigimonName.png' />
+                  <p className={style.name}>{digimon.name}</p>
+                </div>
+              </li>
+            ))}
+            {ifNoDigimon && <p>검색 결과가 없습니다</p>}
           </ul>
         </div>
       </section>
