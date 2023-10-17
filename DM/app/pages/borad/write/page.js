@@ -16,12 +16,13 @@ export default function page() {
   /* 회원정보 */
   let [dataURL, setDataURL] = useState();
   const [member,setMember] = useState();
-  
-  //로그인 멤버 정보
+  const [rk,setRk] = useState();
   async function fetchData() {
-    const mb = await user_get();
-    setMember(mb)
+      const mb = await user_get()
+      setRk(mb.rk.data)
+      setMember(mb.data);
   }
+    
   useEffect(()=>{
     fetchData();
   },[])
@@ -130,7 +131,7 @@ export default function page() {
 
       //저장 클릭후 로딩창 띄우기
       goNextPage();
-  }else{alert('디지몬을 선택해 주세요')}
+  }else{}
 
   }
 
@@ -226,6 +227,7 @@ export default function page() {
       window.location.href = '/pages/borad/list';
     }, 3000);
   };
+  
 
   if(!member) return <></>
   return (
@@ -233,17 +235,16 @@ export default function page() {
       {/* <LoginCheck />  */}
       <header>
         <figure className={style.logo}><img src='/img/board/write/logo.png'/></figure>
-        <div className={style.profile}>
+        <div className={style.profile} >
           <img className={style.pfDecoBox} src='/img/board/write/profilebox.png'/>
           <div className={style.pfInner}>
-            <p>[Rk.<span>{member.mb_rank}</span>]</p>
+            <p>[Rk.{rk}]</p>
             <figure className={style.pfNickname}>
               <img src={`/img/main/icon/${member.mb_icon}.png`}/>
               <figcaption>{member.mb_nick}</figcaption>
             </figure>
             <div className={style.pfPictureWrap}>
               <div className={style.pfPicture}>
-                <img className={style.pfPicDeco} src='/img/board/write/pfDeco.png'/>
                 <img className={style.pfPic} src={`/img/main/face/${member.mb_img}.png`}/>
               </div>
             </div>
@@ -305,7 +306,7 @@ export default function page() {
         </div>
 
         <div className={style.save} id="saveId" onClick={wantSave}>
-          <img className={style.saveDeco} src='/img/board/write/saveBtn.png' style={selectedDigimon ? {} : { filter: 'brightness(0.7)' }} />
+          <img className={style.saveDeco} src='/img/board/write/saveBtn.png' style={selectedDigimon ? {} : { filter: 'brightness(0.7)',cursor: 'auto' }} />
         </div>
       </section>
 
