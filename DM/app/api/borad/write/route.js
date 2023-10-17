@@ -10,7 +10,7 @@ export async function POST(req) {
     let userData = await req.json();
     await qe(`
         insert into dm_borad set   
-        title = '${userData.nickName}님의 D.M', 
+        title = '${userData.nickName}', 
         answer='${userData.selectedDigimon}', 
         path='${userData.dataURL}', 
         dm_id='${userData.SDid}',
