@@ -15,6 +15,8 @@ export async function POST(req) {
         path='${userData.dataURL}', 
         dm_id='${userData.SDid}',
         wr_id='${userData.mb_id}',
+        wr_icon='${userData.mb_icon}',
+        wr_img='${userData.mb_img}',
         wr_date='${userData.toDay}'
     `);
     return Response.json([]);

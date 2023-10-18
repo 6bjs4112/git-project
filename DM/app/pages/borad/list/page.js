@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from 'next/navigation';
 import style from './page.module.scss'
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
@@ -38,10 +37,10 @@ export default function page() {
     getFile();
   },[])
 
-  //DB최신순으로 정렬
-  const reverseData = [...data.sort((a,b)=> b.num - a.num )];
-  data.sort((a, b) => b.num - a.num);
-  console.log(reverseData);
+  // //DB최신순으로 정렬
+  // const reverseData = [...data.sort((a,b)=> b.num - a.num )];
+  // data.sort((a, b) => b.num - a.num);
+  // console.log(reverseData);
 
   //li 10개로 제한, 더보기버튼
   const initItemShow = 10;
@@ -52,9 +51,7 @@ export default function page() {
   const loadMoreDM = () => {
     setItemsToShow(itemsToShow + itemsPerLoad);
   };
-  
-  //view페이지로 넘어가기
-  const router = useRouter();
+
 
   if(!member) return <></>
   return (
@@ -95,17 +92,17 @@ export default function page() {
       <section className={style.DMList}>
         <ul className={style.digimonList}>
           {
-            reverseData.slice(0, itemsToShow).map((digimon)=>(
-              <li 
-                className={style.eachDigimon} key={digimon.num}
-                onClick={() => router.push(`/pages/borad/view?${digimon.num}`)}
-              >
+            data.slice(0, itemsToShow).map((digimon)=>(
+              <li className={style.eachDigimon} key={digimon.num}>
+                <Link href={{
+                    pathname: '../borad/view',
+                    query: { id: digimon.num }
+                }}>
+                  <div className={style.cageWhole}>
+                    <img className={style.cage} src='/img/board/list/listPack.png' />
+                    <img className={style.mon} src={digimon.path}/>
+                  </div>
                 
-                <div className={style.cageWhole}>
-                  <img className={style.cage} src='/img/board/list/listPack.png' />
-                  <img className={style.mon} src={digimon.path}/>
-                </div>
-
                 <div className={style.nameWhole}>
                   <div className={style.nameWrap}>
                     <img className={style.namePlate} src='/img/board/list/eachListNametag.png' />
@@ -121,12 +118,12 @@ export default function page() {
                     </div>
                   </div>
                 </div>
-
+                </Link>
               </li>
             ))
           }
         </ul>
-        {itemsToShow < reverseData.length && (
+        {itemsToShow < data.length && (
           <div className={style.moreBtn} onClick={loadMoreDM}>
             <img src='/img/board/list/moreDMplz.png'/>
           </div>

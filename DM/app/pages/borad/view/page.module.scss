@@ -18,7 +18,7 @@
 }
 
 
-.board_write{
+.board_view{
     width: 100%;
     
     background-image: url('/img/board/write/bg_board.png');
@@ -111,26 +111,6 @@
                 text-transform: uppercase;
             }
         }
-        .selectTab{
-            position: relative;
-            width: 40%; height: 100%;
-            .selectDeco{width: 100%; cursor: pointer;}
-            h2{
-                position: absolute; top:35%; right: 20%;
-
-                color: #FFF;
-                text-shadow: 2px 1px 0px #1F93FF;
-                text-align: center;
-
-                font-family: NeoDunggeunmo;
-                font-size: 22px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                letter-spacing: -0.44px;
-                text-transform: uppercase;
-            }
-        }
     }
 
     .drawing{
@@ -144,224 +124,225 @@
                 position: absolute; top: 0; left: 50%;
                 transform: translate(-50%,0%);
             }
-            canvas{
-                // width: 489px; height: 429px;
+            .canvas{
                 margin: 0 auto;
                 display: block;
                 transform: translate(0%,13%);
-                z-index: 4;
-            }
-        }
-        .selectedWrap{
-            position: absolute; top: 10%; left: 50%;
-            transform: translate(-50%, 0);
-            .SDigimonName{
-                position: relative;
-                @include flex( );
-                .SNamePlate{
-                    width: 100%; height: 100%;
-                }
-                .SNameSlot{
-                    position: absolute; top: 35%; left: 50%;
-                    transform: translate(-50%, 0%);
-                    width: 250px;
-
-                    color: #00F3FF;
-                    text-shadow: 2px 1px 0px #005188;
-                    font-family: NeoDunggeunmo;
-                    font-size: 24px;
-                    font-weight: 400;
-                    letter-spacing: 2.4px;
-                }
+                object-fit: cover;
             }
         }
     }
 
-    .drawTool{
+    .hintTab{
         padding: 0 5%;
         width: 100%;
-        margin: 0 auto;
-        img{
-            margin-top: 35px;
-        }
-        .toolboxDeco{
+        margin: 0 auto;margin-top: 35px;
+        .hintDeco{
             width: 100%;
-            margin: 100px auto 0 auto;
-            img{width: 100%;}
-            .toolbox{
-                width: 100%;
-                @include flex(space-around,);
-                input[type="color"] {
-                    width: 86px; height: 47px;
-                    border: 2px solid #00F3FF;
-                    cursor: pointer;
-                }
-                figure{
-                    figcaption{
-                        color: #FFF;
-                        text-align: center;
-                        font-family: NeoDunggeunmo;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 28px; 
-                        letter-spacing: -0.96px;
-                    }
-                }
-                .lineWeight{
-                    position: relative;
-                    cursor: pointer;
-                    .verticalRange{
-                        position: absolute; top: -3%; left: -137.5%;
-                        writing-mode: vertical-lr;
-                        display: block;
-                        transform: rotate(270deg);
-                    }
-                    .verticalRangeOff{
-                        display: none;
-                    }
-                    //슬라이더 커스텀
-                    .verticalRange input[type="range"]{
-                        -webkit-appearance: none;
-                        appearance: none;
-                        height: 15px;
-                        border: 3px solid #00F3FF;
-                        background: #092B4F; 
-                        outline: none;
-                        transform: translate(30px,-4px);
-                        cursor: pointer;
-                    }
-                    /* 슬라이더 핸들 - 이미지로 대체 */
-                    .verticalRange input[type="range"]::-webkit-slider-thumb{
-                        -webkit-appearance: none;
-                        appearance: none;
-                        width: 35px; height: 35px; 
-                        background: url('../../../../public/img/board/write/lineWeight_handle.png') no-repeat; /* 이미지 경로 설정 */
-                        background-size: cover; 
-                        cursor: pointer;
-                        transform: translate(10%,0%);
-                    }
-                }
-                .undo,.erase{
-                    cursor: pointer;
-                    .undoIcon{width: 70%;}
-                }
+            margin: 135px auto 0 auto;
+            @include flex( ){flex-direction: column};
+            .hint{
+                width: 100%; text-align: right;
+                transform: translate(0,50%);
+
+                color: #00F3FF;
+                text-shadow: 2px 1px 0px #005188;
+                font-family: NeoDunggeunmo;
+                font-size: 22px;
+                font-weight: 400;
+                letter-spacing: 1.32px;
             }
+            img{width: 100%;}
         }
-        .save{
-            width: 100%; height: 109px;
+        .answerBg{
+            width: 100%; height: 111px;
             margin: 0 auto;
-            cursor: pointer;
-            position: relative;
-            .saveDeco{
-                position: absolute; top: 0; left: 50%;
-                transform: translate(-50%,0%);
+            background-image: url('/img/board/write/searchBg.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            @include flex( );
+            .wrapAnswer{
+                width: 90%;
                 margin: 0 auto;
+                padding: 5% auto;
+                @include flex( );
+                .answerInput{
+                    width: 300px;
+                    padding: 0 20px;
+                    background-color: transparent;
+                    border: none; 
+                    outline: none;
+
+                    color: #FFF;
+                    font-family: Noto Sans KR;
+                    font-size: 22px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    &::placeholder{
+                        color: #B5B5B5;
+                        font-family: Noto Sans KR;
+                    }
+                }
+                .inputBtn{cursor: pointer;}
+            }
+            .correct{
+                width: 90%;
+                margin: 0 auto;
+                padding: 5% auto;
+                @include flex(space-evenly,center);
+
+                color: #FFF;
+                text-shadow: 2px 1px 0px #1F93FF;
+                font-family: NeoDunggeunmo;
+                font-size: 22px;
+                b{
+                    font-weight: 400;
+                }
+                .winner{
+                    @include flex();
+                    img{width: 22px;}
+                }
+                span{
+                    color: #00F3FF;
+                    text-shadow: 2px 1px 0px #005188;
+                }
             }
         }
     }
-
-    .selectDigimon{
+    .wrongAnswers{
+        @include flex(space-between,center){flex-direction: column};
+        .wrapText{
+            width: 20%;
+            @include flex( );
+            transform: translate(150%, 45%);
+            b{  
+                word-break: keep-all;
+                color: #00F3FF;
+                text-shadow: 2px 1px 0px #005188;
+                font-family: NeoDunggeunmo;
+                font-size: 22px;
+                font-weight: 400;
+                letter-spacing: 1.32px;
+            }
+            p >img{
+                margin-left:5px ;
+            }
+        }
+        .wrongAnsBox{
+            width: 588px; height: 170px;
+            background-image: url('/img/board/view/wrongAnsDeco.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            object-fit: contain;
+            .boxInner{
+                width: 95%;
+                margin: 0 auto;
+                margin-top: 50px;
+                text-align: left;
+                .comment{
+                    width: 100%; 
+                    padding: 1% 0;
+                    @include flex(flex-start,center);
+                    >img{}
+                    span{
+                        color: #FFF;
+                        text-shadow: 2px 1px 0px #1F93FF;
+                        font-family: NeoDunggeunmo;
+                        font-size: 22px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+        .bigbox{
+            width: 588px; height: 400px;
+            background-image: url('/img/board/view/wrongAnsDecoBig.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            object-fit: contain;
+            .bigboxInner{
+                overflow-y: scroll;
+                width: 95%; height: 250px;
+                margin: 0 auto;
+                margin-top: 50px;
+                text-align: left;
+                
+                .comment{
+                    width: 100%; 
+                    padding: 1% 0;
+                    @include flex(flex-start,center);
+                    >img{}
+                    span{
+                        color: #FFF;
+                        text-shadow: 2px 1px 0px #1F93FF;
+                        font-family: NeoDunggeunmo;
+                        font-size: 22px;
+                        font-weight: 400;
+                    }
+                }
+            }
+            ::-webkit-scrollbar {
+                width: 10px;
+                background-color: transparent; 
+                border: 1px solid #00F3FF;
+            }
+            ::-webkit-scrollbar-thumb {
+                width: 4px;
+                height: 62px;
+                background-color: #00F3FF;
+                background-clip: padding-box;
+                border: 3px solid transparent;
+            }
+        }
+    }
+    .Oanswer{
         z-index: 5;
         width: 640px; height: 100vh;
         margin: 0 auto;
-        background-color: rgb(0, 0, 0,0.5);
         backdrop-filter: blur(3px);
         position: fixed; bottom: 0; left: 50%;
         transform: translate(-50%, 0%);
-        @include flex(space-between,flex-end);
-        .selBg{
-            z-index: 6;
-            width: 100%; height: 73vh;
-            background-image: url('../../../../public/img/board/write/selectBg.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-position: center; 
-
-            @include flex(space-evenly,){flex-direction: column};
-            .searchBg{
-                width: 603px; height: 111px;
-                margin: 5% auto 0 auto;
-                background-image: url('../../../../public/img/board/write/searchBg.png');
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-                @include flex( );
-                .wrapSearch{
-                    width: 90%;
-                    margin: 0 auto;
-                    padding: 5% auto;
-                    @include flex( );
-                    .searchInput{
-                        width: 300px;
-                        padding: 0 20px;
-                        background-color: transparent;
-                        border: none; 
-                        outline: none;
-
-                        color: #FFF;
-                        font-family: Noto Sans KR;
-                        font-size: 22px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: normal;
-                        &::placeholder{
-                            color: #B5B5B5;
-                        }
-                    }
-                    .searchBtn{cursor: pointer;}
+        @include flex(center,center){flex-direction: column};
+        .modalBg{}
+        .modalInner{
+            .rkName{
+                .iconNick{
+                    img{}
+                    figcaption{}
                 }
+                p{}
             }
-            .digimonList{
-                width: 100%; height: 50vh;
-                
-                @include flex(center,center){flex-wrap: wrap};
-                padding: 5%;
+            .youGotDM{
                 .eachDigimon{
-                    width: 30%;
-                    @include flex(center,center){flex-direction: column};
-                    cursor: pointer;
                     .cageWhole{
-                        position: relative;
-                        .cage{width: 155px;}
-                        .mon{
-                            position: absolute; top: 20%; left :0; right:0; margin:0 auto;
-                            width: 108px; height: 120px;
-                            border: 2px solid #00F3FF;
-                            display: flex;
-                            justify-content: center; align-items: center;
-                        }
+                        .cage{width: 170px;}
+                        .mon{width: 81.6px; height: 90.44px;}
                     }
                     .nameWhole{
-                        transform: translate(0,-20%);
-                        position: relative;
-                        .namePlate{width: 155px;}
-                        .name{
-                            width: 80%; font-size: 16px;
-                            position: absolute; bottom: 0%; left: 50%;
-                            transform: translate(-50%, -120%);
+                        .nameWrap{
+                            .namePlate{width: 136px;}
+                            .nameInner{
+                                width: 129.2px;
+                                .smallFace{
+                                    width: 23.8px; height: 23.8px;
+                                    transform: translate(45%,-10%);
+                                }
+                                .textwrap{
+                                    transform: translate(0,-15%);
+                                    .iconNameLine{
+                                        .name{font-size: 14px;}
+                                    }
+                                    .fromWho{font-size: 14px;}
+                                }
+                            }
                         }
                     }
                 }
-                overflow-y: scroll;
             }
         }
-        display: flex;
-    }
-       //스크롤 커스텀
-    ::-webkit-scrollbar {
-        width: 10px;
-        background-color: transparent; 
-        border: 1px solid #00F3FF;
-    }
-    ::-webkit-scrollbar-thumb {
-        width: 4px;
-        height: 62px;
-        background-color: #00F3FF;
-        background-clip: padding-box;
-        border: 3px solid transparent;
-    }
-
-    .nextPage{
+        }
+    .Xanswer{
         z-index: 5;
         width: 640px; height: 100vh;
         margin: 0 auto;
@@ -370,20 +351,37 @@
         position: fixed; bottom: 0; left: 50%;
         transform: translate(-50%, 0%);
         @include flex(center,center){flex-direction: column};
-        .wordBubble{ width: 60%; transform: translate(0%,100%); }
-        .threeDigimon{width: 50%;}
+
+        .modalBg{}
+        .askRetry{
+            transform: translate(0%,-150%);
+            .askText{
+                color: #F00;
+                text-align: center;
+                text-shadow: 2px 1px 0px #005188;
+                font-family: NeoDunggeunmo;
+                font-size: 32px;
+                font-weight: 400;
+                letter-spacing: 3.2px;
+            }
+            .yesOrNo{
+                cursor: pointer;
+                img{padding: 0 10px;}
+            }
+        }
+
     }
 }
 
 //~~~~~~~~~~~~~~~~~~~반응형~~~~~~~~~~~~
 @media (min-width:640px){
-    .board_write{
+    .board_view{
         width: 640px;
         margin: 0 auto;
     }
 }
 @media (min-width:401px) and (max-width:600px){
-    .board_write{
+    .board_view{
         .profile{
             width: 80%;
             .pfDecoBox{width: 100%;}
@@ -429,85 +427,79 @@
                 }
             }
         }
-        .drawTool{
+        .hintTab{
             margin-top: 35%;
-            img{
-                margin-top: 0px;
-            }
-            .toolboxDeco{
+            .hintDeco{
                 width: 100%;
                 margin: -50px auto 0 auto;
+                .hint{}
                 img{width: 100%;}
-                .toolbox{
-                    width: 100%;
-                    @include flex(space-around,);
-                    input[type="color"]{
-                        width: 50px; height: 32px;
-                    }
-                    figure{
-                        img{width: 80%;}
-                    }
-                    .lineWeight{
-                        .verticalRange input[type="range"]{
-                            transform: translate(64px, -4px);
-                        }
-                    }
-                    .undo{
-                        .undoIcon{width: 57%;}
-                    }
-                }
             }
-            .save{
-                margin-top: 10%;
-                .saveDeco{
-                    width: 100%;
+            .answerBg{
+                width: 84%;
+                height: unset;
+                .wrapAnswer{
+                    width: 90%;
+                    margin: 0 auto;
+                    padding: 5% auto;
+                    .answerInput{width:200px; font-size: 16px;}
+                    .inputBtn{
+                        img{width: 80%;
+                            transform: translate(13%, 8%);}
+                    }
                 }
-                .saveText{
-                    transform: translate(-50%,110%);
-                    font-size: 25px !important;
-                }
-                .disabled-button img {filter: grayscale(100%); }
             }
         }
-        .selectDigimon{
-            width: 100%;
-            .selBg{
-                .searchBg{
-                    width: 84%;
-                    height: unset;
-                    .wrapSearch{
-                        width: 90%;
-                        margin: 0 auto;
-                        padding: 5% auto;
-                        .searchInput{width:200px; font-size: 16px;}
-                        .searchBtn{
-                            img{width: 80%;
-                                transform: translate(13%, 8%);}
-                        }
-                    }
+        .wrongAnswers{
+            @include flex(space-between,center){flex-direction: column};
+            .wrapText{
+                width: 20%;
+                @include flex( );
+                transform: translate(150%, 45%);
+                b{  
+                    word-break: keep-all;
+                    color: #00F3FF;
+                    text-shadow: 2px 1px 0px #005188;
+                    font-family: NeoDunggeunmo;
+                    font-size: 22px;
+                    font-weight: 400;
+                    letter-spacing: 1.32px;
                 }
-                .digimonList{
-                    .eachDigimon{
-                        .cageWhole{
-                            .cage{width: 100%;}
-                            .mon{
-                                width: 70%; height: 60%;
-                            }
-                        }
-                        .nameWhole{
-                            .namePlate{width: 100%;}
-                            .name{
-                                font-size: 12px;
-                            }
+                p >img{
+                    margin-left:5px ;
+                }
+            }
+            .wrongAnsBox{
+                width: 588px; height: 170px;
+                background-image: url('/img/board/view/wrongAnsDeco.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                object-fit: contain;
+                .boxInner{
+                    width: 95%;
+                    margin: 0 auto;
+                    margin-top: 50px;
+                    text-align: left;
+                    .comment{
+                        width: 100%; 
+                        padding: 1% 0;
+                        @include flex(flex-start,center);
+                        >img{}
+                        span{
+                            color: #FFF;
+                            text-shadow: 2px 1px 0px #1F93FF;
+                            font-family: NeoDunggeunmo;
+                            font-size: 22px;
+                            font-weight: 400;
                         }
                     }
                 }
             }
         }
-    }
+    }   
 }
 @media (min-width:320px) and (max-width:400px){
-    .board_write{
+    .board_view{
         .profile{
             width: 80%;
             .pfDecoBox{width: 100%;}
@@ -561,83 +553,74 @@
                 }
             }
         }
-        .drawTool{
+        .hintTab{
             margin-top: 35%;
-            img{
-                margin-top: 0px;
-            }
-            .toolboxDeco{
+            .hintDeco{
                 width: 100%;
                 margin: -50px auto 0 auto;
+                .hint{}
                 img{width: 100%;}
-                .toolbox{
-                    width: 100%;
-                    @include flex(space-around,);
-                    input[type="color"]{
-                        width: 50px; height: 32px;
-                    }
-                    figure{
-                        img{width: 80%;}
-                    }
-                    .lineWeight{
-                        .verticalRange input[type="range"]{
-                            transform: translate(64px, -4px);
-                        }
-                    }
-                    .undo{
-                        .undoIcon{width: 57%;}
-                    }
-                }
             }
-            .save{
-                margin-top: 10%;
-                .saveDeco{
-                    width: 100%;
-                }
-                .saveText{
-                    transform: translate(-50%,110%);
-                    font-size: 25px !important;
-                }
-            }
-        }
-        .selectDigimon{
-            width: 100%;
-            .selBg{
-                .searchBg{
-                    width: 84%;
-                    height: unset;
-                    .wrapSearch{
-                        width: 90%;
-                        margin: 0 auto;
-                        margin: 5px auto 0 auto;
-                        .searchInput{width:200px; font-size: 16px;}
-                        .searchBtn{
-                            img{width: 80%;
-                                transform: translate(16%, 3%);}
-                        }
-                    }
-                }
-                .digimonList{
-                    .eachDigimon{
-                        .cageWhole{
-                            .cage{width: 100%;}
-                            .mon{
-                                width: 70%; height: 60%;
-                            }
-                        }
-                        .nameWhole{
-                            .namePlate{width: 100%;}
-                            .name{
-                                font-size: 12px;
-                            }
-                        }
+            .answerBg{
+                width: 84%;
+                height: unset;
+                .wrapAnswer{
+                    width: 90%;
+                    margin: 0 auto;
+                    padding: 5% auto;
+                    .answerInput{width:200px; font-size: 16px;}
+                    .inputBtn{
+                        img{width: 80%;
+                            transform: translate(13%, 8%);}
                     }
                 }
             }
         }
-        .nextPage{
-            .wordBubble{ width: 50%;}
-            .threeDigimon{ width: 45%;}
+        .wrongAnswers{
+            @include flex(space-between,center){flex-direction: column};
+            .wrapText{
+                width: 20%;
+                @include flex( );
+                transform: translate(150%, 45%);
+                b{  
+                    word-break: keep-all;
+                    color: #00F3FF;
+                    text-shadow: 2px 1px 0px #005188;
+                    font-family: NeoDunggeunmo;
+                    font-size: 22px;
+                    font-weight: 400;
+                    letter-spacing: 1.32px;
+                }
+                p >img{
+                    margin-left:5px ;
+                }
+            }
+            .wrongAnsBox{
+                width: 588px; height: 170px;
+                background-image: url('/img/board/view/wrongAnsDeco.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                object-fit: contain;
+                .boxInner{
+                    width: 95%;
+                    margin: 0 auto;
+                    margin-top: 50px;
+                    text-align: left;
+                    .comment{
+                        width: 100%; 
+                        padding: 1% 0;
+                        @include flex(flex-start,center);
+                        >img{}
+                        span{
+                            color: #FFF;
+                            text-shadow: 2px 1px 0px #1F93FF;
+                            font-family: NeoDunggeunmo;
+                            font-size: 22px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
         }
     }
 }

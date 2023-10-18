@@ -118,6 +118,8 @@ export default function page() {
       setDataURL(dataURL);
       const mb_id = member.mb_id;
       const nickName = member.mb_nick;
+      const mb_icon = member.mb_icon;
+      const mb_img = member.mb_img;
 
       const date = new Date();
       const y = date.getFullYear();
@@ -125,7 +127,7 @@ export default function page() {
       const d = date.getDate();
       const toDay = `${y}.${m}.${d}`;
 
-      let userData = {mb_id,SDid,nickName,selectedDigimon,dataURL,toDay}
+      let userData = {mb_id,SDid,nickName,selectedDigimon,dataURL,toDay,mb_icon,mb_img}
       console.log(userData);
       axios.post('/api/borad/write',userData);
 
@@ -159,11 +161,7 @@ export default function page() {
         window.addEventListener('resize',resizeCanvas)
     
         resizeCanvas();
-      
     }, 500);
-
-    
-    
   },[canvasWidth])
 
 
