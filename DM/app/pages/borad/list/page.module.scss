@@ -160,7 +160,7 @@
                     }
                 }
                 .nameWhole{
-                    position: absolute; bottom: 25%;
+                    position: absolute; bottom: 25%; right: 12%;
                     .nameWrap{
                         position: relative;
                         .namePlate{width: 200px;}
@@ -240,7 +240,7 @@
         .title{
             .titleTab{
                 .titleDeco{width: 90%;}
-                h1{font-size: 16px; left: 18%;}
+                h1{font-size: 15px; left: 18%;}
             }
             a{
                 .newDrawTab{
@@ -257,6 +257,7 @@
                         .mon{width: 108px; height: 119.7px;}
                     }
                     .nameWhole{
+                        right: 6%;
                         .nameWrap{
                             .namePlate{width: 180px;}
                             .nameInner{

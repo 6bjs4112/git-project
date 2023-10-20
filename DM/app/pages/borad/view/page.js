@@ -2,10 +2,11 @@
 
 import style from './page.module.scss'
 import React, { useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import axios from 'axios';
 import {user_get} from '../../../comp/member/Login'
 import Footer from '@/app/comp/Footer';
+import Lodding from '@/app/comp/Lodding';
 
 export default function page() {
   // url에서 받아오기~~~~
@@ -42,27 +43,25 @@ export default function page() {
     const req = await axios.get(`/api/borad/view/wrong?id=${idParam}`)
     setAnsData(req.data)
   }
-  console.log(data);
   //~~~~~~~~~캐치마인드 크기 조절~~~~~~~~~
   const canvasRef = useRef(null);
   let [canvasWidth, setCanvasWidth]= useState();
 
+  function resizeCanvas() {
+    const canvas = canvasRef.current;
+    if(canvas != null){
+      const container = document.body;
+      const width = container.clientWidth;
+      canvas.width = width >= 600 ? 489 : width*0.7;
+      canvas.height = width >= 639 ? 429 : canvasWidth*0.877;
+      setCanvasWidth(canvas.clientWidth);
+
+    }
+  }
   useEffect(()=>{
-    setTimeout(() => {
-      function resizeCanvas() {
-          const canvas = canvasRef.current;
-          const container = document.body;
-          const width = container.clientWidth;
-          canvas.width = width >= 600 ? 489 : width*0.7;
-          canvas.height = width >= 639 ? 429 : canvasWidth*0.877;
-          setCanvasWidth(canvas.clientWidth);
-        }
-    
-        window.addEventListener('resize',resizeCanvas)
-    
-        resizeCanvas();
-    }, 500);
-  },[canvasWidth])
+      window.addEventListener('resize',resizeCanvas)
+      resizeCanvas();
+  },[canvasWidth,member])
 
   //답 입력
   const [answerInput, setAnswerInput] = useState(''); 
@@ -102,24 +101,41 @@ export default function page() {
   };
 
   //정답오답 모달창
-  const [Oanswer, setOanswer] = useState(true);
-  // const [Oanswer, setOanswer] = useState(false);
+  const [Oanswer, setOanswer] = useState(false);
   const [Xanswer, setXanswer] = useState(false);
 
-  //정답오답 함수
+  //정답 함수
   const youOanswer = ()=>{
     setOanswer(true);
     document.body.style.overflow = 'hidden';
+    
+    const myid = member.mb_id;
+    const newCount = (member.mb_count)+1;
+    const sendScore = {myid, newCount};
+    axios.post('/api/borad/view/score',sendScore);
+
     setTimeout(function () {
+      document.body.style.overflow = 'auto';
+      setOanswer(false);
+      fetchData();
+      getWrdata();
+      getAnsdata();
     }, 3000);
   };
+  //오답 함수
   const youXanswer = ()=>{
     setXanswer(true);
     document.body.style.overflow = 'hidden';
   };
-  
-  const goList = ()=>{
-    window.location.href = '/pages/borad/list'
+  //오답에서 예/아니오
+  const youSaidYes = function(){
+    setXanswer(false);
+    getAnsdata()
+    document.body.style.overflow = 'auto';
+  }
+  const youSaidNo = ()=>{
+    document.body.style.overflow = 'auto';
+    window.location.href = '/pages/borad/list'    
   };
 
   //오답리스트 박스 열기
@@ -136,14 +152,21 @@ export default function page() {
     }
   }
 
-  if(!member || !data || !ansData) return <></>
+  const nav = useRouter();
+  const moving = (link)=>{
+      nav.push(link)
+    }
+
+
+
+  if(!member || !data || !ansData || !canvasRef) return <Lodding />
   return (
     <article className={style.board_view}>
       <header>
         <figure className={style.logo}><img src='/img/board/write/logo.png'/></figure>
         <div className={style.profile} >
           <img className={style.pfDecoBox} src='/img/board/write/profilebox.png'/>
-          <div className={style.pfInner}>
+          <div className={style.pfInner} onClick={()=>{ moving('/pages/member/mypage') }}>
             <p>[Rk.{rk}]</p>
             <figure className={style.pfNickname}>
               <img src={`/img/main/icon/${member.mb_icon}.png`}/>
@@ -182,14 +205,26 @@ export default function page() {
           {
             !data?.an_id ?  
             <div className={style.wrapAnswer}>
-              <input className={style.answerInput} type='text' 
-                placeholder='정답을 입력하세요'
-                onChange={(e)=> setAnswerInput(e.target.value)}
-                onKeyPress={inputKeyPress}
-              />
-              <div className={style.inputBtn} onClick={answerCompare}>
-                <img src='/img/board/view/inputBtn.png'/>
-              </div>
+              {
+                (member.mb_id == data.wr_id) ?
+                  <input className={style.answerInput} type='text' 
+                    placeholder='자신의 D.M은 풀 수 없습니다' disabled
+                  />
+                :
+                <input className={style.answerInput} type='text' 
+                  placeholder='정답을 입력하세요'
+                  onChange={(e)=> setAnswerInput(e.target.value)}
+                  onKeyPress={inputKeyPress}
+                />
+              }
+              {
+                (member.mb_id == data.wr_id) ?
+                <></>
+                :
+                <div className={style.inputBtn} onClick={answerCompare}>
+                  <img src='/img/board/view/inputBtn.png'/>
+                </div>
+              }
             </div>
           :
             <div className={style.correct}>
@@ -263,7 +298,6 @@ export default function page() {
             </div>
             <div className={style.youGotDM}>
               <li className={style.eachDigimon}>
-
                 <div className={style.cageWhole}>
                   <img className={style.cage} src='/img/board/list/listPack.png' />
                   <img className={style.mon} src={data.path}/>
@@ -278,17 +312,22 @@ export default function page() {
                       <div className={style.textwrap}>
                         <div className={style.iconNameLine}>
                           <img src={`/img/main/icon/${data.wr_icon}.png`}/>
-                          <p className={style.name}>{data.answer}</p>
+                          <p className={style.name}>{data.title}</p>
                         </div>
                         <span className={style.fromWho}>님의 D.M</span>
                       </div>
                     </div>
-
+      
                   </div>
                 </div>
-
               </li>
+              
+              <div className={style.answerPlate}>
+                <img className={style.plateBg} src='/img/board/view/OanswerName.png' />
+                <p className={style.answerName}>{data.answer}</p>
+              </div>
             </div>
+            <p className={style.fire}><img src='/img/board/view/congFire.gif'/></p>
           </div>
         </section>
       )}
@@ -300,8 +339,8 @@ export default function page() {
           <div className={style.askRetry}>
             <p className={style.askText}>PLAY AGAIN?</p>
             <div className={style.yesOrNo}>
-              <img className={style.askBtn} onClick={ ()=>setXanswer(false)} src='/img/board/view/XanswerYes.png'/>
-              <img className={style.askBtn} onClick={ goList } src='/img/board/view/XanswerNo.png'/>
+              <img className={style.askBtn} onClick={ youSaidYes } src='/img/board/view/XanswerYes.png'/>
+              <img className={style.askBtn} onClick={ youSaidNo } src='/img/board/view/XanswerNo.png'/>
             </div>
           </div>
         </section>
