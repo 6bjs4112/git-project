@@ -23,3 +23,6 @@ git repository > Issues > New Issue 버튼 > 이미지 끌어다 넣기 > url �
 <a href="https://6bjs4112.github.io/git-project/LionHill">라이온힐 바로가기</a>
 <br>
 <a href="https://6bjs4112.github.io/3rdPkmQuiz/">포켓몬 퀴즈 배틀 바로가기</a>
+<br>
+<a href="https://dm-ten-pearl.vercel.app/">디지몬 마인드 바로가기</a>
+
