@@ -112,7 +112,7 @@
         "name": "Deluxe Single",
         "type": "deluxe single", 
 
-        "roomImg": ["img_deluxeSingle1.jpg", "img_deluxeSingle2.jpg", "img_deluxeSingle3.jpg"],
+        "roomImg": ["img_deluxeSingle1.jpg", "img_deluxeSingle2.jpg", "img_deluxeSingle21.jpg"],
         "roomImgAlt": ["디럭스 싱글 방_사진", "디럭스 싱글 거실_사진", "디럭스 싱글 욕실_사진"],
 
         "roomService_icon": ["icon_wifi.svg", "icon_car.svg", "icon_airConditioner.svg", "icon_washingMachine.svg", "icon_forkSpoon.svg"],

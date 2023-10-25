@@ -14,6 +14,7 @@ $(document).ready(function () {
         const elMenu = document.querySelector('.menu_btn'),
             elS3Nav = document.querySelector('.menu_show');
         elMenu.onclick = function(){
+            console.log('버튼클릭');
             if(elS3Nav.classList.contains('active')){
                 $('body').css("overflow-y","scroll")
                 elS3Nav.style.height = "-100%"
@@ -27,7 +28,6 @@ $(document).ready(function () {
                 elS3Nav.style.display = "flex"
                 setTimeout(function(){
                     elS3Nav.style.height = "100vh"
-           
                 },30)
             }
         };

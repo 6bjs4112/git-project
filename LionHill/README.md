@@ -18,7 +18,7 @@ Day 4 7/31.
 [ Canva ]
 </a>와
 <a href="https://www.notion.so/Canva-a5fb492500e34ff49715b6c25b4621c4?pvs=4" target="_blank">
-[ 노션 ]
+[ Notion ]
 </a>, 그리고
 <a href="https://www.figma.com/file/8FAAORwR9q6e3J6D2iCdh9/%EB%9D%BC%EC%9D%B4%EC%98%A8%ED%9E%90-%ED%8E%9C%EC%85%98(%EC%82%AC%EB%B3%B8)?type=design&node-id=0%3A1&mode=design&t=OLYXEWz0a0GtcRVi-1" target="_blank">
 [ Figma ]
