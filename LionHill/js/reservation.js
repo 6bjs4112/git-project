@@ -641,7 +641,6 @@ function addReservationInfo(user, commonInfo) {
   var RoomTitles = Array.from(RoomTitleText).map(e => e.textContent).join(", ");
   user.RoomTitleText = RoomTitles;
 }
-
 document.getElementById('payBtn').addEventListener('click', function () {
   // 로컬 정보 불러옴
   const storedLocalData = localStorage.getItem('userInfos');

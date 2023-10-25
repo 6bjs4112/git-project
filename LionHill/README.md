@@ -1,6 +1,6 @@
 # LionHill Jeju
 ### Make Language
-[html] [javascript] [jQuery] [ SCSS ] [KAKAO API] [GOOGLE API]
+[html] [javascript] [jQuery] [SCSS] [KAKAO API] [GOOGLE API]
 ### Make Date
 [2023.07.26 - 2023.08.25?] <br/>
 Day 1 7/26. 리뉴얼사이트 선정 / 기획 / 리소스 서치 <br/>
