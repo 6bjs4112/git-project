@@ -50,11 +50,58 @@ app.get('/face',async function(req,res){
 })
 
 //저장하기
+app.post('/tr/insert',async function(req,res){
+    await toMeal_trainer.insertOne(req.body);
+    
+    const result = await toMeal_trainer.find().toArray();
+    res.send(result)
+})
 app.post('/mb/insert',async function(req,res){
     await toMeal_member.insertOne(req.body);
     
     const result = await toMeal_member.find().toArray();
     res.send(result)
+})
+
+//아이디 중복확인
+app.post('/tr/idCheck',async function(req,res){
+    const needCheckid = req.body.id;
+    
+    const query = {tr_id:needCheckid};
+    const result = await toMeal_trainer.countDocuments(query);
+    console.log(result);
+    if(result==0){
+        return res.send(true);
+    }else{
+        return res.send(false);
+    }
+})
+app.post('/mb/idCheck',async function(req,res){
+    const needCheckid = req.body.id;
+
+    const query = {mb_id:needCheckid};
+    const result = await toMeal_member.countDocuments(query);
+    console.log(result);
+
+    if(result==0){
+        return res.send(true);
+    }else{
+        return res.send(false);
+    }
+})
+//트레이너 코드 확인
+app.post('/mb/codeCheck',async function(req,res){
+    const needCheckCode = req.body.code;
+
+    const query = {tr_code:needCheckCode};
+    const result = await toMeal_trainer.countDocuments(query);
+    console.log(result);
+
+    if(result==0){
+        return res.send(false);
+    }else{
+        return res.send(true);
+    }
 })
 
 app.listen(3000,dbConnect)
