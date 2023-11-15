@@ -1,11 +1,18 @@
 "use client"
 import login from './login.module.scss'
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function page() {
+  useEffect(()=>{
+    axios.get('/api/member?type=tr');
+    axios.get('/api/member?type=mb');
+  },[])
+
   const nav = useRouter();
   const joinClick = ()=>{
-    nav.push('/pages/member/join')
+    // nav.push('/pages/Member/join')
   }
   return (
     <div className={login.login_wrap}>

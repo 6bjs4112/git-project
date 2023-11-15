@@ -3,16 +3,22 @@ import axios from 'axios';
 import join from './join.module.scss'
 
 import { useRouter } from 'next/navigation';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function page() {
+
+  useEffect(()=>{
+    axios.get('/api/member?type=tr');
+    axios.get('/api/member?type=mb');
+  },[])
+
   const nav = useRouter();
   const trainerCon = useRef();
   const memberCon = useRef();
   const [types , setTypes] = useState('m')
   
   const arrowClick = ()=>{
-    nav.push('/pages/member/login')
+    nav.push('/pages/Member/login')
   }
   const trainerClick = ()=>{
     setTypes('t');
@@ -58,8 +64,8 @@ export default function page() {
       mb_code:formData.trCode,
       mb_img:'0',
       mb_date:Date.now(),
-      mb_myMeal:{},
-      mb_judge:{}
+      mb_myMeal:[],
+      mb_judge:[]
     }
   }else if(types=='t'){
     insertData ={
@@ -69,9 +75,9 @@ export default function page() {
       tr_code:makeTrCode(),
       tr_img:'0',
       tr_date:Date.now(),
-      tr_totalMeal:{},
-      tr_family:{},
-      tr_judge:{}
+      tr_totalMeal:[],
+      tr_family:[],
+      tr_judge:[]
     }
   }
   //아이디 중복 확인
@@ -81,24 +87,27 @@ export default function page() {
     const send = {id:formData.userid}
     let res;
     if(types=='t'){
-      res = await axios.post("http://localhost:3000/tr/idCheck",send)
-      console.log(res.data);
+      res = await axios.post("/api/member?type=tr&mode=idCheck",send)
+      console.log(res);
     }else{
-      res = await axios.post("http://localhost:3000/mb/idCheck",send)
+      res = await axios.post("/api/member?type=mb&mode=idCheck",send)
       console.log(res.data);
     }
 
     if(res.data==false){
-      alert('이미 사용 중인 아이디입니다')
+      alert('이미 사용 중인 아이디입니다');
+      setIsIdOk(false); return;
     }else{
-      setIsIdOk(true);
+      // alert('사용 가능한 아이디입니다'); 
+      setIsIdOk(true); return;
     }
   }
-
+  const [isPwOk,setIsPwOk]=useState(false);
+  const [isTrCodeOk,setIsTrCodeOk]=useState(false);
   //가입하기 클릭시 유효성 검사 후 DB로 보냄
-  const dataSubmit = (e)=>{
+  const dataSubmit = async (e)=>{
     e.preventDefault();
-    console.log(insertData);
+    // console.log(insertData);
 
     //아이디 체크
     let regId = /^[A-Za-z0-9]+$/;
@@ -117,8 +126,10 @@ export default function page() {
       return
     }
     //비밀번호 재확인
+    
     if(formData.userpw != formData.checkpw){
-      alert('비밀번호가 일치하지 않습니다');
+      // alert('비밀번호가 일치하지 않습니다');
+      setIsPwOk(true)
       return
     }
     //미입력방지
@@ -126,30 +137,40 @@ export default function page() {
       alert('모든 정보를 입력해 주세요')
       return;
     }
+
     //트레이너 코드 확인
-    const codeSend = {code:formData.trCode}
-    let res;
-    if(types=='t'){
-      res = axios.post("http://localhost:3000/mb/codeCheck",codeSend)
-      console.log(res.data);
-      const codeRes = res.data;
-    }
-    if(codeRes==false){
-      alert('존재하지 않는 트레이너 코드입니다.');
-      return;
+    const codeSend = {code:formData.trCode, mb_id:formData.userid}
+    let res, codeRes;
+    
+    if(types=='m'){//일반회원일 경우만 진행
+      if(!formData.trCode){//미입력방지
+        alert('모든 정보를 입력해 주세요'); return;
+      }
+      res = await axios.post("/api/member?type=mb&mode=codeCheck",codeSend)
+      // console.log(res.data);
+      codeRes = res.data;
+
+      if(codeRes==false){
+        // alert('존재하지 않는 트레이너 코드입니다.');
+        setIsTrCodeOk(true)
+        return;
+      }
     }
 
-    //트레이너/일반회원 DB구분
+    //트레이너/일반회원 DB구분해 전송
     if(types=='t'){
       axios
-      .post("http://localhost:3000/tr/insert",insertData)
+      .post("/api/member?type=tr&mode=insert",insertData)
       .then(res=>{console.log(res.data);}) 
-    }else{
+    }
+    if(types=='m'){
       axios
-      .post("http://localhost:3000/mb/insert",insertData)
+      .post("/api/member?type=mb&mode=insert",insertData)
       .then(res=>{ console.log(res.data);}) 
     }
-    alert('가입완료')
+    
+    alert('가입을 축하합니다!');
+    arrowClick();
   }
 
   return (
@@ -191,6 +212,12 @@ export default function page() {
               </label>
               <label>
                 아이디
+                {
+                  isIdOk==true?
+                  <span>사용 가능한 아이디입니다.</span>
+                  :
+                  <span></span>
+                }
                 <div>
                   <input 
                     type="text" placeholder='아이디를 입력해 주세요.'
@@ -208,6 +235,12 @@ export default function page() {
               </label>
               <label>
                 비밀번호 재확인
+                {
+                  isPwOk==true?
+                  <span>비밀번호가 일치하지 않습니다.</span>
+                  :
+                  <span></span>
+                }
                 <input 
                   type="text" placeholder='비밀번호를 입력해 주세요.'
                   onChange={getInput} name="checkpw"
@@ -226,6 +259,12 @@ export default function page() {
               </label>
               <label>
                 아이디
+                {
+                  isIdOk==true?
+                  <span>사용 가능한 아이디입니다.</span>
+                  :
+                  <span></span>
+                }
                 <div>
                   <input 
                     type="text" placeholder='아이디를 입력해 주세요.'
@@ -243,6 +282,12 @@ export default function page() {
               </label>
               <label>
                 비밀번호 재확인
+                {
+                  isPwOk==true?
+                  <span>비밀번호가 일치하지 않습니다.</span>
+                  :
+                  <span></span>
+                }
                 <input 
                   type="text" placeholder='비밀번호를 입력해 주세요.'
                   onChange={getInput} name="checkpw"
@@ -250,6 +295,12 @@ export default function page() {
               </label>
               <label>
                 트레이너 코드
+                {
+                  isTrCodeOk==true?
+                  <span>잘못된 코드입니다.</span>
+                  :
+                  <span></span>
+                }
                 <input 
                   type="text" placeholder='정확한 코드를 입력해 주세요.'
                   onChange={getInput} name="trCode"

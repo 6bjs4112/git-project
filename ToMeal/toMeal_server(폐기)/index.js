@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 // Connection URL
 const url = 'mongodb+srv://Yoonha:bPFob5CzQpxLi5Pr@cluster0.zyx3gv4.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(url);
-let db;
+let db,toMeal_trainer,toMeal_member,toMeal_list,toMeal_comment,toMeal_face;
 
 const dbConnect = async function(){
     await client.connect();
@@ -49,7 +49,7 @@ app.get('/face',async function(req,res){
     res.send(result)
 })
 
-//저장하기
+//db저장하기
 app.post('/tr/insert',async function(req,res){
     await toMeal_trainer.insertOne(req.body);
     
@@ -89,18 +89,21 @@ app.post('/mb/idCheck',async function(req,res){
         return res.send(false);
     }
 })
-//트레이너 코드 확인
+//트레이너 코드 확인 후 해당 트레이너에 회원 저장
 app.post('/mb/codeCheck',async function(req,res){
     const needCheckCode = req.body.code;
+    const needAddId = req.body.mb_id;
 
-    const query = {tr_code:needCheckCode};
-    const result = await toMeal_trainer.countDocuments(query);
+    const result = await toMeal_trainer.countDocuments({tr_code:needCheckCode});
     console.log(result);
 
     if(result==0){
         return res.send(false);
     }else{
-        return res.send(true);
+        await toMeal_trainer.updateOne(
+            { "tr_code": needCheckCode },
+            { $push:{"tr_family": needAddId }}
+        );
     }
 })
 
