@@ -6,13 +6,13 @@ import { useRouter } from 'next/navigation';
 export default function Footer() {
   const nav = useRouter();
   const homeClick = ()=>{
-    nav.push('/pages/List/mainList')
+    nav.push('/pages/list/mainList')
   }
   const registrationClick = ()=>{
-    nav.push('/pages/Write/upload')
+    nav.push('/pages/write/upload')
   }
   const mypageClick = ()=>{
-    nav.push('/pages/Member/mypage')
+    nav.push('/pages/member/mypage')
   }
   return (
     <footer>

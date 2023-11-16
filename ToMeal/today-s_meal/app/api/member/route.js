@@ -5,7 +5,7 @@ async function getDB(type){
     switch(type){
         case 'tr': result = await toMeal_trainer.find().toArray(); break;
         case 'mb':  result = await toMeal_member.find().toArray(); break;
-        case 'list': result = await toMeal_list.find().toArray() ; break;
+        // case 'list': result = await toMeal_list.find().toArray() ; break;
         // case 'com': result = await toMeal_comment.find().toArray() ; break;
         // case 'face': result = await toMeal_face.find().toArray()  ; break;
     }
@@ -16,6 +16,7 @@ async function getDB(type){
 async function postDB(type,mode,data){
 
     let result;
+//회원가입페이지
     //DB에 저장하기
     if(type==='tr' && mode==='insert'){
         await toMeal_trainer.insertOne(data);
@@ -62,6 +63,54 @@ async function postDB(type,mode,data){
                 { $push:{"tr_family": needAddId }}
             );
         }
+    }
+
+//로그인페이지
+    if(type==='tr' && mode==='login'){
+        const idCheck = data.id;
+        const pwCheck = data.pw;
+        result = await toMeal_trainer.findOne({tr_id:idCheck});
+
+        //id확인
+        if(!result){
+            return false;
+        }else{
+            //id에 맞는 pw확인
+            if(result.tr_pw == pwCheck){
+                //로그인 성공
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+    if(type==='mb' && mode==='login'){
+        const idCheck = data.id;
+        const pwCheck = data.pw;
+        result = await toMeal_member.findOne({mb_id:idCheck});
+
+        //id확인
+        if(!result){
+            return false;
+        }else{
+            //id에 맞는 pw확인
+            if(result.mb_pw == pwCheck){
+                //로그인 성공
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+//마이페이지
+    if(type==='tr' && mode==='bring'){
+        const searchId = data.isTr;
+        console.log(searchId);
+        result = await toMeal_trainer.findOne({tr_id:searchId});
+    }
+    if(type==='mb' && mode==='bring'){
+        const searchId = data.isMb;
+        result = await toMeal_member.findOne({mb_id:searchId});
     }
     return result;
 }
