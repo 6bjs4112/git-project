@@ -42,8 +42,13 @@
             background-color: #E4EFFF;
             display: flex;
             justify-content: center;
-            align-items: end;
+            align-items: center;
             overflow: hidden;
+            img{
+              width: 90%; height: 90%;
+              object-fit: cover;
+              border-radius: 50%;
+            }
           }
           &:nth-of-type(2){
             position: absolute;
@@ -248,10 +253,17 @@
             display: flex;
             align-items: center;
             >figure{
-              width: 44px;
-              margin-right: 20px;
+              width: 44px; height: 44px;
+              margin-right: 20px; border-radius: 50%;
+              background-color: #E4EFFF;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
               img{
-                width: 100%;
+                width: 95%; height: 95%;
+                object-fit: cover;
+                border-radius: 50%;
               }
             }
             >p{

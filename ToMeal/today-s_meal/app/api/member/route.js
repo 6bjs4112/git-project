@@ -32,7 +32,6 @@ async function postDB(type,mode,data){
     
         const query = {tr_id:needCheckid};
         result = await toMeal_trainer.countDocuments(query);
-        console.log(result);
         if(result==0){return true;
         } else { return false; }
     }
@@ -41,7 +40,6 @@ async function postDB(type,mode,data){
 
         const query = {mb_id:needCheckid};
         result = await toMeal_member.countDocuments(query);
-        console.log(result);
     
         if(result==0){ return true;
         }else{ return false; }
@@ -52,7 +50,6 @@ async function postDB(type,mode,data){
         const needAddId = data.mb_id;
     
         result = await toMeal_trainer.countDocuments({tr_code:needCheckCode});
-        console.log(result);
     
         if(result==0){
             return false;
@@ -105,12 +102,62 @@ async function postDB(type,mode,data){
 //마이페이지
     if(type==='tr' && mode==='bring'){
         const searchId = data.isTr;
-        console.log(searchId);
         result = await toMeal_trainer.findOne({tr_id:searchId});
     }
     if(type==='mb' && mode==='bring'){
         const searchId = data.isMb;
         result = await toMeal_member.findOne({mb_id:searchId});
+    }
+    //트레이너의 회원목록
+    if(type==='tr' && mode==='family'){
+        const famList = data.mem;
+        result = await toMeal_member.find({mb_id:{$in:famList}}).toArray();
+    }
+    //관리회원 삭제
+    if(type==='tr' && mode==='remove'){
+        const myid = data.tr_id;
+        const removeId = data.removeId;
+
+        result = await toMeal_trainer.findOneAndUpdate(
+            { tr_id: myid },
+            { $pull: { tr_family: { $in:[removeId]}} },
+            { returnNewDocument: true } //값 삭제 후 배열반환
+        )
+        result = await toMeal_trainer.findOne({ tr_id: myid });
+    }
+    //프사 바꾸기
+    if(type==='tr' && mode==='imgUpdate'){
+        const whoseImg = data.id;
+        const imgUrl = data.img;
+        
+        result = await toMeal_trainer.updateOne(
+            { "tr_id": whoseImg },{ $set:{"tr_img": imgUrl}}
+        );
+    }
+    if(type==='mb' && mode==='imgUpdate'){
+        const whoseImg = data.id;
+        const imgUrl = data.img;
+        
+        result = await toMeal_member.updateOne(
+            { "mb_id": whoseImg },{ $set:{"mb_img": imgUrl}}
+        );
+    }
+    //이름 바꾸기
+    if(type==='tr' && mode==='nameUpdate'){
+        const whoseName = data.id;
+        const newName = data.name;
+        
+        result = await toMeal_trainer.updateOne(
+            { "tr_id": whoseName },{ $set:{"tr_name": newName}}
+        );
+    }
+    if(type==='mb' && mode==='nameUpdate'){
+        const whoseName = data.id;
+        const newName = data.name;
+        
+        result = await toMeal_member.updateOne(
+            { "mb_id": whoseName },{ $set:{"mb_name": newName}}
+        );
     }
     return result;
 }

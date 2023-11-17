@@ -9,14 +9,13 @@ export default function page() {
   let isTr, isMb, res;
   const [DBdata,setDBdata]=useState();
   const [haveTr,setHaveTr]=useState(false);
+  const [familyData,setFamilyData]=useState();
   
 
   useEffect(()=>{
-
-    //세션값으로 db정보 찾아 가져오기
+    //세션값으로 로그인 db정보 찾아 가져오기
     isTr = sessionStorage.getItem('tr_id');
     isMb = sessionStorage.getItem('mb_id');
-    console.log(isTr);
 
     const loginCheck = async function(){
       if(isTr != null){//트레이너
@@ -33,12 +32,60 @@ export default function page() {
     loginCheck();
   },[])
 
-
   const nav = useRouter();
   const names = useRef();
+  const members = useRef();
+  const defaultPage = useRef();
 
+  //이름 클릭시 이름변경창 팝업
   const nameClick = ()=>{
     names.current.style = `display:flex`
+  }
+  //이름변경
+  const changeName = async function(e){
+    const formdata = new FormData(e.target);
+    const value = Object.fromEntries(formdata);
+    console.log(value.nameInput);
+
+    if(haveTr){
+      const newName = {id:DBdata?.tr_id, name:value.nameInput}
+      const resT = await axios.post("/api/member?type=tr&mode=nameUpdate", newName)
+      console.log(resT.data);
+    }
+    else{
+      const newName = {id:DBdata?.mb_id, name:value.nameInput}
+      const resM = await axios.post("/api/member?type=mb&mode=nameUpdate", newName)
+      console.log(resM.data);
+    }
+  }
+  
+  //트레이너가 회원 클릭시 회원관리창 팝업
+  const openMyMember = function(){
+    getFamily();
+    members.current.style = `display:block`
+    defaultPage.current.style = `display:none`
+  }
+  const closeMyMember = function(){
+    members.current.style = `display:none`
+    defaultPage.current.style = `display:block`
+  }
+  //트레이너의 관리회원목록 불러오기
+  const getFamily = async function(){
+    const myFamilys = {mem:DBdata?.tr_family}
+    const resFamily = await axios.post("/api/member?type=tr&mode=family",myFamilys);
+    setFamilyData(resFamily.data);
+    console.log(resFamily.data);
+  }
+  //괸리 회원 삭제
+  const deleteMember = async function(id){
+    //삭제하고 db에 반영
+    const removeData = {tr_id:DBdata?.tr_id, removeId:id}
+    const resRemove = await axios.post("/api/member?type=tr&mode=remove",removeData);
+    //삭제한 멤버가 빠진 배열을 받음
+    //그 배열을 통해 다시 멤버정보를 불러옴
+    const myFamilys = {mem:resRemove.data.tr_family}
+    const resFamily = await axios.post("/api/member?type=tr&mode=family",myFamilys);
+    setFamilyData(resFamily.data);
   }
 
   //n일째 식단 관리중! 밀리초를 일로
@@ -63,20 +110,21 @@ export default function page() {
 
   const uploadFile = function(e){
     e.preventDefault();
-    const formdata = new FormData(e.target);
-    const objF = Object.fromEntries(formdata);
-    console.log(obj.upload);
-    
-    //fileReader 생성자함수 생성
     const fr = new FileReader();
-    fr.readAsDataURL(objF.upload);
+    fr.readAsDataURL(e.target.files[0]);
     
-    //DB에 보내주기
-    fr.addEventListener('load',function(){
-        // axios.post('/api/upload/files',{
-        //     title: objF.title,
-        //     imgURL: fr.result
-        // })
+    // //DB에 보내주기
+    fr.addEventListener('load',async function(){
+      if(haveTr){
+          const imgUrl = {id:DBdata?.tr_id,img:fr.result}
+          const resT = await axios.post("/api/member?type=tr&mode=imgUpdate",imgUrl)
+          console.log(resT.data);
+        }
+        else{
+          const imgUrl = {id:DBdata?.mb_id,img:fr.result}
+          const resM = await axios.post("/api/member?type=mb&mode=imgUpdate",imgUrl)
+          console.log(resM.data);
+        }
     })
     //반영되게 n초후 새로고침
     setTimeout(function() {
@@ -86,7 +134,7 @@ export default function page() {
   
   return (
     <div className={mypage.mypage_wrap}>
-      <div className={mypage.mypage}>
+      <div className={mypage.mypage} ref={defaultPage}>
         <header>
           <figure><img src="/character.png" alt="캐릭터 이미지"/></figure>
           <p>오늘의 식단</p>
@@ -101,7 +149,7 @@ export default function page() {
               } 
               alt='프로필 이미지'/></figure>
             <figure>
-              <img src='/add.png' alt='이미지 변경' onClick={addImg}/>
+              <img src='/add.png' alt='이미지 변경' onClick={addImg} style={{cursor:'pointer'}}/>
               <form
                 onSubmit={uploadFile}
                 method='post'
@@ -109,16 +157,20 @@ export default function page() {
                 style={{display:'none'}}
               >
                 <input type='file' name='upload' ref={inputRef}
-                    onChange={fileChange}
+                    onChange={(e)=>{
+                      fileChange(e);
+                      uploadFile(e);
+                    }}
                 />
+                <img src={imageView}/>
               </form>
             </figure>
           </div>
           <div className={mypage.bg} ref={names}>
-            <form>
+            <form onSubmit={changeName}>
               <div className={mypage.bg_top}>
                 <p>이름</p>
-                <input type='text'/>
+                <input type='text' name='nameInput'maxlength='8'/>
                 <span>최대 8글자</span>
               </div>
               <input type='submit' value='저장' className={mypage.bg_bot}/>
@@ -158,18 +210,18 @@ export default function page() {
                     }
                   </span>
                 </li>
-                <li>
-                  <p>
-                    {
-                      haveTr? '회원': '싫어요'
-                    }
-                  </p>
-                  <span>
-                    {
-                      haveTr? DBdata?.tr_family.length: DBdata?.mb_dislike.length
-                    }
-                  </span>
-                </li>
+                {
+                  haveTr? 
+                  <li onClick={openMyMember} style={{cursor:'pointer'}}>
+                    <p>회원</p>
+                    <span>{DBdata?.tr_family.length}</span>
+                  </li>
+                  : 
+                  <li>
+                    <p>싫어요</p>
+                    <span>{DBdata?.mb_dislike.length}</span>
+                  </li>
+                }
               </ul>
             </div>
           </div>
@@ -203,55 +255,50 @@ export default function page() {
           </ul>
         </div>
       </div>
+      
+      { haveTr? //트레이너일 경우에만 나오는 회원 관리
+        <div className={mypage.membership_wrap} ref={members}>
+          <header>
+            <figure onClick={closeMyMember}>
+              <img src='/arrow_left.png' alt='뒤로가기'/>
+            </figure>
+            <p>회원관리</p>
+          </header>
 
-      <div className={mypage.membership_wrap}>
-        <header>
-          <figure><img src='/arrow_left.png' alt='뒤로가기'/></figure>
-          <p>회원관리</p>
-        </header>
-
-        <div className={mypage.membership}>
-          <ul>
-            <li>
-              <p>총 식단</p>
-              <span>13</span>
-            </li>
-            <li>
-              <p>미평가</p>
-              <span>25</span>
-            </li>
-            <li>
-              <p>회원</p>
-              <span>10</span>
-            </li>
-          </ul>
+          <div className={mypage.membership}>
+            <ul>
+              <li>
+                <p>총 식단</p>
+                <span>{DBdata?.tr_totalMeal.length}</span>
+              </li>
+              <li>
+                <p>미평가</p>
+                <span>{DBdata?.tr_needJudge.length}</span>
+              </li>
+              <li>
+                <p>회원</p>
+                <span>{DBdata?.tr_family.length}</span>
+              </li>
+            </ul>
+          </div>
+          <div className={mypage.membership_list}>
+            <ul>
+              { 
+                familyData? 
+                familyData.map((family)=>(
+                <li>
+                  <div className={mypage.membership_list_txt}>
+                    <figure><img src={family.mb_img} alt='회원이미지'/></figure>
+                    <p>{family.mb_name} 님</p>
+                  </div>
+                  <p onClick={()=>deleteMember(family.mb_id)}>[삭제]</p>
+                </li>
+                )):''
+              }
+            </ul>
+          </div>
         </div>
-        <div className={mypage.membership_list}>
-          <ul>
-            <li>
-              <div className={mypage.membership_list_txt}>
-                <figure><img src='/member_img.png' alt='회원이미지'/></figure>
-                <p>정우성님</p>
-              </div>
-              <p>[삭제]</p>
-            </li>
-            <li>
-              <div className={mypage.membership_list_txt}>
-                <figure><img src='/member_img.png' alt='회원이미지'/></figure>
-                <p>정우성님</p>
-              </div>
-              <p>[삭제]</p>
-            </li>
-            <li>
-              <div className={mypage.membership_list_txt}>
-                <figure><img src='/member_img.png' alt='회원이미지'/></figure>
-                <p>정우성님</p>
-              </div>
-              <p>[삭제]</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+      :<></>}
       <Footer/>
     </div>
   )
