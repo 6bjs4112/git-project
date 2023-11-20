@@ -1,13 +1,15 @@
-import {toMeal_trainer,toMeal_member,toMeal_list,toMeal_comment,toMeal_face} from '../db.js'
+import {toMeal_trainer,toMeal_member,toMeal_list,toMeal_comment,toMeal_face,toMeal_trainerMeal,toMeal_memberMeal} from '../db.js'
 
 async function getDB(type){
     let result;
     switch(type){
         case 'tr': result = await toMeal_trainer.find().toArray(); break;
         case 'mb':  result = await toMeal_member.find().toArray(); break;
-        case 'list': result = await toMeal_list.find().toArray() ; break;
+        // case 'list': result = await toMeal_list.find().toArray() ; break;
         // case 'com': result = await toMeal_comment.find().toArray() ; break;
         // case 'face': result = await toMeal_face.find().toArray()  ; break;
+        case 'trMeal': result = await toMeal_trainerMeal.find().toArray()  ; break;
+        case 'mbMeal': result = await toMeal_memberMeal.find().toArray()  ; break;
     }
     return result;
 }
