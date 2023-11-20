@@ -5,7 +5,7 @@ async function getDB(type){
     switch(type){
         case 'tr': result = await toMeal_trainer.find().toArray(); break;
         case 'mb':  result = await toMeal_member.find().toArray(); break;
-        // case 'list': result = await toMeal_list.find().toArray() ; break;
+        case 'list': result = await toMeal_list.find().toArray() ; break;
         // case 'com': result = await toMeal_comment.find().toArray() ; break;
         // case 'face': result = await toMeal_face.find().toArray()  ; break;
     }
@@ -158,6 +158,12 @@ async function postDB(type,mode,data){
         result = await toMeal_member.updateOne(
             { "mb_id": whoseName },{ $set:{"mb_name": newName}}
         );
+    }
+    //내가 올린 식단(일반멤버)
+    if(type==='mb' && mode==='listUpdate'){
+        const mealListId = data.dbId;
+        console.log(mealListId);
+        // result = await toMeal_list.find({post_user:{$in:mealListId}}).toArray();
     }
     return result;
 }

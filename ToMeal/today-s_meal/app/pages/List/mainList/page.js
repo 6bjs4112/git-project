@@ -1,10 +1,46 @@
 "use client"
 import Footer from '@/app/com/Footer';
 import mainList from './mainList.module.scss'
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function () {
+  let isTr, isMb, res;
+  useEffect(()=>{
+    //세션값으로 로그인 db정보 찾아 가져오기
+    isTr = sessionStorage.getItem('tr_id');
+    isMb = sessionStorage.getItem('mb_id');
+
+    const loginCheck = async function(){
+      if(isTr != null){//트레이너
+        res = await axios.post("/api/member?type=tr&mode=bring",{isTr});
+        setDBdata(res.data);
+        setHaveTr(true);
+      }
+      if(isMb != null){//일반회원
+        res = await axios.post("/api/member?type=mb&mode=bring",{isMb});
+        setDBdata(res.data);
+
+        //일반회원-> 내가 작성한 식단 찾아 mb_myMeal에 해당 식단의 id 넣기
+        // const listData = {dbId:res.data._id};
+        // console.log(listData);
+        // const resList = await axios.post("/api/member?type=mb&mode=listUpdate",listData);
+        // setMylistData(resList.data);
+        // console.log(resList.data);
+      }
+    }
+    loginCheck();
+  },[])
+
+  const updateDB = async function(){
+
+    
+    //트레이너->내가 평가해야할 식단 리스트에 추가하기
+    // const toTrJudge = await axios.post("/api/member?type=i&mode=i",sendPost);
+  } 
   
   return (
+
     <div className={mainList.mainList_wrap}>
       <header>
         <figure><img src="/character.png" alt="캐릭터 이미지"/></figure>
